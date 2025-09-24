@@ -1,0 +1,458 @@
+@use "sass:list";
+
+/* =============================================================================
+   Bootswatch - Flatly
+   ========================================================================== */
+@each $color, $value in $theme-colors {
+  .alert {
+
+    &-#{$color} {
+      color: color-contrast($value, $body-color);
+
+      a,
+      .alert-link {
+        color: color-contrast($value, $body-color);
+      }
+    }
+  }
+}
+
+[data-bs-theme="dark"] {
+  .nav-tabs {
+    .nav-link.active,
+    .nav-link.active:focus,
+    .nav-link.active:hover,
+    .nav-item.open .nav-link,
+    .nav-item.open .nav-link:focus,
+    .nav-item.open .nav-link:hover {
+      color: #{$body-emphasis-color-dark};
+    }
+  }
+}
+
+
+/* =============================================================================
+   TWBS
+   ========================================================================== */
+//https://stackoverflow.com/a/65480130/3929620
+a:not([class]),
+.text-underline-hover {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+//https://stackoverflow.com/a/71480596/3929620
+// Safari <= 15.6 (Desktop)
+.dropdown-toggle {
+  appearance: none;
+}
+
+.col-form-label ~ div > .form-check {
+  margin-top: add($input-padding-y, $input-border-width);
+}
+
+.form-check-input,
+.form-check-input ~ .form-check-label {
+  cursor: pointer;
+}
+
+//https://caniuse.com/css-has
+//https://blog.jim-nielsen.com/2022/previous-sibling-selector/
+//https://stackoverflow.com/a/15503444/3929620
+//https://stackoverflow.com/a/12267350/3929620
+.col-form-label:has(+ div > .form-control[type="file"][readonly]),
+.col-form-label:has(+ div > .form-check > .form-check-input[readonly]) {
+  pointer-events: none;
+  touch-action: none;
+}
+
+.form-control {
+
+  //https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly
+  // The attribute is not supported or relevant to <select> or input types that are already not mutable,
+  // such as checkbox and radio or cannot, by definition, start with a value, such as the file input type.
+  &[type="file"][readonly] {
+    color: $input-disabled-color;
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border-color;
+    opacity: 1;
+
+    //https://github.com/twbs/bootstrap/issues/15218#issuecomment-586703436
+    /* stylelint-disable order/properties-order */
+    pointer-events: none;
+    touch-action: none;
+    /* stylelint-enable order/properties-order */
+  }
+}
+
+.form-check-input {
+
+  //https://stackoverflow.com/a/41486636/3929620
+  &[readonly] {
+    pointer-events: none;
+    filter: none;
+    opacity: $form-check-input-disabled-opacity;
+
+    //https://github.com/twbs/bootstrap/issues/15218#issuecomment-586703436
+    /* stylelint-disable order/properties-order */
+    touch-action: none;
+    /* stylelint-enable order/properties-order */
+
+    ~ .form-check-label {
+      cursor: default;
+      opacity: $form-check-label-disabled-opacity;
+    }
+  }
+}
+
+.btn-check {
+
+  &:checked {
+
+    ~ label {
+      @extend .btn-primary;
+
+      .fa-square {
+        @extend .d-none;
+      }
+      .fa-square-check {
+        @extend .d-inline-block;
+      }
+    }
+  }
+}
+
+.toast-container.bottom-0 {
+
+  //FIXME - not working...
+  //https://stackoverflow.com/a/18298969/3929620
+  //https://weekendprojects.dev/posts/how-to-fix-css-last-child-not-working/
+  //> .show:last-of-type {
+  //	margin-bottom: 0;
+  //}
+
+  > .toast {
+    margin-bottom: 0;
+  }
+
+  > :not(:first-child) {
+    margin-top: var(--#{$prefix}toast-spacing);
+  }
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+[data-bs-theme="dark"] {
+  .table-light {
+    --#{$prefix}table-color: #{$body-color-dark};
+    --#{$prefix}table-bg: #{$body-bg-dark};
+    --#{$prefix}table-hover-color: #{$body-color-dark};
+    --#{$prefix}table-hover-bg: #{$body-bg-dark};
+  }
+
+  .bg-light,
+  .bg-gray-500 {
+    @include gradient-bg($body-bg-dark !important);
+  }
+
+  .btn-primary {
+    @extend .btn-success;
+  }
+
+  .btn-outline-primary {
+    @extend .btn-outline-success;
+  }
+
+  .btn-check {
+
+    &:checked {
+
+      ~ label {
+        @extend .btn-success;
+      }
+    }
+  }
+}
+
+
+/* =============================================================================
+   uppy
+   ========================================================================== */
+///* stylelint-disable-next-line selector-class-pattern */
+//.uppy-Dashboard-browse {
+//  color: $link-color;
+//
+//  &:hover,
+//  &:focus {
+//    color: $link-hover-color;
+//    border-color: $link-hover-color;
+//  }
+//}
+//
+///* stylelint-disable-next-line selector-class-pattern */
+//.uppy-Dashboard-inner {
+//  @extend .bg-light;
+//}
+//
+///* stylelint-disable-next-line no-duplicate-selectors */
+//[data-bs-theme="dark"] {
+//
+//  /* stylelint-disable-next-line selector-class-pattern */
+//  .uppy-Dashboard-browse {
+//    color: $link-color-dark;
+//
+//    &:hover,
+//    &:focus {
+//      color: $link-hover-color-dark;
+//      border-color: $link-hover-color-dark;
+//    }
+//  }
+//
+//  /* stylelint-disable-next-line selector-class-pattern */
+//  .uppy-Dashboard-inner {
+//    @extend .bg-dark;
+//  }
+//}
+
+
+/* =============================================================================
+   swagger
+   ========================================================================== */
+.swagger-ui {
+
+  .wrapper {
+    max-width: 100%;
+    //padding: 0;
+
+    .info {
+      margin: 0;
+    }
+
+    .model-box-control:focus,
+    .models-control:focus,
+    .opblock-summary-control:focus {
+      outline: none;
+    }
+  }
+
+  .scheme-container {
+    box-shadow: none;
+
+    .servers {
+
+      > label {
+        margin: 0;
+      }
+    }
+  }
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+[data-bs-theme="dark"] {
+  .swagger-ui {
+
+    .scheme-container,
+    .opblock-section-header,
+    input {
+      @include gradient-bg($body-bg-dark !important);
+    }
+
+    &,
+    .info .title,
+    .opblock-tag,
+    .opblock-summary-path,
+    .opblock-summary-description,
+    .opblock-section-header,
+    .opblock-section-header h4,
+    .opblock-title,
+    .btn,
+    table td,
+    table th,
+    input,
+    .tab li {
+      color: $body-color-dark;
+    }
+
+    //https://github.com/stylelint/stylelint/issues/4430
+    .parameter__type { /* stylelint-disable-line selector-class-pattern */
+      color: $body-color-dark;
+    }
+    .parameter__name { /* stylelint-disable-line selector-class-pattern */
+      color: $body-color-dark;
+    }
+    .parameter__in { /* stylelint-disable-line selector-class-pattern */
+      color: $body-color-dark;
+    }
+
+    button svg {
+      fill: $body-color-dark;
+    }
+
+    .opblock-tag,
+    .btn:hover,
+    input {
+      border-color: $body-color-dark;
+    }
+  }
+}
+
+/* =============================================================================
+   fancybox
+   ========================================================================== */
+/* stylelint-disable-next-line selector-class-pattern */
+.fancybox__container {
+
+  /* stylelint-disable-next-line selector-class-pattern */
+  .fancybox__slide {
+
+    /* stylelint-disable-next-line selector-class-pattern */
+    .fancybox__content {
+      @extend .container;
+      padding: $spacer;
+
+      &.fancybox-fluid {
+        @extend .container-fluid;
+        max-width: unset;
+      }
+
+      &.fancybox-md {
+        max-width: map-get($container-max-widths, "md");
+      }
+
+      &.fancybox-sm {
+        max-width: map-get($container-max-widths, "sm");
+      }
+
+      &.flex-grow-1 {
+        /* stylelint-disable-next-line declaration-no-important */
+        flex-grow: 0 !important;
+      }
+
+      .h-100 {
+        height: auto;
+      }
+
+      .fancybox-hidden {
+        /* stylelint-disable-next-line declaration-no-important */
+        display: none !important;
+      }
+
+      //https://stackoverflow.com/a/21758143/3929620
+      * {
+        outline: none;
+      }
+    }
+  }
+}
+
+
+/* =============================================================================
+   recaptcha
+   ========================================================================== */
+//https://webdeasy.de/en/hide-google-recaptcha-badge/
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+
+/* =============================================================================
+   Animate.css
+   ========================================================================== */
+//https://stackoverflow.com/a/74810616/3929620
+//https://stackoverflow.com/a/32677672/3929620
+//https://stackoverflow.com/a/69614783/3929620
+//https://stackoverflow.com/a/38764939/3929620
+//https://www.w3.org/TR/selectors/#attribute-substrings
+//[class*="_animate__"] {
+//  opacity: 0;
+//}
+
+//https://copyprogramming.com/howto/css-transition-effect-makes-image-blurry-moves-image-1px-in-chrome
+//https://www.sitepoint.com/fix-chrome-animation-flash-bug/
+/* stylelint-disable-next-line selector-class-pattern */
+//.animate__animated {
+//  /* stylelint-disable-next-line property-no-vendor-prefix */
+//  -webkit-filter: blur(0);
+//  filter: blur(0);
+//}
+
+
+/* =============================================================================
+   LazyLoad
+   ========================================================================== */
+// Use case: when your lazily loaded images show their alt text and the empty image icon before loading.
+img:not([src]):not([srcset]) {
+  visibility: hidden;
+}
+
+//https://jakearchibald.com/2022/img-aspect-ratio/
+//https://www.andreaverlicchi.eu/aspect-ratio-modern-reserve-space-lazy-images-async-content-responsive-design/
+img[width][height] {
+  height: auto;
+
+  /* added by fgp */
+  //FIXED - https://github.com/gavinmcfarland/flex-gap-polyfill/issues/85
+  aspect-ratio: attr(width) / attr(height);
+  @extend .d-block;
+}
+
+
+/* =============================================================================
+   flex-gap-polyfill
+   ========================================================================== */
+//https://gist.github.com/frugan-it/19f94872e4b6005775d91350e87002bf
+//https://github.com/gavinmcfarland/flex-gap-polyfill/issues/87
+//https://stackoverflow.com/a/77140451/3929620
+// only Safari < 14.1 (Desktop) and Safari < 14.5 (Mobile) in Flex Layout
+.no-flexgap {
+
+  //https://github.com/gavinmcfarland/flex-gap-polyfill/issues/34#issuecomment-828822991
+  //.swiper-button-prev,
+  //.swiper-button-next {
+  //  /* stylelint-disable-next-line declaration-no-important */
+  //  pointer-events: auto !important;
+  //}
+
+  // uncomment to avoid unused values..
+  $spacers-keys: 2;
+
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+      $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+      //https://github.com/sass/sass/issues/378#issuecomment-1419551287
+      $break: 0;
+      @each $breakpoint2 in map-keys($grid-breakpoints) {
+        @if $break == 0 {
+          $infix2: breakpoint-infix($breakpoint2, $grid-breakpoints);
+
+          @each $key, $value in $spacers {
+            @if not variable-exists(spacers-keys) or list.index($spacers-keys, $key) {
+
+              .hstack,
+              .d#{$infix}-flex {
+
+                &.gap#{$infix2}-#{$key} {
+                  //https://stackoverflow.com/a/63796927/3929620
+                  margin-bottom: calc(-1 * var(--column-gap-#{$key}, #{$value}));
+                  margin-left: calc(-1 * var(--row-gap-#{$key}, #{$value}));
+
+                  > * {
+                    margin-bottom: var(--column-gap-#{$key}, #{$value});
+                    margin-left: var(--row-gap-#{$key}, #{$value});
+                  }
+                }
+              }
+            }
+          }
+
+          @if $infix == $infix2 {
+            $break: 1;
+          }
+        }
+      }
+    }
+  }
+}

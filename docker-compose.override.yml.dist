@@ -1,0 +1,99 @@
+services:
+
+  apache:
+    #https://stackoverflow.com/a/65592942/3929620
+    #https://github.com/docker/for-mac/issues/5873
+    #platform: linux/x86_64
+    #networks:
+    #  default:
+    #    #https://github.com/laradock/laradock/issues/1776#issuecomment-524735826
+    #    #https://stackoverflow.com/a/44080611/3929620
+    #    #https://stackoverflow.com/a/38306666/3929620
+    #    aliases:
+    #      - ${DOMAIN}
+    #      - www.${DOMAIN}
+    #      - api.${DOMAIN}
+    #  network-external:
+    volumes:
+      - ${PWD}/private/docker/apache/certs-${APP_ENV}:/certs
+
+  #php:
+  #  #https://stackoverflow.com/a/65592942/3929620
+  #  #https://github.com/docker/for-mac/issues/5873
+  #  #platform: linux/x86_64
+  #  networks:
+  #    network-external:
+  #  #https://stackoverflow.com/a/38306666/3929620
+  #  extra_hosts:
+  #    - 'external.tld:1.2.3.4'
+  #  volumes:
+  #    - ${PWD}/conf/crontab:/etc/crontab
+  #    - ${PWD}/private/docker/php/entrypoint-after.sh:/entrypoint-after.sh
+
+  node:
+  #  networks:
+  #    default:
+  #      #https://github.com/laradock/laradock/issues/#1776#issuecomment-524735826
+  #      #https://stackoverflow.com/a/44080611/3929620
+  #      #https://stackoverflow.com/a/38306666/3929620
+  #      aliases:
+  #        - ${DOMAIN}
+  #        - www.${DOMAIN}
+  #  command: "sh -c 'npm install -g pnpm && cd /app/${APP_ID}/private/build/${APP_ENV} && pnpm install && pnpm develop && pnpm production && node'"
+  #  command: "sh -c 'cd /opt/app/${APP_ID}/private/${APP_ENV} && npm run build && npm run develop'"
+    command: "sh -c 'npm install -g pnpm && node'"
+  #  environment:
+  #    #https://github.com/vercel/next.js/issues/30296#issuecomment-952128906
+  #    NODE_OPTIONS: --openssl-legacy-provider
+  #    #https://github.com/lovell/sharp/issues/3894#issuecomment-1851896550
+  #    #https://github.com/lovell/sharp/issues/3893#issuecomment-1888913864
+  #    #https://github.com/lovell/sharp/pull/3897#issue-2043375386
+  #    #https://github.com/lovell/sharp/blob/bd4f1abba28831b8db246366f2f5f8d5ed701eac/#test/beforeEach.js#L9
+  #    VIPS_NOVECTOR: true
+  #    #https://stackoverflow.com/a/52479399/3929620
+  #    NODE_TLS_REJECT_UNAUTHORIZED: 0
+  #    #https://github.com/eslint/eslint/discussions/18484#discussioncomment-9516248
+  #    ESLINT_USE_FLAT_CONFIG: false
+  #    VITE_HMR_CLIENT_PORT: ${NODE_PORT:-3000}
+
+  phpmyadmin:
+    volumes:
+      - ${PWD}/private/docker/apache/certs-${APP_ENV}:/opt/bitnami/apache/conf/bitnami/certs
+
+  mailpit:
+    container_name: ${APP_ID}_mailpit
+    image: axllent/mailpit:${MAILPIT_TAG:-latest}
+    networks:
+      - default
+    restart: always
+    ports:
+      - ${MAILPIT_HTTP_PORT}:8025
+      - ${MAILPIT_SMTP_PORT}:1025
+    volumes:
+      - ${PWD}/private/docker/mailpit/data/data:/data
+      - ${PWD}/private/docker/apache/certs-${APP_ENV}:/certs
+    environment:
+      MP_MAX_MESSAGES: ${MAILPIT_MAX_MESSAGES}
+      MP_DATA_FILE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+      MP_UI_TLS_CERT: /certs/server.crt
+      MP_UI_TLS_KEY: /certs/server.key
+
+  mock-oauth2:
+    container_name: ${APP_ID}_mock-oauth2
+    image: ghcr.io/navikt/mock-oauth2-server:${MOCK_OAUTH2_TAG:-latest}
+    networks:
+      - default
+    ports:
+      - ${MOCK_OAUTH2_PORT}:8080
+    environment:
+      LOG_LEVEL: ${MOCK_OAUTH2_LOG_LEVEL}
+      ${MOCK_OAUTH2_JSON_CONFIG_PATH:+JSON_CONFIG_PATH}: ${MOCK_OAUTH2_JSON_CONFIG_PATH}
+      ${MOCK_OAUTH2_JSON_CONFIG:+JSON_CONFIG}: ${MOCK_OAUTH2_JSON_CONFIG}
+      ${MOCK_OAUTH2_LOGBACK_CONFIG:+LOGBACK_CONFIG}: ${MOCK_OAUTH2_LOGBACK_CONFIG}
+
+#networks:
+#  network-external:
+#    external:
+#      name: ${NETWORK_EXTERNAL}

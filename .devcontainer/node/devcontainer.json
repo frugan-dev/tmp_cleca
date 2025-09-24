@@ -1,0 +1,7 @@
+{
+  "name": "node",
+  "dockerComposeFile": ["../../docker-compose.yml"],
+  "service": "node",
+  "shutdownAction": "none",
+  "workspaceFolder": "/app/${APP_ID}"
+}

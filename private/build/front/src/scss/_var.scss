@@ -1,0 +1,15 @@
+/* =============================================================================
+   var
+   ========================================================================== */
+
+// cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti
+$theme: "cosmo";
+
+//https://fontawesome.com/docs/web/add-icons/pseudo-elements
+//@import '~@fortawesome/fontawesome-free/scss/functions';
+//@import '~@fortawesome/fontawesome-free/scss/variables';
+//@import '~@fortawesome/fontawesome-free/scss/mixins';
+//@import '~@fortawesome/fontawesome-free/scss/core';
+
+$flag-icons-path: "~flag-icons/flags" !default;
+@import "~flag-icons/sass/variables";

@@ -1,0 +1,59 @@
+#!/bin/bash
+
+set -eEuo pipefail
+shopt -s inherit_errexit
+
+#https://github.com/anordal/shellharden/blob/master/how_to_do_things_safely_in_bash.md
+#https://stackoverflow.com/a/20909045/3929620
+#https://stackoverflow.com/a/66118031/3929620
+#https://gist.github.com/mihow/9c7f559807069a03e302605691f85572
+#https://github.com/docker/compose/issues/3702
+set -a
+# shellcheck source=/dev/null
+source <(sed -e '/^#/d;/^\s*$/d' -e "s/'/'\\\''/g" -e "s/=\(.*\)/='\1'/g" .env)
+set +a
+
+# git
+cp -a .gitconfig.dist .gitconfig
+git config --local include.path ../.gitconfig
+
+# docker
+if [ -n "${GITLAB_USERNAME:-}" ] && [ -n "${GITLAB_PASSWORD:-}" ]; then
+	docker login -u "$GITLAB_USERNAME" -p "$GITLAB_PASSWORD" registry.gitlab.com
+fi
+
+cp -a docker-compose.override.yml.dist docker-compose.override.yml
+
+# README
+sed -i \
+	-e "s/domain.tld/$DOMAIN/g" \
+	README.md
+
+# mariadb
+cp -a private/docker/mariadb/custom.cnf.dist private/docker/mariadb/custom.cnf
+chmod +x private/docker/mariadb/init/*.sh
+
+# apache
+mkdir "private/docker/apache/certs-$APP_ENV"
+mkcert -cert-file \
+	"private/docker/apache/certs-$APP_ENV/server.crt" \
+	-key-file "private/docker/apache/certs-$APP_ENV/server.key" \
+	localhost 127.0.0.1 ::1 bs-local.com "*.bs-local.com" "$DOMAIN" "*.$DOMAIN"
+chmod +r private/docker/apache/certs-"$APP_ENV"/server.*
+cp -a private/docker/apache/certs-"$APP_ENV"/server.crt private/docker/apache/certs-"$APP_ENV"/tls.crt
+cp -a private/docker/apache/certs-"$APP_ENV"/server.key private/docker/apache/certs-"$APP_ENV"/tls.key
+
+cp -a private/docker/apache/vhosts.conf.dist private/docker/apache/vhosts.conf
+sed -i \
+	-e "s/APP_ID/$APP_ID/g" \
+	-e "s/domain.tld/$DOMAIN/g" \
+	private/docker/apache/vhosts.conf
+
+# php
+cp -a private/docker/php/aliases.dist private/docker/php/aliases
+
+cp -a private/docker/php/msmtprc.dist private/docker/php/msmtprc
+chmod u=rw,go= private/docker/php/msmtprc
+
+#
+rm install.sh

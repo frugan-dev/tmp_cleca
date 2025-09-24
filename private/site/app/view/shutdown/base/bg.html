@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-i18n="[lang]en">
+<head>
+    <meta charset="utf-8">
+    <title data-i18n="meta.title">Under maintenance - {company.name}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.9.2/dist/cookieconsent.min.css">
+    <style>
+        /* FIXED - bulma/cookieconsent conflict */
+        #cc_div .box,
+        #cc_div .title {
+            margin-bottom: 0 !important;
+        }
+
+        /* https://www.devtwins.com/blog/css-cross-fading-images */
+        /* https://github.com/craigraphics/css3-crossfade-image/ */
+        /* https://codepen.io/johnbacon/pen/wgYOXW */
+        #bg-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        #bg-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, .6);
+        }
+        #bg-wrapper > div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero is-fullheight">
+        <div class="hero-head">
+        </div>
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <img class="mb-3" src="/asset/front/img/logo/lg.png" alt="">
+                <h1 class="title" data-i18n>Under maintenance</h1>
+            </div>
+        </div>
+        <div class="hero-foot mb-4">
+            <div class="container has-text-centered">
+                <div class="content is-size-7">
+                    <p>
+                        {company.name}
+                        <br>{company.subName}
+                        <br>{company.address}
+                        <br><span data-i18n>VAT</span>: {company.vat}
+                        <br><span data-i18n>Tel</span>: {company.tel1}
+                        <br><span data-i18n>Email</span>: <a href="mailto:{company.email}" title="Email" data-i18n="[title]Email;">{company.email}</a>
+                        <br><a data-cc="c-settings" href="javascript:;" title="Cookie preferences" data-i18n="[title]Cookie preferences;">Cookie preferences</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="bg-wrapper"></div>
+
+    <script>
+        window.addEventListener('load', (event) => {
+            const bgEl = document.getElementById('bg-wrapper');
+            if (!!bgEl) {
+                const bgObj = {bgObj};
+                const duration = 10;
+                const transition = 4;
+                const delay = duration + transition;
+                const totDuration = ((duration + transition) * bgObj.length);
+
+                if (bgObj.length > 1) {
+                    //https://redstapler.co/add-css-animation-with-javascript/
+                    const styleEl = document.createElement('style');
+                    document.head.appendChild(styleEl);
+                    const styleSheet = styleEl.sheet;
+                    styleSheet.insertRule(`
+                @keyframes fade {
+                    from {
+                        opacity: 1;
+                    }
+                    ` + ((duration / totDuration) * 100) + `% {
+                        opacity: 1;
+                    }
+                    ` + ((delay / totDuration) * 100) + `% {
+                        opacity: 0;
+                    }
+                    ` + (100 - ((transition / totDuration) * 100)) + `% {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }`, styleSheet.cssRules.length);
+                }
+
+                var d = 0, z = -2;
+                Object.values(bgObj).forEach(value => {
+                    let html = '<div style="background-image: url(' + value.src + ');';
+                    if (bgObj.length > 1) {
+                        html += ' animation: ' + totDuration + 's fade ' + d + 's infinite; z-index: ' + z;
+                    }
+                    html += '"></div>';
+                    //https://stackoverflow.com/a/33995479
+                    bgEl.insertAdjacentHTML('beforeend', html);
+                    d += delay;
+                    --z;
+                });
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/22.4.13/i18next.min.js" integrity="sha512-SZ/VaxtzqaY9yB7u78uLFwWhaGkeswfEwlD8yGNpFso9IY9ufOJoE/lygIuPxa8RD/rZYG2htp/dFYSpJtKPBA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //https://www.w3.org/International/questions/qa-i18n
+        //https://github.com/i18next/jquery-i18next/blob/master/jquery-i18next.js
+        Object.defineProperty(window, 'i18n', {
+            value: new function () {
+                this.localizeElement = function ($el, string) {
+                    let attr = 'text';
+
+                    if (string.indexOf('[') === 0) {
+                        const parts = string.split(']');
+                        attr = parts[0].substring(1, parts[0].length);
+                        string = parts[1];
+                    }
+
+                    if (attr === 'lang') {
+                        $el.setAttribute(attr, i18next.language);
+                        return;
+                    }
+
+                    const token = string.length > 0 ? string : $el.innerText.trim();
+
+                    if (i18next.exists(token)) {
+                        const localized = i18next.t(token);
+
+                        if (attr === 'html') {
+                            $el.innerHtml = localized;
+                        } else if (attr === 'text') {
+                            $el.innerText = localized;
+                        } else if (attr === 'prepend') {
+                            $el.prepend(localized);
+                        } else if (attr === 'append') {
+                            $el.append(localized);
+                        } else if (attr.indexOf('data-') === 0) {
+                            $el.setAttribute(attr, localized);
+                        } else {
+                            $el.setAttribute(attr, localized);
+                        }
+                    } else {
+                        console.debug(`Unsupported i18n token detected: "${token}" (locale "${i18next.language}")`, $el);
+                    }
+                },
+
+                    this.localizeDocument = function () {
+                        if (i18next.languages.length === 0) return;
+
+                        const dataAttributeName = 'data-i18n';
+
+                        Array.prototype.forEach.call(document.querySelectorAll('[' + dataAttributeName + ']'), ($el) => {
+                            const string = $el.getAttribute(dataAttributeName).trim();
+
+                            if (string.indexOf(';') >= 0) {
+                                Array.prototype.forEach.call(string.split(';'), (s) => {
+                                    this.localizeElement($el, s);
+                                });
+                            } else {
+                                this.localizeElement($el, string);
+
+                                if (string.length === 0) {
+                                    $el.setAttribute(dataAttributeName, $el.innerText.trim());
+                                }
+                            }
+                        });
+                    };
+            },
+            writable: false,
+            enumerable: false,
+        });
+
+        i18next.init({
+            lng: navigator.language.substring(0, 2).toLowerCase(),
+            supportedLngs: ['it'],
+            resources: {
+                it: {
+                    translation: {
+                        'meta': {
+                            'title': "Sito in manutenzione - {company.name}", /* <-- */
+                        },
+                        'Under maintenance': 'Sito in manutenzione',
+                        'VAT': 'P.Iva',
+                        'Phone': 'Telefono',
+                        'Cookie preferences': 'Preferenze cookie',
+                    }
+                }
+            }
+        }, (err, t) => {
+            if (err) return console.log('something went wrong loading', err);
+            window.i18n.localizeDocument();
+        });
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@2.9.2/dist/cookieconsent.min.js"></script>
+    <script>
+        ((s, p) => {
+            s.src = 'https://cdn.frugan.it/api/cc.js/v,2.9.2/min,true/lang,' + navigator.language.substring(0, 2).toLowerCase() + '/google_analytics_table,true/google_analytics_code,{ga}';
+            s.defer = true;
+            s.addEventListener('load', () => p.removeChild(s));
+            p.appendChild(s);
+        })(document.createElement('script'), document.body);
+    </script>
+</body>
+</html>

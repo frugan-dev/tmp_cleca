@@ -1,0 +1,80 @@
+;date.timezone = 'Europe/Rome'
+
+;display_errors = On
+
+;https://maximivanov.github.io/php-error-reporting-calculator/
+; All
+;error_reporting = -1
+
+; Complete error reporting
+;error_reporting = 8191
+
+; E_ALL ^ E_STRICT ^ E_DEPRECATED (alias of E_ALL & ~E_STRICT & ~E_DEPRECATED)
+;error_reporting = 22527
+
+; E_ALL ^ E_NOTICE ^ E_STRICT ^ E_DEPRECATED (alias of E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED)
+;error_reporting = 22519
+
+; Zend error reporting
+;error_reporting = 128
+
+; Basic error reporting
+;error_reporting = 8
+
+; Minimal error reporting
+;error_reporting = 1
+
+;max_execution_time = 30
+;max_input_time = 60
+;max_input_vars = 1940
+;memory_limit = 256M
+;post_max_size = 256M
+;upload_max_filesize = 8M
+
+;https://www.howtoforge.com/firefox-content-encoding-error-google-chrome-error-330-net-err_content_decoding_failed-unknown-error
+;zlib.output_compression = On
+
+;https://stackoverflow.com/a/13946349/3929620
+;https://stackoverflow.com/a/46728967/3929620
+;https://www.virtualmin.com/node/37748
+;session.save_handler = memcached
+;session.save_path = "memcached:11211?persistent=1"
+
+;https://docs.bitnami.com/aws/infrastructure/lamp/administration/disable-cache/
+;opcache.enable = 0
+
+;https://cloudlinux.zendesk.com/hc/en-us/articles/115004618574-What-to-do-if-your-site-is-not-working-with-opcache-PHP-extension-enabled
+;opcache.optimization_level = 0
+
+;https://php.watch/articles/jit-in-depth
+; By default, JIT is enabled, but it is turned off by limiting the buffer size.
+; A value of 50-100% of the current Opcache shared memory for Opcode might be the ideal value for opcache.jit_buffer_size.
+;opcache.jit = tracing
+;opcache.jit_bisect_limit = 0
+;opcache.jit_blacklist_root_trace = 16
+;opcache.jit_blacklist_side_trace = 8
+;opcache.jit_debug = 0
+;opcache.jit_max_loop_unrolls = 8
+;opcache.jit_max_polymorphic_calls = 2
+;opcache.jit_max_recursive_calls = 2
+;opcache.jit_max_recursive_returns = 2
+;opcache.jit_prof_threshold = 0.005
+
+;https://docs.newrelic.com/docs/agents/php-agent/advanced-installation/docker-other-container-environments-install-php-agent
+;https://docs.newrelic.com/docs/agents/php-agent/configuration/php-directory-ini-settings
+;newrelic.enabled = false
+;newrelic.appname = "domain.tld"
+;newrelic.license = ""
+;newrelic.daemon.app_connect_timeout = 10s
+;newrelic.daemon.start_timeout = 5s
+;newrelic.guzzle.enabled = false
+;newrelic.phpunit_events.enabled = true
+;newrelic.framework.drupal.modules = false
+;newrelic.framework.wordpress.hooks = false
+
+;auto_prepend_file = /app/preapp/prepend.php
+;auto_append_file = /app/preapp/append.php
+
+; Wordfence WAF
+;auto_prepend_file = '/app/APP_ID/public/wordfence-waf.php'
+; END Wordfence WAF

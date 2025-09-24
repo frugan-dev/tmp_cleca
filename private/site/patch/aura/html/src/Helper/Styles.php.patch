@@ -1,0 +1,11 @@
+--- src/Helper/Styles.php	2022-02-19 07:18:21.000000000 +0000
++++ ../../../patch/aura/html/src/Helper/Styles.php	2023-04-19 07:22:05.274796297 +0000
+@@ -246,7 +246,7 @@
+         $attr = (array) $attr;
+ 
+         $base = array(
+-            'rel'   => 'stylesheet',
++            'rel'   => $attr['rel'] ?? 'stylesheet',
+             'href'  => $href,
+             'type'  => 'text/css',
+             'media' => 'screen',

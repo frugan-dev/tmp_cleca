@@ -1,0 +1,4557 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the cloud-hpc package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-22 11:46+0200\n"
+"PO-Revision-Date: 2025-09-22 11:46+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.6\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_en:1,2;__:1,2c;_e:1,2c;_n:1,2,4c;_en:1,2,4c\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: app\n"
+"X-Poedit-SearchPath-1: cli\n"
+"X-Poedit-SearchPath-2: var/develop/cache/dynamic_translation.php\n"
+"X-Poedit-SearchPath-3: var/develop/cache/missing_translation.php\n"
+"X-Poedit-SearchPathExcluded-0: cli/enabled\n"
+
+#: app/event/event.back.user.actionLogin.after.php:54
+#, php-format
+msgid "Login to %1$s by %2$s"
+msgstr ""
+
+#: app/reqs/ZipArchive.php:27
+#, php-format
+msgid "Missing %1$s class."
+msgstr ""
+
+#: app/reqs/awk.php:27 app/reqs/git.php:27
+#, php-format
+msgid "Missing %1$s command."
+msgstr ""
+
+#: app/reqs/curl.php:27 app/reqs/exif.php:27 app/reqs/imagick.php:27
+#: app/reqs/intl.php:28 app/reqs/mbstring.php:27 app/reqs/zlib.php:27
+#, php-format
+msgid "Missing %1$s extension."
+msgstr ""
+
+#: app/reqs/mysql.php:28
+#, php-format
+msgid "MySQL %.1f+ required."
+msgstr ""
+
+#: app/reqs/mysql_client.php:29
+#, php-format
+msgid "MySQL client %s+ required."
+msgstr ""
+
+#: app/reqs/mysqli_get_client_stats.php:30
+#, php-format
+msgid "Missing %1$s function."
+msgstr ""
+
+#: app/reqs/php.php:26
+#, php-format
+msgid "PHP %.1f+ required."
+msgstr ""
+
+#: app/src/Controller/Env/Api/Controller.php:83
+#: app/src/Model/Mod/Api/Mod.php:90
+#, php-format
+msgctxt "default"
+msgid "Rest API %1$s %2$s"
+msgstr ""
+
+#: app/src/Controller/Env/Api/Controller.php:84
+#: app/src/Model/Mod/Api/Mod.php:91
+#, php-format
+msgctxt "male"
+msgid "Rest API %1$s %2$s"
+msgstr ""
+
+#: app/src/Controller/Env/Api/Controller.php:85
+#: app/src/Model/Mod/Api/Mod.php:92
+#, php-format
+msgctxt "female"
+msgid "Rest API %1$s %2$s"
+msgstr ""
+
+#: app/src/Controller/Env/Api/Controller.php:109
+#: app/src/Controller/Env/Api/V1ActionGetTrait.php:48
+#: app/src/Controller/Env/Api/V1ActionPostXhrTrait.php:112
+#: app/src/Controller/Env/AuthAdapterTrait.php:53
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:496
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:526
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1052
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1119
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1160
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1180
+#: app/src/Controller/Mod/Formvalue/Api/FormvalueV1ActionDeleteTrait.php:107
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:774
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueAlterAfterTrait.php:41
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueAlterAfterTrait.php:44
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueAlterBeforeTrait.php:47
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueAlterBeforeTrait.php:50
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueAlterBeforeTrait.php:53
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueEventTrait.php:150
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:109
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:112
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:256
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:259
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:273
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:304
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:351
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:441
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:572
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:685
+#: app/src/Controller/Mod/Page/PageEventTrait.php:136
+#: app/src/Controller/Mod/Page/PageEventTrait.php:155
+#: app/src/Controller/Mod/Page/PageEventTrait.php:201
+#: app/src/Controller/Mod/Page/PageEventTrait.php:237
+#: app/src/Model/Mod/Api/Mod.php:118
+#: app/src/Model/Mod/Api/V1ActionGetTrait.php:46
+#: app/src/Model/Mod/Api/V1ActionGetXhrTrait.php:39
+#: app/src/Model/Mod/Api/V1ActionPostXhrTrait.php:96
+#: app/src/Model/Mod/Api/V1ActionPostXhrTrait.php:168
+#: app/src/Model/Mod/Api/V1ActionPostXhrTrait.php:184
+#: app/src/Model/Mod/ModActionTrait.php:57
+#: app/src/Model/Mod/ModActionTrait.php:1079
+#: app/src/Model/Mod/ModActionTrait.php:1253
+#: app/src/Model/Mod/ModActionTrait.php:1737
+#: app/src/Model/Mod/ModActionTrait.php:1826
+#: app/src/Model/Mod/ModActionTrait.php:1951
+#: app/src/Model/Mod/ModActionTrait.php:2169
+#: app/src/Model/Mod/ModDbTrait.php:384 app/src/Model/Mod/ModDbTrait.php:469
+#: app/src/Model/Mod/ModDbTrait.php:498 app/src/Model/Mod/ModDbTrait.php:532
+#: app/src/Model/Mod/ModValidateTrait.php:478
+#: app/view/default/base/index.php:432
+#: app/view/default/partial/uppy-awss3.php:186
+#: app/view/front/partial/form-delete.php:184
+msgid "A technical problem has occurred, try again later."
+msgstr "Si è verificato un problema tecnico, riprova più tardi."
+
+#: app/src/Controller/Env/Api/V1ActionPostXhrTrait.php:105
+msgid "The data sent does not seem correct."
+msgstr "I dati inviati non sembrano corretti."
+
+#: app/src/Controller/Env/Back/ActionTrait.php:32
+#: app/src/Model/Mod/Back/Mod.php:32 app/view/back/partial/nav-aside.php:22
+#: app/view/back/partial/nav-aside.php:39
+#: app/view/back/partial/nav-aside.php:44
+#: var/develop/cache/missing_translation.php:36
+msgid "Dashboard"
+msgstr ""
+
+#: app/src/Controller/Env/Back/ActionTrait.php:95
+#: app/src/Controller/Env/Back/ActionTrait.php:109
+#: app/src/Controller/Env/Front/ActionTrait.php:100
+#: app/src/Controller/Env/Front/ActionTrait.php:114
+#: app/src/Controller/Mod/Log/LogTrait.php:119
+#: app/view/default/base/delete-bulk.php:171
+msgid "Error"
+msgstr "Errore"
+
+#: app/src/Controller/Env/Front/ActionTrait.php:23
+#: app/src/Controller/Env/Front/Controller.php:34
+#: app/src/Model/Mod/Front/Mod.php:34 app/view/front/partial/nav-aside.php:23
+#: app/view/front/partial/nav-aside.php:31
+#: app/view/front/partial/nav-top.php:13
+msgid "Home"
+msgstr "Home"
+
+#: app/src/Controller/Env/Front/ActionTrait.php:59
+#: app/src/Model/Mod/ModActionTrait.php:1361
+#: app/view/back/controller/user/login.php:59
+#: app/view/back/controller/user/reset.php:80
+#: app/view/back/controller/user/reset.php:82
+#: app/view/email/controller/form/fill-recommendation-signup.php:86
+#: app/view/email/controller/form/fill-recommendation.php:28
+#: app/view/front/base/login.php:74
+#: app/view/front/controller/member/reset.php:102
+#: app/view/front/controller/member/reset.php:104
+#: app/view/front/controller/member/signup.php:169
+#: app/view/front/controller/member/signup.php:171
+#: app/view/front/partial/nav-top.php:51 app/view/front/partial/nav-top.php:55
+#: var/develop/cache/missing_translation.php:57
+msgid "Login"
+msgstr ""
+
+#: app/src/Controller/Env/Front/ActionTrait.php:95
+msgid "Offline"
+msgstr ""
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:46
+#: app/src/Controller/Mod/Catform/CatformTrait.php:47
+#: app/src/Controller/Mod/Catform/CatformTrait.php:48
+#: app/src/Controller/Mod/Catform/CatformTrait.php:49
+#: var/develop/cache/missing_translation.php:45
+#, php-format
+msgid "%1$s category"
+msgid_plural "%1$s categories"
+msgstr[0] "Categoria %1$s"
+msgstr[1] "Categorie %1$s"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:46
+#: app/src/Controller/Mod/Catform/CatformTrait.php:47
+#: app/src/Controller/Mod/Catform/CatformTrait.php:48
+#: app/src/Controller/Mod/Catform/CatformTrait.php:49
+#: app/src/Controller/Mod/Form/FormTrait.php:34
+#: app/src/Controller/Mod/Form/FormTrait.php:35
+#: app/src/Controller/Mod/Form/FormTrait.php:36
+#: app/src/Controller/Mod/Form/FormTrait.php:37
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:42
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:43
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:44
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:45
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:48
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:49
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:50
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:51
+#: app/view/front/partial/main-catform.php:114
+#: app/view/front/partial/nav-aside.php:320
+#: var/develop/cache/missing_translation.php:49
+msgid "Form"
+msgid_plural "Forms"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:77
+msgid "status-10"
+msgstr "Indefinito"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:78
+msgid "status-20"
+msgstr "In manutenzione"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:79
+msgid "status-30"
+msgstr "In apertura"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:80
+msgid "status-40"
+msgstr "Aperto"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:81
+msgid "status-50"
+msgstr "In chiusura"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:82
+msgid "status-60"
+msgstr "Chiuso"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:131
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:53
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:157
+#: app/src/Controller/Mod/Country/CountryTrait.php:79
+#: app/src/Controller/Mod/Form/FormTrait.php:98
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:148
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:149
+#: app/src/Controller/Mod/Log/LogTrait.php:89
+#: app/src/Controller/Mod/Log/LogTrait.php:104
+#: app/src/Controller/Mod/Log/LogTrait.php:112
+#: app/src/Controller/Mod/Member/MemberTrait.php:214
+#: app/src/Controller/Mod/Page/PageTrait.php:122
+#: app/src/Controller/Mod/Setting/SettingTrait.php:117
+#: app/src/Controller/Mod/User/UserTrait.php:169
+#: app/view/default/base/delete-bulk.php:157
+#: app/view/email/controller/form/fill-admin.php:12
+#: app/view/email/controller/user/notify.php:20
+#: app/view/front/controller/formvalue/partial/view-data.php:29
+#: var/develop/cache/missing_translation.php:7
+msgid "ID"
+msgstr ""
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:147
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:69
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:173
+#: app/src/Controller/Mod/Country/CountryTrait.php:95
+#: app/src/Controller/Mod/Form/FormTrait.php:114
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:164
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:165
+#: app/src/Controller/Mod/Log/LogTrait.php:108
+#: app/src/Controller/Mod/Member/MemberTrait.php:234
+#: app/src/Controller/Mod/Page/PageTrait.php:138
+#: app/src/Controller/Mod/Setting/SettingTrait.php:133
+#: app/src/Controller/Mod/User/UserTrait.php:185
+#: app/view/front/controller/formvalue/partial/view-data.php:34
+msgid "Modification date"
+msgstr "Data di modifica"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:171
+#: app/src/Controller/Mod/Form/FormTrait.php:138
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:188
+#: app/src/Controller/Mod/Page/PageTrait.php:162
+msgid "Title"
+msgstr "Titolo"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:189
+#: app/src/Controller/Mod/Setting/SettingTrait.php:152
+#: app/view/email/controller/form/fill-admin.php:21
+msgid "Code"
+msgstr "Codice"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:211
+msgid "Opening date"
+msgstr "Data inizio"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:239
+msgid "Start closing date"
+msgstr "Data chiusura"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:266
+msgid "Closing date"
+msgstr "Data fine"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:289
+#, php-format
+msgctxt "default"
+msgid "Relative to time zone %1$s."
+msgstr "Relativo al fuso orario %1$s."
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:290
+#, php-format
+msgctxt "male"
+msgid "Relative to time zone %1$s."
+msgstr "Relativo al fuso orario %1$s."
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:291
+#, php-format
+msgctxt "female"
+msgid "Relative to time zone %1$s."
+msgstr "Relativa al fuso orario %1$s."
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:299
+#: app/src/Controller/Mod/Form/FormTrait.php:175
+#: app/src/Controller/Mod/Page/PageTrait.php:182
+msgid "Subtitle"
+msgstr "Sottotitolo"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:324
+#: app/src/Controller/Mod/Form/FormTrait.php:199
+#: app/src/Controller/Mod/Page/PageTrait.php:203
+msgid "Menu label"
+msgstr "Etichetta menu"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:350
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:302
+#: app/src/Controller/Mod/Log/LogTrait.php:120
+#: app/src/Controller/Mod/Page/PageTrait.php:229
+msgid "Text"
+msgstr "Testo"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:376
+msgid "Excerpt"
+msgstr "Riassunto"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:398
+#: app/src/Controller/Mod/Form/FormTrait.php:222
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:324
+#: app/src/Controller/Mod/Page/PageTrait.php:324
+msgid "Sorting"
+msgstr "Ordinamento"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:421
+msgid "Under maintenance"
+msgstr "In manutenzione"
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:439
+msgctxt "default"
+msgid "It only allows administrators to view it even when it is closed."
+msgstr ""
+"Consente solo agli amministratori di visualizzarlo anche quando è chiuso."
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:440
+msgctxt "male"
+msgid "It only allows administrators to view it even when it is closed."
+msgstr ""
+"Consente solo agli amministratori di visualizzarlo anche quando è chiuso."
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:441
+msgctxt "female"
+msgid "It only allows administrators to view it even when it is closed."
+msgstr ""
+"Consente solo agli amministratori di visualizzarla anche quando è chiusa."
+
+#: app/src/Controller/Mod/Catform/CatformTrait.php:447
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:163
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:341
+#: app/src/Controller/Mod/Country/CountryTrait.php:206
+#: app/src/Controller/Mod/Form/FormTrait.php:266
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:371
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:369
+#: app/src/Controller/Mod/Member/MemberTrait.php:580
+#: app/src/Controller/Mod/Page/PageTrait.php:347
+#: app/src/Controller/Mod/Setting/SettingTrait.php:248
+#: app/src/Controller/Mod/User/UserTrait.php:540
+#: app/view/front/controller/formvalue/partial/view-data.php:36
+#: app/view/front/partial/main-catform.php:42
+#: app/view/front/partial/nav-aside.php:264
+msgid "State"
+msgstr "Stato"
+
+#: app/src/Controller/Mod/Catform/CatformValidateTrait.php:34
+#: app/src/Controller/Mod/Catform/CatformValidateTrait.php:44
+#: app/src/Model/Mod/ModValidateTrait.php:633
+#, php-format
+msgid "The %1$s field must be after the %2$s field."
+msgstr "Il campo %1$s deve essere successivo al campo %2$s."
+
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:30
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:31
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:32
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:33
+#: var/develop/cache/missing_translation.php:46
+#, php-format
+msgid "%1$s group"
+msgid_plural "%1$s groups"
+msgstr[0] "Gruppo %1$s"
+msgstr[1] "Gruppi %1$s"
+
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:30
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:31
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:32
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:33
+#: app/src/Controller/Mod/Member/MemberTrait.php:56
+#: app/src/Controller/Mod/Member/MemberTrait.php:57
+#: app/src/Controller/Mod/Member/MemberTrait.php:58
+#: app/src/Controller/Mod/Member/MemberTrait.php:59
+#: var/develop/cache/missing_translation.php:52
+msgid "Member"
+msgid_plural "Members"
+msgstr[0] "Membro"
+msgstr[1] "Membri"
+
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:87
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:191
+#: app/src/Controller/Mod/Country/CountryTrait.php:116
+#: app/src/Controller/Mod/User/UserTrait.php:203
+#: app/view/email/controller/form/fill-admin.php:20
+#: app/view/email/controller/user/notify.php:22
+msgid "Name"
+msgstr "Nome"
+
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:105
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:209
+msgid "Permissions"
+msgstr "Permessi"
+
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:123
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:301
+msgid "Preselected"
+msgstr "Predefinito"
+
+#: app/src/Controller/Mod/Catmember/CatmemberTrait.php:143
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:321
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:43
+#: app/src/Model/Mod/ModValidateTrait.php:599
+#: app/src/Model/Mod/ModValidateTrait.php:787
+msgid "Main"
+msgstr "Principale"
+
+#: app/src/Controller/Mod/Catuser/Api/CatuserValidateTrait.php:26
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:74
+#: app/src/Controller/Mod/User/Api/UserValidateTrait.php:26
+#: app/src/Controller/Mod/User/UserValidateTrait.php:76
+#, php-format
+msgctxt "default"
+msgid "You cannot disable your %1$s."
+msgstr "Non puoi disabilitare il tuo %1$s."
+
+#: app/src/Controller/Mod/Catuser/Api/CatuserValidateTrait.php:27
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:75
+#: app/src/Controller/Mod/User/Api/UserValidateTrait.php:27
+#: app/src/Controller/Mod/User/UserValidateTrait.php:77
+#, php-format
+msgctxt "male"
+msgid "You cannot disable your %1$s."
+msgstr "Non puoi disabilitare il tuo %1$s."
+
+#: app/src/Controller/Mod/Catuser/Api/CatuserValidateTrait.php:28
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:76
+#: app/src/Controller/Mod/User/Api/UserValidateTrait.php:28
+#: app/src/Controller/Mod/User/UserValidateTrait.php:78
+#, php-format
+msgctxt "female"
+msgid "You cannot disable your %1$s."
+msgstr "Non puoi disabilitare la tua %1$s."
+
+#: app/src/Controller/Mod/Catuser/Back/CatuserActionTrait.php:57
+#: app/src/Controller/Mod/Catuser/Back/CatuserActionTrait.php:67
+#: app/view/back/partial/nav-top.php:125 app/view/back/partial/nav-top.php:127
+msgid "API Swagger"
+msgstr ""
+
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:36
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:37
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:38
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:39
+#: var/develop/cache/missing_translation.php:47
+msgid "Group"
+msgid_plural "Groups"
+msgstr[0] "Gruppo"
+msgstr[1] "Gruppi"
+
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:228
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:254
+#: var/develop/cache/missing_translation.php:14
+#, php-format
+msgid "API rate limit per %1$s"
+msgstr ""
+
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:228
+#: app/src/Middleware/RateLimitMiddleware.php:162
+#: app/src/Middleware/RateLimitMiddleware.php:165
+#: var/develop/cache/missing_translation.php:15
+msgid "hour"
+msgstr ""
+
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:254
+#: app/src/Middleware/RateLimitMiddleware.php:137
+#: app/src/Middleware/RateLimitMiddleware.php:140
+#: var/develop/cache/missing_translation.php:16
+msgid "day"
+msgstr ""
+
+#: app/src/Controller/Mod/Catuser/CatuserTrait.php:280
+#: var/develop/cache/missing_translation.php:17
+msgid "API log level"
+msgstr ""
+
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:43
+#, php-format
+msgid "The following %1$s must be active on a %2$s element: %3$s"
+msgstr "I seguenti %1$s devono essere attivi su un elemento %2$s: %3$s"
+
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:55
+#: app/src/Controller/Mod/User/UserValidateTrait.php:25
+#, php-format
+msgctxt "default"
+msgid "You cannot delete your %1$s."
+msgstr "Non puoi cancellare il tuo %1$s."
+
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:56
+#: app/src/Controller/Mod/User/UserValidateTrait.php:26
+#, php-format
+msgctxt "male"
+msgid "You cannot delete your %1$s."
+msgstr "Non puoi cancellare il tuo %1$s."
+
+#: app/src/Controller/Mod/Catuser/CatuserValidateTrait.php:57
+#: app/src/Controller/Mod/User/UserValidateTrait.php:27
+#, php-format
+msgctxt "female"
+msgid "You cannot delete your %1$s."
+msgstr "Non puoi cancellare la tua %1$s."
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:34
+#: app/src/Controller/Mod/Country/CountryTrait.php:35
+#: app/src/Controller/Mod/Country/CountryTrait.php:36
+#: app/src/Controller/Mod/Country/CountryTrait.php:37
+#: var/develop/cache/missing_translation.php:48
+msgid "Country"
+msgid_plural "Countries"
+msgstr[0] "Nazione"
+msgstr[1] "Nazioni"
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:134
+msgid "ISO code"
+msgstr "Codice ISO"
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:150
+msgid "Phone code"
+msgstr "Prefisso telefonico"
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:170
+#: app/src/Controller/Mod/Country/CountryTrait.php:189
+#, php-format
+msgid "regex %1$s"
+msgstr "regex %1$s"
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:170
+#, php-format
+msgid "fiscal code or %1$s"
+msgstr "Codice Fiscale o %1$s"
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:170
+#: var/develop/cache/missing_translation.php:18
+msgid "National Identification Number"
+msgstr ""
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:170
+#: app/view/default/partial/address-company.php:55
+#: var/develop/cache/missing_translation.php:19
+msgid "NIN"
+msgstr ""
+
+#: app/src/Controller/Mod/Country/CountryTrait.php:189
+#: app/src/Controller/Mod/Setting/SettingTrait.php:85
+#: app/view/default/partial/address-company.php:50
+#: app/view/default/partial/address-credits.php:29
+msgid "VAT"
+msgstr "P.Iva"
+
+#: app/src/Controller/Mod/Form/FormTrait.php:245
+msgid "Printable"
+msgstr "Stampabile"
+
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:27
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:67
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:106
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:110
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:122
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:127
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:135
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:176
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:26
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:28
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:38
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:42
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:64
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:70
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:72
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:144
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:147
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:150
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:159
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:423
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:29
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:54
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:59
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:100
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:134
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:159
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:184
+#: app/src/Controller/Mod/User/UserValidateTrait.php:42
+#: app/src/Model/Mod/ModActionTrait.php:38
+#: app/src/Model/Mod/ModActionTrait.php:1649
+#: app/src/Model/Mod/ModActionTrait.php:1664
+#: app/src/Model/Mod/ModValidateTrait.php:116
+#: app/src/Model/Mod/ModValidateTrait.php:132
+#: app/src/Model/Mod/ModValidateTrait.php:144
+#: app/src/Model/Mod/ModValidateTrait.php:156
+#: app/src/Model/Mod/ModValidateTrait.php:168
+#: app/src/Model/Mod/ModValidateTrait.php:188
+#: app/src/Model/Mod/ModValidateTrait.php:229
+#: app/src/Model/Mod/ModValidateTrait.php:252
+#: app/src/Model/Mod/ModValidateTrait.php:309
+#: app/src/Model/Mod/ModValidateTrait.php:337
+#: app/src/Model/Mod/ModValidateTrait.php:350
+#: app/src/Model/Mod/ModValidateTrait.php:363
+#: app/src/Model/Mod/ModValidateTrait.php:373
+#: app/src/Model/Mod/ModValidateTrait.php:393
+#: app/src/Model/Mod/ModValidateTrait.php:396
+#: app/src/Model/Mod/ModValidateTrait.php:412
+#: app/src/Model/Mod/ModValidateTrait.php:425
+#: app/src/Model/Mod/ModValidateTrait.php:472
+#: app/src/Model/Mod/ModValidateTrait.php:481
+#: app/src/Model/Mod/ModValidateTrait.php:495
+#: app/src/Model/Mod/ModValidateTrait.php:507
+#: app/src/Model/Mod/ModValidateTrait.php:516
+#: app/src/Model/Mod/ModValidateTrait.php:579
+#: app/src/Model/Mod/ModValidateTrait.php:590
+#: app/src/Model/Mod/ModValidateTrait.php:774
+#, php-format
+msgid "The %1$s field does not seem correct."
+msgstr "Il campo %1$s non sembra corretto."
+
+#: app/src/Controller/Mod/Form/FormValidateTrait.php:102
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:210
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:234
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:256
+msgid "Teacher's data"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:147
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:685
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:828
+#, php-format
+msgid "You have already filled some forms in %1$s, so you can't proceed here."
+msgstr ""
+"Hai già compilato alcuni moduli in %1$s, quindi non puoi procedere qui."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:156
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:694
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:837
+msgid "another category"
+msgstr "un'altra categoria"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:172
+msgid "You have already completed all application forms in this category."
+msgstr "Hai già completato tutti gli application forms in questa categoria."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:173
+#, php-format
+msgid "%1$s to print them all."
+msgstr "%1$s per stamparli tutti."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:180
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:202
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:222
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:721
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:864
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:812
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:49
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:68
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:282
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:301
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:277
+#: app/src/Controller/Mod/Member/MemberTrait.php:155
+#: app/src/Controller/Mod/Member/MemberTrait.php:196
+#: app/src/Controller/Mod/User/UserTrait.php:152
+#: app/src/Model/Mod/ModActionTrait.php:2187
+msgid "click here"
+msgstr "clicca qui"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:193
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:40
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:273
+#: app/src/Controller/Mod/Member/MemberTrait.php:146
+msgid "We sent you a confirmation email, didn't you get it?"
+msgstr "Ti abbiamo inviato una email di conferma, non l'hai ricevuta?"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:194
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:41
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:274
+#: app/src/Controller/Mod/Member/MemberTrait.php:147
+#, php-format
+msgid "%1$s to send it again."
+msgstr "%1$s per inviarla di nuovo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:213
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:59
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:292
+#: app/src/Controller/Mod/Member/MemberTrait.php:187
+msgid "Some personal data are missing."
+msgstr "Mancano alcuni dati personali."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:214
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:60
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:293
+#: app/src/Controller/Mod/Member/MemberTrait.php:188
+#, php-format
+msgid "%1$s to complete them."
+msgstr "%1$s per completarli."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:259
+#, php-format
+msgid ""
+"It is possible to complete all application forms only starting from %1$s at "
+"%2$s (%3$s)."
+msgstr ""
+"È possibile completare tutti gli application forms solo a partire dal %1$s "
+"alle %2$s (%3$s)."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:266
+msgid "It is necessary to complete all previous forms before proceeding."
+msgstr "È necessario compilare tutti i form precedenti prima di procedere."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:461
+#, php-format
+msgid "[%1$s #%2$d] Completed %3$s at %4$s"
+msgstr "[%1$s #%2$d] Completato %3$s su %4$s"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:504
+#, php-format
+msgid "Thank you! Your data have been received - %1$s"
+msgstr "Grazie! I tuoi dati sono stati ricevuti - %1$s"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:539
+#, php-format
+msgid ""
+"Congratulations! You have successfully completed all application %1$s in "
+"this category %2$s."
+msgstr ""
+"Congratulazioni! Hai completato con successo tutti gli application %1$s in "
+"questa categoria %2$s."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:543
+msgid "A confirmation email has just been sent to your address."
+msgstr "Una email di conferma è stata appena inviata al tuo indirizzo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:545
+#, php-format
+msgid "Now you can print all application %1$s just completed."
+msgstr "Ora puoi stampare tutti gli application %1$s appena completati."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:552
+#, php-format
+msgctxt "default"
+msgid "Completed %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:553
+#, php-format
+msgctxt "male"
+msgid "Completed %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:554
+#, php-format
+msgctxt "female"
+msgid "Completed %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:565
+#: app/src/Model/Mod/ModActionTrait.php:470
+#: app/src/Model/Mod/ModActionTrait.php:497
+#: app/src/Model/Mod/ModActionTrait.php:611
+#, php-format
+msgctxt "default"
+msgid "%1$s successfully modified."
+msgstr "%1$s modificato con successo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:566
+#: app/src/Model/Mod/ModActionTrait.php:498
+#, php-format
+msgctxt "male"
+msgid "%1$s successfully modified."
+msgstr "%1$s modificato con successo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:567
+#: app/src/Model/Mod/ModActionTrait.php:499
+#: app/src/Model/Mod/ModActionTrait.php:1748
+#, php-format
+msgctxt "female"
+msgid "%1$s successfully modified."
+msgstr "%1$s modificata con successo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:571
+#: app/src/Model/Mod/Api/V1ActionPostXhrTrait.php:175
+#: app/src/Model/Mod/ModActionTrait.php:501
+#, php-format
+msgctxt "default"
+msgid "Modified %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:572
+#: app/src/Model/Mod/Api/V1ActionPostXhrTrait.php:176
+#: app/src/Model/Mod/ModActionTrait.php:502
+#, php-format
+msgctxt "male"
+msgid "Modified %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:573
+#: app/src/Model/Mod/Api/V1ActionPostXhrTrait.php:177
+#: app/src/Model/Mod/ModActionTrait.php:503
+#, php-format
+msgctxt "female"
+msgid "Modified %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:579
+#, php-format
+msgctxt "default"
+msgid "%1$s %2$s successfully filled."
+msgstr "%1$s %2$s compilato con successo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:580
+#, php-format
+msgctxt "male"
+msgid "%1$s %2$s successfully filled."
+msgstr "%1$s %2$s compilato con successo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:581
+#, php-format
+msgctxt "female"
+msgid "%1$s %2$s successfully filled."
+msgstr "%1$s %2$s compilata con successo."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:585
+#, php-format
+msgctxt "default"
+msgid "Filled %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:586
+#, php-format
+msgctxt "male"
+msgid "Filled %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:587
+#, php-format
+msgctxt "female"
+msgid "Filled %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:648
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:929
+#: app/view/email/controller/form/fill.php:34
+#: app/view/email/controller/form/fill.php:35
+#: app/view/front/partial/nav-aside.php:164
+#: app/view/front/partial/nav-aside.php:173
+#, php-format
+msgid "Print %1$s"
+msgstr "Stampa %1$s"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:712
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:855
+msgid ""
+"All application forms in this category must be completed, in order to be "
+"able to print them later."
+msgstr ""
+"Tutti gli application forms di questa categoria devono essere compilati per "
+"poterli stampare successivamente."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:713
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:856
+#, php-format
+msgid "%1$s to fill them all."
+msgstr "%1$s per compilarli tutti."
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1085
+#, php-format
+msgid "%1$s %2$s at %3$s for recommendation request"
+msgstr ""
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1085
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:282
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:525
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:562
+#: app/view/default/base/delete-bulk.php:196
+#: app/view/default/base/delete.php:151 app/view/default/base/index.php:203
+#: app/view/default/base/reset.php:200
+#: app/view/front/controller/member/setting.php:72
+#: app/view/front/partial/form-delete.php:44
+msgid "Confirm"
+msgstr "Conferma"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1085
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:91
+#: app/view/front/base/login.php:95 app/view/front/base/login.php:97
+#: app/view/front/controller/member/reset.php:115
+#: app/view/front/controller/member/reset.php:117
+#: app/view/front/controller/member/signup.php:148
+#: app/view/front/partial/nav-top.php:67 app/view/front/partial/nav-top.php:71
+msgid "Signup"
+msgstr "Registrazione"
+
+#: app/src/Controller/Mod/Form/Front/FormActionTrait.php:1125
+#, php-format
+msgid "New recommendation request from %1$s - %2$s"
+msgstr ""
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:42
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:43
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:44
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:45
+#: var/develop/cache/missing_translation.php:50
+#, php-format
+msgid "%1$s field"
+msgid_plural "%1$s fields"
+msgstr[0] "Campo %1$s"
+msgstr[1] "Campi %1$s"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:93
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:94
+#, php-format
+msgid "block %1$s"
+msgstr "blocco %1$s"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:93
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:109
+#: app/src/Controller/Mod/Setting/SettingTrait.php:83
+msgid "text"
+msgstr "testo"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:94
+msgid "separator"
+msgstr "separatore"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:98
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:101
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:103
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:104
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:108
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:109
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:113
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:117
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:124
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:125
+#: app/src/Controller/Mod/Setting/SettingTrait.php:75
+#: app/src/Controller/Mod/Setting/SettingTrait.php:82
+#: app/src/Controller/Mod/Setting/SettingTrait.php:83
+#: app/src/Controller/Mod/Setting/SettingTrait.php:84
+#: app/src/Controller/Mod/Setting/SettingTrait.php:85
+#: app/src/Controller/Mod/Setting/SettingTrait.php:87
+#: app/src/Controller/Mod/Setting/SettingTrait.php:91
+#: app/src/Controller/Mod/Setting/SettingTrait.php:93
+#, php-format
+msgid "input %1$s"
+msgstr "Input %1$s"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:98
+msgid "date"
+msgstr "data"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:101
+#: app/src/Controller/Mod/Setting/SettingTrait.php:75
+#: var/develop/cache/missing_translation.php:74
+msgid "email"
+msgstr ""
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:103
+msgid "integer number greater than or equal to zero"
+msgstr "numero intero maggiore o uguale a zero"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:104
+msgid "integer number greater than zero"
+msgstr "numero intero maggiore di zero"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:108
+#: app/src/Controller/Mod/Setting/SettingTrait.php:82
+msgid "telephone"
+msgstr "telefono"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:113
+#: app/src/Controller/Mod/Setting/SettingTrait.php:87
+#: var/develop/cache/missing_translation.php:75
+msgid "url"
+msgstr ""
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:117
+msgid "multiple files attachment"
+msgstr "allegati multipli"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:121
+#: app/src/Controller/Mod/Setting/SettingTrait.php:96
+msgid "textarea"
+msgstr "area di testo"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:123
+#: app/view/back/base/action/index-bulk.php:21
+#: app/view/back/controller/catuser/partial/add-api_log_level.php:45
+#: app/view/back/controller/catuser/partial/edit-api_log_level.php:45
+#: app/view/back/controller/formfield/partial/add-type.php:41
+#: app/view/back/controller/formfield/partial/edit-type.php:43
+#: app/view/back/controller/formvalue/partial/add-formfield_id.php:49
+#: app/view/back/controller/formvalue/partial/add-formfield_id.php:130
+#: app/view/back/controller/formvalue/partial/edit-formfield_id.php:53
+#: app/view/back/controller/formvalue/partial/edit-formfield_id.php:134
+#: app/view/back/controller/formvalue/partial/reset-catform_id.php:41
+#: app/view/back/controller/user/partial/add-catuser_id.php:69
+#: app/view/back/controller/user/partial/edit-catuser_id.php:44
+#: app/view/default/base/action/index-bulk.php:32
+#: app/view/default/base/index.php:161
+#: app/view/default/base/partial/add-catform_id.php:41
+#: app/view/default/base/partial/add-catmember_id.php:69
+#: app/view/default/base/partial/add-country_id.php:43
+#: app/view/default/base/partial/add-form_id.php:49
+#: app/view/default/base/partial/add-form_id.php:116
+#: app/view/default/base/partial/add-iso_code.php:41
+#: app/view/default/base/partial/add-lang_id.php:41
+#: app/view/default/base/partial/add-member_id.php:51
+#: app/view/default/base/partial/add-member_id.php:118
+#: app/view/default/base/partial/add-phone.php:46
+#: app/view/default/base/partial/add-timezone.php:41
+#: app/view/default/base/partial/add-type.php:41
+#: app/view/default/base/partial/edit-catform_id.php:43
+#: app/view/default/base/partial/edit-catmember_id.php:44
+#: app/view/default/base/partial/edit-country_id.php:43
+#: app/view/default/base/partial/edit-form_id.php:53
+#: app/view/default/base/partial/edit-form_id.php:120
+#: app/view/default/base/partial/edit-iso_code.php:43
+#: app/view/default/base/partial/edit-lang_id.php:43
+#: app/view/default/base/partial/edit-member_id.php:53
+#: app/view/default/base/partial/edit-member_id.php:120
+#: app/view/default/base/partial/edit-phone.php:48
+#: app/view/default/base/partial/edit-timezone.php:43
+#: app/view/default/base/partial/edit-type.php:43
+#: app/view/default/base/partial/export-catform_id.php:41
+#: app/view/front/controller/formfield/partial/fill-country.php:49
+#: app/view/front/controller/formfield/partial/fill-select.php:49
+msgid "select"
+msgstr "seleziona"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:124
+#: var/develop/cache/missing_translation.php:90
+msgid "checkbox"
+msgstr ""
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:125
+#: var/develop/cache/missing_translation.php:91
+msgid "radio"
+msgstr ""
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:132
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:352
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:349
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:361
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:365
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:388
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:392
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueEventTrait.php:128
+#: app/view/front/partial/nav-aside.php:237
+#: app/view/front/partial/nav-aside.php:246
+msgid "Recommendation letters"
+msgstr "Lettere di raccomandazione"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:249
+#: app/src/Controller/Mod/Setting/SettingTrait.php:176
+msgid "Type"
+msgstr "Tipologia"
+
+#: app/src/Controller/Mod/Formfield/FormfieldTrait.php:347
+#: app/src/Controller/Mod/Setting/SettingTrait.php:222
+msgid "Required"
+msgstr "Obbligatorio"
+
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:26
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:28
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:70
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:72
+#: app/view/back/controller/formfield/partial/type/input_file_multiple/add-1-max_files.php:15
+#: app/view/back/controller/formfield/partial/type/input_file_multiple/delete-1-max_files.php:15
+#: app/view/back/controller/formfield/partial/type/input_file_multiple/edit-1-max_files.php:15
+#: app/view/back/controller/formfield/partial/type/input_file_multiple/view-1-max_files.php:15
+#: app/view/back/controller/formfield/partial/type/recommendation/add-2-max_files.php:15
+#: app/view/back/controller/formfield/partial/type/recommendation/delete-2-max_files.php:15
+#: app/view/back/controller/formfield/partial/type/recommendation/edit-2-max_files.php:15
+#: app/view/back/controller/formfield/partial/type/recommendation/view-2-max_files.php:15
+msgid "Max. files"
+msgstr "Numero massimo di files"
+
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:38
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:42
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/add-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/delete-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/edit-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/view-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/radio/add-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/radio/delete-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/radio/edit-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/radio/view-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/select/add-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/select/delete-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/select/edit-1-values.php:15
+#: app/view/back/controller/formfield/partial/type_multilang/select/view-1-values.php:15
+msgid "Values"
+msgstr "Valori"
+
+#: app/src/Controller/Mod/Formfield/FormfieldValidateTrait.php:64
+#: app/view/back/controller/formfield/partial/type/recommendation/add-1-max_teachers.php:15
+#: app/view/back/controller/formfield/partial/type/recommendation/delete-1-max_teachers.php:15
+#: app/view/back/controller/formfield/partial/type/recommendation/edit-1-max_teachers.php:15
+#: app/view/back/controller/formfield/partial/type/recommendation/view-1-max_teachers.php:15
+msgid "Max. teachers"
+msgstr "Numero massimo di professori"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:34
+#, php-format
+msgid "Reset %1$s"
+msgstr "Resetta %1$s"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:62
+#: app/src/Model/Mod/ModActionTrait.php:29
+#: app/src/Model/Mod/ModActionTrait.php:278
+#: app/src/Model/Mod/ModActionTrait.php:355
+#: app/src/Model/Mod/ModActionTrait.php:551
+#: app/src/Model/Mod/ModActionTrait.php:699
+#: app/src/Model/Mod/ModActionTrait.php:875
+#: app/src/Model/Mod/ModActionTrait.php:1029
+#: app/src/Model/Mod/ModActionTrait.php:1156
+#, php-format
+msgid "List %1$s"
+msgstr "Elenco %1$s"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:230
+#, php-format
+msgctxt "default"
+msgid "Reset %1$s of %2$s #%3$d"
+msgid_plural "Reset %1$s of %2$s #%3$d"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:231
+#, php-format
+msgctxt "male"
+msgid "Reset %1$s of %2$s #%3$d"
+msgid_plural "Reset %1$s of %2$s #%3$d"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:232
+#, php-format
+msgctxt "female"
+msgid "Reset %1$s of %2$s #%3$d"
+msgid_plural "Reset %1$s of %2$s #%3$d"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:242
+#, php-format
+msgctxt "default"
+msgid "%1$s successfully reset."
+msgid_plural "%1$s successfully reset."
+msgstr[0] "%1$s resettato con successo."
+msgstr[1] "%1$s resettati con successo."
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:243
+#, php-format
+msgctxt "male"
+msgid "%1$s successfully reset."
+msgid_plural "%1$s successfully reset."
+msgstr[0] "%1$s resettato con successo."
+msgstr[1] "%1$s resettati con successo."
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:244
+#, php-format
+msgctxt "female"
+msgid "%1$s successfully reset."
+msgid_plural "%1$s successfully reset."
+msgstr[0] "%1$s resettata con successo."
+msgstr[1] "%1$s resettate con successo."
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:292
+#, php-format
+msgctxt "default"
+msgid "Do you confirm the reset of all %1$s?"
+msgstr "Confermi il reset di tutti i %1$s?"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:293
+#, php-format
+msgctxt "male"
+msgid "Do you confirm the reset of all %1$s?"
+msgstr "Confermi il reset di tutti i %1$s?"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:294
+#, php-format
+msgctxt "female"
+msgid "Do you confirm the reset of all %1$s?"
+msgstr "Confermi il reset di tutte le %1$s?"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:378
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:32
+#: app/view/front/controller/formfield/partial/print-recommendation.php:42
+msgid "Yes"
+msgstr "Sì"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:379
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:33
+#: app/view/front/controller/formfield/partial/print-recommendation.php:43
+msgid "No"
+msgstr ""
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:761
+#: app/src/Model/Mod/ModActionTrait.php:2161
+#, php-format
+msgctxt "default"
+msgid "Exported %1$s"
+msgid_plural "Exported %1$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:762
+#: app/src/Model/Mod/ModActionTrait.php:2162
+#, php-format
+msgctxt "male"
+msgid "Exported %1$s"
+msgid_plural "Exported %1$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:763
+#: app/src/Model/Mod/ModActionTrait.php:2163
+#, php-format
+msgctxt "female"
+msgid "Exported %1$s"
+msgid_plural "Exported %1$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:782
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:790
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:835
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:115
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:262
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:300
+#: app/src/Model/Mod/ModActionTrait.php:2174
+#: app/src/Model/Mod/ModActionTrait.php:2210
+#: app/view/default/base/delete-bulk.php:178
+#: app/view/default/base/index.php:460
+#: app/view/front/controller/form/fill.php:326
+#: app/view/front/controller/form/index.php:87
+#: app/view/front/controller/form/print.php:65
+msgid "No results found."
+msgstr "Nessun risultato trovato."
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:809
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:274
+#: app/src/Model/Mod/ModActionTrait.php:2184
+msgid "Download in progress"
+msgstr "Download in corso"
+
+#: app/src/Controller/Mod/Formvalue/Back/FormvalueActionTrait.php:810
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:275
+#: app/src/Model/Mod/ModActionTrait.php:2185
+#, php-format
+msgid "%1$s if the download doesn't work."
+msgstr "%1$s se il download non funziona."
+
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:48
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:49
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:50
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:51
+#: var/develop/cache/missing_translation.php:51
+#, php-format
+msgid "%1$s value"
+msgid_plural "%1$s values"
+msgstr[0] "Valore %1$s"
+msgstr[1] "Valori %1$s"
+
+#: app/src/Controller/Mod/Formvalue/FormvalueTrait.php:336
+msgid "Data"
+msgstr "Dati"
+
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:365
+#: app/src/Model/Mod/ModActionTrait.php:239
+#, php-format
+msgid "Detail %1$s"
+msgstr "Dettaglio %1$s"
+
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueActionTrait.php:392
+#: app/src/Model/Mod/ModActionTrait.php:468
+#: app/src/Model/Mod/ModActionTrait.php:476
+#, php-format
+msgid "Edit %1$s"
+msgstr "Modifica %1$s"
+
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueEventTrait.php:128
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:282
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:525
+#, php-format
+msgid "%1$s %2$s at %3$s"
+msgstr "%1$s %2$s su %3$s"
+
+#: app/src/Controller/Mod/Formvalue/Front/FormvalueEventTrait.php:128
+msgid "New"
+msgstr ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:44
+#: app/src/Controller/Mod/Log/LogTrait.php:45
+#: app/src/Controller/Mod/Log/LogTrait.php:46
+#: app/src/Controller/Mod/Log/LogTrait.php:47
+#: var/develop/cache/missing_translation.php:53
+msgid "Log"
+msgid_plural "Logs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:105
+msgid "Message"
+msgstr "Messaggio"
+
+#: app/src/Controller/Mod/Log/LogTrait.php:106
+#: var/develop/cache/missing_translation.php:25
+msgid "Channel"
+msgstr ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:107
+msgid "Level"
+msgstr "Livello"
+
+#: app/src/Controller/Mod/Log/LogTrait.php:109
+msgid "Environment"
+msgstr "Ambiente"
+
+#: app/src/Controller/Mod/Log/LogTrait.php:110
+#: app/src/Controller/Mod/Member/MemberTrait.php:445
+#: app/src/Controller/Mod/User/UserTrait.php:395
+#: app/view/email/partial/footer-admin.php:28
+msgid "Language"
+msgstr "Lingua"
+
+#: app/src/Controller/Mod/Log/LogTrait.php:111
+#: app/src/Controller/Mod/Log/LogTrait.php:112
+msgid "Authentication"
+msgstr "Autenticazione"
+
+#: app/src/Controller/Mod/Log/LogTrait.php:111
+msgid "type"
+msgstr "Tipologia"
+
+#: app/src/Controller/Mod/Log/LogTrait.php:113
+#: app/src/Controller/Mod/User/UserTrait.php:263
+#: app/view/back/controller/user/login.php:24
+#: app/view/back/controller/user/login.php:28
+#: app/view/email/controller/user/notify.php:23
+#: app/view/front/base/login.php:23
+#: var/develop/cache/missing_translation.php:26
+msgid "Username"
+msgstr ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:114
+#: var/develop/cache/missing_translation.php:27
+msgid "URI"
+msgstr ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:115
+#: var/develop/cache/missing_translation.php:28
+msgid "Method"
+msgstr ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:116
+#: app/view/email/partial/footer-admin.php:30
+#: var/develop/cache/missing_translation.php:29
+msgid "IP"
+msgstr ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:117
+#: var/develop/cache/missing_translation.php:30
+msgid "Hostname local"
+msgstr ""
+
+#: app/src/Controller/Mod/Log/LogTrait.php:118
+#: app/view/email/partial/footer-admin.php:31
+#: var/develop/cache/missing_translation.php:31
+msgid "Hostname ISP"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:103
+#, php-format
+msgid "Download %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:157
+#: app/src/Model/Mod/ModActionTrait.php:2224
+msgid "Item"
+msgstr "Elemento"
+
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:161
+#: app/src/Model/Mod/ModActionTrait.php:2228
+#: app/view/default/partial/uppy-awss3.php:211
+#, php-format
+msgctxt "default"
+msgid "No %1$s selected."
+msgstr "Nessun %1$s selezionato."
+
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:162
+#: app/src/Model/Mod/ModActionTrait.php:2229
+#: app/view/default/partial/uppy-awss3.php:212
+#, php-format
+msgctxt "male"
+msgid "No %1$s selected."
+msgstr "Nessun %1$s selezionato."
+
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:163
+#: app/src/Model/Mod/ModActionTrait.php:2230
+#: app/view/default/partial/uppy-awss3.php:213
+#, php-format
+msgctxt "female"
+msgid "No %1$s selected."
+msgstr "Nessuna %1$s selezionata."
+
+#: app/src/Controller/Mod/Member/Back/MemberActionTrait.php:250
+#, php-format
+msgid "Download %1$s #%2$s"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:73
+#: app/src/Model/Mod/ModActionTrait.php:1567
+#, php-format
+msgid "To view this content, you must first %1$s."
+msgstr "Per visualizzare questo contenuto, devi prima %1$s."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:80
+#: app/src/Model/Mod/ModActionTrait.php:1574
+#: app/view/back/partial/nav-top.php:170 app/view/back/partial/nav-top.php:172
+#: app/view/front/partial/nav-top.php:203
+#: app/view/front/partial/nav-top.php:206
+#: var/develop/cache/missing_translation.php:40
+msgid "Logout"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:152
+#: app/view/back/partial/nav-aside.php:95
+#: app/view/back/partial/nav-aside.php:97
+#: app/view/email/controller/form/fill-admin.php:23
+#: app/view/email/controller/form/fill-admin.php:25
+#: app/view/email/controller/form/fill-admin.php:26
+#: app/view/email/controller/member/delete-admin.php:17
+#: app/view/email/controller/member/delete-admin.php:19
+#: app/view/email/controller/member/delete-admin.php:20
+#: app/view/email/controller/member/signup-admin.php:17
+#: app/view/email/controller/member/signup-admin.php:19
+#: app/view/email/controller/member/signup-admin.php:20
+#: app/view/email/partial/footer.php:24 app/view/email/partial/footer.php:25
+#: app/view/front/controller/member/signup.php:114
+#: app/view/front/controller/member/signup.php:115
+#: app/view/front/partial/footer.php:56
+#: app/view/front/partial/nav-bottom.php:72
+#: app/view/front/partial/nav-bottom.php:74
+#: var/develop/cache/missing_translation.php:42
+msgid "Privacy Policy"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:154
+#, php-format
+msgctxt "default"
+msgid "You must agree to the %1$s"
+msgid_plural "You must agree to the %1$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:155
+#, php-format
+msgctxt "male"
+msgid "You must agree to the %1$s"
+msgid_plural "You must agree to the %1$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:156
+#, php-format
+msgctxt "female"
+msgid "You must agree to the %1$s"
+msgid_plural "You must agree to the %1$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:172
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:175
+#: app/src/Model/Mod/ModActionTrait.php:1677
+#: app/src/Model/Mod/ModActionTrait.php:1680
+#: var/develop/cache/missing_translation.php:67
+msgid "SPAM attempt detected."
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:238
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:610
+#, php-format
+msgid "[%1$s #%2$d] %3$s at %4$s"
+msgstr "[%1$s #%2$d] %3$s su %4$s"
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:322
+msgid ""
+"Your registration has been successful, check your email box to confirm your "
+"account."
+msgstr ""
+"La tua registrazione è avvenuta con successo, controlla la tua casella email "
+"per confermare il tuo account."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:323
+msgid "We also invite you to complete your personal data below."
+msgstr "Ti invitiamo inoltre a completare i tuoi dati personali qui sotto."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:327
+#: app/src/Model/Mod/ModActionTrait.php:1453
+#: app/src/Model/Mod/ModActionTrait.php:1503
+#, php-format
+msgid "%1$s %2$s #%3$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:381
+#: app/src/Controller/Mod/Setting/SettingTrait.php:32
+#: app/src/Controller/Mod/Setting/SettingTrait.php:33
+#: app/src/Controller/Mod/Setting/SettingTrait.php:34
+#: app/src/Controller/Mod/Setting/SettingTrait.php:35
+#: app/view/front/partial/nav-top.php:178
+#: app/view/front/partial/nav-top.php:181
+#: var/develop/cache/missing_translation.php:55
+msgid "Setting"
+msgid_plural "Settings"
+msgstr[0] "Impostazione"
+msgstr[1] "Impostazioni"
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:423
+#: app/src/Model/Mod/ModActionTrait.php:38
+msgid "Action"
+msgstr "Azione"
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:525
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:562
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:581
+#: app/src/Controller/Mod/Member/MemberTrait.php:349
+#: app/src/Controller/Mod/User/UserTrait.php:376
+#: app/src/Model/Mod/ModActionTrait.php:1955
+#: app/src/Model/Mod/ModActionTrait.php:1962
+#: app/view/back/controller/user/reset.php:47
+#: app/view/back/controller/user/reset.php:51
+#: app/view/default/partial/address-company.php:125
+#: app/view/default/partial/address-credits.php:47
+#: app/view/email/base/reset.php:25
+#: app/view/email/controller/form/fill-admin.php:15
+#: app/view/email/controller/user/notify.php:24
+#: app/view/front/base/login.php:23 app/view/front/controller/form/fill.php:224
+#: app/view/front/controller/formvalue/partial/view-data.php:32
+#: var/develop/cache/missing_translation.php:20
+msgid "Email"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:562
+#: app/src/Model/Mod/ModActionTrait.php:1835
+#, php-format
+msgid "%1$s %2$s request for %3$s"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:568
+msgid "Confirmation email sent successfully."
+msgstr "Email di conferma inviata con successo."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:583
+#, php-format
+msgctxt "default"
+msgid "%1$s already confirmed."
+msgstr "%1$s già confermato."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:584
+#, php-format
+msgctxt "male"
+msgid "%1$s already confirmed."
+msgstr "%1$s già confermato."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:585
+#, php-format
+msgctxt "female"
+msgid "%1$s already confirmed."
+msgstr "%1$s già confermata."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:660
+msgid "Success"
+msgstr "Successo"
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:661
+#: app/src/Model/Mod/Api/V1ActionPostXhrTrait.php:191
+#: app/view/back/partial/nav-top.php:242
+msgid "Operation performed successfully."
+msgstr "Operazione eseguita con successo."
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:662
+msgid "We're sorry to see you leave"
+msgstr "Ci dispiace vederti andar via"
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:673
+#: app/src/Model/Mod/ModActionTrait.php:754
+#, php-format
+msgctxt "default"
+msgid "Deleted %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:674
+#: app/src/Model/Mod/ModActionTrait.php:755
+#, php-format
+msgctxt "male"
+msgid "Deleted %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/Front/MemberActionTrait.php:675
+#: app/src/Model/Mod/ModActionTrait.php:756
+#, php-format
+msgctxt "female"
+msgid "Deleted %1$s #%2$d"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:257
+#: app/view/email/controller/form/fill-admin.php:14
+#: app/view/front/controller/form/fill.php:182
+#: app/view/front/controller/formvalue/partial/view-data.php:30
+msgid "Lastname"
+msgstr "Cognome"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:279
+#: app/view/email/controller/form/fill-admin.php:13
+#: app/view/front/controller/form/fill.php:140
+#: app/view/front/controller/formvalue/partial/view-data.php:31
+msgid "Firstname"
+msgstr "Nome"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:368
+#: app/src/Controller/Mod/User/UserTrait.php:298
+#: app/src/Model/Mod/ModActionTrait.php:1741
+#: app/src/Model/Mod/ModActionTrait.php:1748
+#: app/src/Model/Mod/ModActionTrait.php:1794
+#: app/src/Model/Mod/ModActionTrait.php:1835
+#: app/view/back/controller/user/login.php:38
+#: app/view/back/controller/user/login.php:41
+#: app/view/back/controller/user/reset.php:24
+#: app/view/back/controller/user/reset.php:31 app/view/front/base/login.php:43
+#: var/develop/cache/missing_translation.php:21
+msgid "Password"
+msgstr ""
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:397
+#: app/src/Controller/Mod/User/UserTrait.php:328
+#, php-format
+msgid ""
+"Minimum %1$d characters lowercase (%2$s), uppercase (%3$s), numbers (%4$s) "
+"and special (%5$s)."
+msgstr ""
+"Minimo %1$d caratteri minuscoli (%2$s), maiuscoli (%3$s), numeri (%4$s) e "
+"speciali (%5$s)."
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:404
+#: app/src/Controller/Mod/User/UserTrait.php:335
+#: app/src/Controller/Mod/User/UserTrait.php:500
+msgid "Spaces are not allowed."
+msgstr "Gli spazi non sono permessi."
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:468
+#: app/src/Controller/Mod/User/UserTrait.php:414
+msgid "Timezone"
+msgstr "Fuso orario"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:490
+msgid "Confirmation code"
+msgstr "Codice di conferma"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:541
+msgctxt "default"
+msgid "Confirmed"
+msgstr "Confermato"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:542
+msgctxt "male"
+msgid "Confirmed"
+msgstr "Confermato"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:543
+msgctxt "female"
+msgid "Confirmed"
+msgstr "Confermata"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:549
+msgid "Maintainer"
+msgstr "Manutentore"
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:572
+#, php-format
+msgctxt "default"
+msgid "It allows you to work even when the %1$s is under maintenance."
+msgid_plural "It allows you to work even when the %1$s are under maintenance."
+msgstr[0] "Permette di lavorare anche quando il %1$s è in manutenzione."
+msgstr[1] "Permette di lavorare anche quando i %1$s sono in manutenzione."
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:573
+#, php-format
+msgctxt "male"
+msgid "It allows you to work even when the %1$s is under maintenance."
+msgid_plural "It allows you to work even when the %1$s are under maintenance."
+msgstr[0] "Permette di lavorare anche quando il %1$s è in manutenzione."
+msgstr[1] "Permette di lavorare anche quando i %1$s sono in manutenzione."
+
+#: app/src/Controller/Mod/Member/MemberTrait.php:574
+#, php-format
+msgctxt "female"
+msgid "It allows you to work even when the %1$s is under maintenance."
+msgid_plural "It allows you to work even when the %1$s are under maintenance."
+msgstr[0] "Permette di lavorare anche quando la %1$s è in manutenzione."
+msgstr[1] "Permette di lavorare anche quando le %1$s sono in manutenzione."
+
+#: app/src/Controller/Mod/Page/PageTrait.php:42
+#: app/src/Controller/Mod/Page/PageTrait.php:43
+#: app/src/Controller/Mod/Page/PageTrait.php:44
+#: app/src/Controller/Mod/Page/PageTrait.php:45
+#: var/develop/cache/missing_translation.php:54
+msgid "Page"
+msgid_plural "Pages"
+msgstr[0] "Pagina"
+msgstr[1] "Pagine"
+
+#: app/src/Controller/Mod/Page/PageTrait.php:248
+#, php-format
+msgid "Parent %1$s"
+msgstr "%1$s genitore"
+
+#: app/src/Controller/Mod/Page/PageTrait.php:286
+#: app/src/Controller/Mod/Page/PageTrait.php:311
+#, php-format
+msgid "Hold %1$s and click on the items to select more than one."
+msgstr ""
+"Tieni premuto %1$s e clicca sugli elementi per selezionarne più di uno."
+
+#: app/src/Controller/Mod/Page/PageTrait.php:298
+#: var/develop/cache/missing_translation.php:32
+msgid "Menu"
+msgstr ""
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:84
+msgid "fiscal code or NIN (National Identification Number)"
+msgstr "codice fiscale o NIN (National Identification Number)"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:91
+msgid "file attachment"
+msgstr "file allegato"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:93
+msgid "file image"
+msgstr "file immagine"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:97
+#, php-format
+msgid "textarea %1$s"
+msgstr "area di testo %1$s"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:97
+#, php-format
+msgid "with %1$s editor"
+msgstr "con editor %1$s"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:97
+msgid "simple"
+msgstr "semplice"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:201
+#: app/src/Controller/Mod/Setting/SettingTrait.php:213
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:25
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:39
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:92
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:112
+#: app/view/back/controller/setting/partial/type/input_email/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_email/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_email/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_email/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_file/add-1-value.php:24
+#: app/view/back/controller/setting/partial/type/input_file/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_file/edit-1-value.php:24
+#: app/view/back/controller/setting/partial/type/input_file/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:24
+#: app/view/back/controller/setting/partial/type/input_file_img/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:24
+#: app/view/back/controller/setting/partial/type/input_file_img/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_tel/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_tel/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_tel/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_tel/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_nin/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_nin/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_nin/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_nin/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_vat/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_vat/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_vat/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_text_vat/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_url/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_url/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_url/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/input_url/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea_richedit_simple/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea_richedit_simple/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea_richedit_simple/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type/textarea_richedit_simple/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_email/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_email/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_email/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_email/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/add-1-value.php:24
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/edit-1-value.php:24
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:24
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:24
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_tel/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_tel/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_tel/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_tel/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_nin/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_nin/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_nin/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_nin/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_vat/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_vat/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_vat/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_text_vat/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_url/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_url/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_url/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_url/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea/view-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea_richedit_simple/add-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea_richedit_simple/delete-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea_richedit_simple/edit-1-value.php:15
+#: app/view/back/controller/setting/partial/type_multilang/multilang_textarea_richedit_simple/view-1-value.php:15
+msgid "Value"
+msgid_plural "Values"
+msgstr[0] "Valore"
+msgstr[1] "Valori"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:201
+#: app/view/default/base/partial/add-type.php:43
+#: app/view/default/base/partial/edit-type.php:45
+msgid "Monolingual"
+msgstr "Monolingua"
+
+#: app/src/Controller/Mod/Setting/SettingTrait.php:213
+#: app/view/default/base/partial/add-type.php:55
+#: app/view/default/base/partial/edit-type.php:57
+#: app/view/default/base/partial/index-type.php:19
+msgid "Multilingual"
+msgstr "Multilingua"
+
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:169
+#: app/src/Model/Mod/ModValidateTrait.php:275
+#, php-format
+msgid ""
+"The image selected for the %1$s field does not have the minimum width "
+"required."
+msgstr ""
+"L'immagine selezionata per il campo %1$s non ha la larghezza minima "
+"richiesta."
+
+#: app/src/Controller/Mod/Setting/SettingValidateTrait.php:175
+#: app/src/Model/Mod/ModValidateTrait.php:281
+#, php-format
+msgid ""
+"The image selected for the %1$s field does not have the minimum height "
+"required."
+msgstr ""
+"L'immagine selezionata per il campo %1$s non ha l'altezza minima richiesta."
+
+#: app/src/Controller/Mod/User/Back/UserActionTrait.php:93
+#, php-format
+msgid "Switch %1$s from #%2$d to #%3$d"
+msgstr ""
+
+#: app/src/Controller/Mod/User/Back/UserActionTrait.php:125
+#: app/src/Model/Mod/ModActionTrait.php:1449
+#, php-format
+msgid "Logged in as %1$s."
+msgstr "Loggato come %1$s."
+
+#: app/src/Controller/Mod/User/Back/UserActionTrait.php:165
+msgid "Cache cleared successfully."
+msgstr "Cache svuotata con successo."
+
+#: app/src/Controller/Mod/User/Back/UserActionTrait.php:169
+msgid "Cache cleared"
+msgstr ""
+
+#: app/src/Controller/Mod/User/UserTrait.php:52
+#: app/src/Controller/Mod/User/UserTrait.php:53
+#: app/src/Controller/Mod/User/UserTrait.php:54
+#: app/src/Controller/Mod/User/UserTrait.php:55
+#: var/develop/cache/missing_translation.php:56
+msgid "User"
+msgid_plural "Users"
+msgstr[0] "Utente"
+msgstr[1] "Utenti"
+
+#: app/src/Controller/Mod/User/UserTrait.php:144
+#, php-format
+msgid "To return to the previous user %1$s."
+msgstr "Per tornare all'utente precedente %1$s."
+
+#: app/src/Controller/Mod/User/UserTrait.php:279
+#, php-format
+msgid "Minimum %1$d characters lowercase and alphanumeric (%2$s)."
+msgstr "Minimo %1$d caratteri minuscoli e alfanumerici (%2$s)."
+
+#: app/src/Controller/Mod/User/UserTrait.php:432
+msgid "Private key"
+msgstr "Chiave privata"
+
+#: app/src/Controller/Mod/User/UserTrait.php:459
+msgid "API key"
+msgstr "Chiave API"
+
+#: app/src/Controller/Mod/User/UserTrait.php:489
+#, php-format
+msgid ""
+"%1$d characters lowercase (%2$s), uppercase (%3$s), numbers (%4$s) and "
+"special (%5$s)."
+msgstr ""
+"%1$d caratteri minuscoli (%2$s), maiuscoli (%3$s), numeri (%4$s) e speciali "
+"(%5$s)."
+
+#: app/src/Controller/Mod/User/UserTrait.php:497
+#, php-format
+msgid "These characters are not allowed: %1$s."
+msgstr "Questi caratteri non sono permessi: %1$s."
+
+#: app/src/Controller/Mod/User/UserValidateTrait.php:51
+#, php-format
+msgctxt "default"
+msgid "You cannot change your %1$s."
+msgstr "Non puoi cambiare il tuo %1$s."
+
+#: app/src/Controller/Mod/User/UserValidateTrait.php:52
+#, php-format
+msgctxt "male"
+msgid "You cannot change your %1$s."
+msgstr "Non puoi cambiare il tuo %1$s."
+
+#: app/src/Controller/Mod/User/UserValidateTrait.php:53
+#, php-format
+msgctxt "female"
+msgid "You cannot change your %1$s."
+msgstr "Non puoi cambiare la tua %1$s."
+
+#: app/src/Factory/Db/plugin/version_check.php:17
+#, php-format
+msgid "MySQL server %.1f+ required."
+msgstr ""
+
+#: app/src/Factory/Db/plugin/version_check.php:24
+#, php-format
+msgid "MariaDB server %.1f+ required."
+msgstr ""
+
+#: app/src/Factory/Logger/LoggerFactory.php:429
+#: var/develop/cache/missing_translation.php:6
+#, php-format
+msgid "Error reporting from %1$s %2$s - %3$s"
+msgstr ""
+
+#: app/src/Factory/Mailer/MailerFactory.php:390
+#, php-format
+msgid "Sent email -> %1$s"
+msgstr ""
+
+#: app/src/Factory/Session/SessionFactory.php:219
+#: app/src/Factory/Session/SessionFactory.php:229
+#: app/view/default/partial/flash-modal.php:44
+#: app/view/default/partial/flash-toast.php:43
+msgid "Close"
+msgstr "Chiudi"
+
+#: app/src/Helper/Cli.php:67
+#, php-format
+msgid "Usage: %1$s"
+msgstr ""
+
+#: app/src/Helper/Cli.php:69
+msgid "Options"
+msgstr ""
+
+#: app/src/Middleware/Env/Api/ShutdownMiddleware.php:26
+#: app/src/Middleware/Env/Xml/ShutdownMiddleware.php:26
+msgid "System under maintenance, try again later."
+msgstr "Sistema in manutenzione, riprova più tardi."
+
+#: app/src/Middleware/RateLimitMiddleware.php:137
+#: app/src/Middleware/RateLimitMiddleware.php:140
+#: app/src/Middleware/RateLimitMiddleware.php:162
+#: app/src/Middleware/RateLimitMiddleware.php:165
+#, php-format
+msgid "%1$s rate limit reached (%2$d requests per %3$s)"
+msgstr ""
+
+#: app/src/Middleware/RateLimitMiddleware.php:137
+#: app/src/Middleware/RateLimitMiddleware.php:140
+msgid "Daily"
+msgstr ""
+
+#: app/src/Middleware/RateLimitMiddleware.php:162
+#: app/src/Middleware/RateLimitMiddleware.php:165
+msgid "Hourly"
+msgstr ""
+
+#: app/src/Model/Controller.php:279 app/src/Model/Controller.php:290
+#, php-format
+msgid "Page %1$d"
+msgstr "Pagina %1$d"
+
+#: app/src/Model/Mod/Api/V1ActionDeleteTrait.php:104
+#: app/src/Model/Mod/Api/V1ActionDeleteTrait.php:203
+#: app/src/Model/Mod/ModActionTrait.php:812
+#: app/src/Model/Mod/ModActionTrait.php:1331
+msgid ""
+"To be able to perform this operation, the dependencies must be resolved "
+"first."
+msgstr ""
+"Per poter eseguire questa operazione è necessario risolvere prima le "
+"dipendenze."
+
+#: app/src/Model/Mod/Api/V1ActionDeleteTrait.php:185
+#, php-format
+msgid "%1$s #%2$d not found."
+msgstr "%1$s #%2$d non trovato."
+
+#: app/src/Model/Mod/ModActionTrait.php:178
+#, php-format
+msgid "Search text: %1$s"
+msgstr "Testo cercato: %1$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:325
+#, php-format
+msgctxt "default"
+msgid "New %1$s"
+msgstr "Nuovo %1$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:326
+#, php-format
+msgctxt "male"
+msgid "New %1$s"
+msgstr "Nuovo %1$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:327
+#, php-format
+msgctxt "female"
+msgid "New %1$s"
+msgstr "Nuova %1$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:407
+#, php-format
+msgctxt "default"
+msgid "Added %1$s #%2$d"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:408
+#, php-format
+msgctxt "male"
+msgid "Added %1$s #%2$d"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:409
+#, php-format
+msgctxt "female"
+msgid "Added %1$s #%2$d"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:419
+#: app/src/Model/Mod/ModActionTrait.php:2303
+#, php-format
+msgctxt "default"
+msgid "%1$s successfully added."
+msgstr "%1$s aggiunto con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:420
+#: app/src/Model/Mod/ModActionTrait.php:2304
+#, php-format
+msgctxt "male"
+msgid "%1$s successfully added."
+msgstr "%1$s inserito con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:421
+#: app/src/Model/Mod/ModActionTrait.php:2305
+#, php-format
+msgctxt "female"
+msgid "%1$s successfully added."
+msgstr "%1$s aggiunta con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:468
+#: app/src/Model/Mod/ModActionTrait.php:470
+#: app/src/Model/Mod/ModActionTrait.php:472
+#: app/src/Model/Mod/ModActionTrait.php:611
+#: app/view/back/partial/nav-top.php:78 app/view/front/partial/nav-top.php:115
+#: var/develop/cache/missing_translation.php:39
+msgid "Account"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:660
+#: app/src/Model/Mod/ModActionTrait.php:1128
+#, php-format
+msgid "Deletion %1$s"
+msgstr "Cancellazione %1$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:766
+#: app/src/Model/Mod/ModActionTrait.php:1282
+#, php-format
+msgctxt "default"
+msgid "%1$s successfully deleted."
+msgid_plural "%1$s successfully deleted."
+msgstr[0] "%1$s cancellato con successo."
+msgstr[1] "%1$s cancellati con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:767
+#: app/src/Model/Mod/ModActionTrait.php:1283
+#: app/view/front/partial/form-delete.php:167
+#, php-format
+msgctxt "male"
+msgid "%1$s successfully deleted."
+msgid_plural "%1$s successfully deleted."
+msgstr[0] "%1$s cancellato con successo."
+msgstr[1] "%1$s cancellati con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:768
+#: app/src/Model/Mod/ModActionTrait.php:1284
+#, php-format
+msgctxt "female"
+msgid "%1$s successfully deleted."
+msgid_plural "%1$s successfully deleted."
+msgstr[0] "%1$s cancellata con successo."
+msgstr[1] "%1$s cancellate con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:808
+#: app/src/Model/Mod/ModActionTrait.php:1327
+#, php-format
+msgctxt "default"
+msgid "Do you confirm the deletion of the following %1$s?"
+msgid_plural "Do you confirm the deletion of the following %1$s?"
+msgstr[0] "Confermi la cancellazione del seguente %1$s?"
+msgstr[1] "Confermi la cancellazione dei seguenti %1$s?"
+
+#: app/src/Model/Mod/ModActionTrait.php:809
+#: app/src/Model/Mod/ModActionTrait.php:1328
+#, php-format
+msgctxt "male"
+msgid "Do you confirm the deletion of the following %1$s?"
+msgid_plural "Do you confirm the deletion of the following %1$s?"
+msgstr[0] "Confermi la cancellazione del seguente %1$s?"
+msgstr[1] "Confermi la cancellazione dei seguenti %1$s?"
+
+#: app/src/Model/Mod/ModActionTrait.php:810
+#: app/src/Model/Mod/ModActionTrait.php:1329
+#, php-format
+msgctxt "female"
+msgid "Do you confirm the deletion of the following %1$s?"
+msgid_plural "Do you confirm the deletion of the following %1$s?"
+msgstr[0] "Confermi la cancellazione della seguente %1$s?"
+msgstr[1] "Confermi la cancellazione delle seguenti %1$s?"
+
+#: app/src/Model/Mod/ModActionTrait.php:836
+#, php-format
+msgid "Copy %1$s"
+msgstr "Copia %1$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:927
+#, php-format
+msgctxt "default"
+msgid "Copied %1$s #%2$d"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:928
+#, php-format
+msgctxt "male"
+msgid "Copied %1$s #%2$d"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:929
+#, php-format
+msgctxt "female"
+msgid "Copied %1$s #%2$d"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:939
+#, php-format
+msgctxt "default"
+msgid "%1$s successfully copied."
+msgid_plural "%1$s successfully copied."
+msgstr[0] "%1$s copiato con successo."
+msgstr[1] "%1$s copiati con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:940
+#, php-format
+msgctxt "male"
+msgid "%1$s successfully copied."
+msgid_plural "%1$s successfully copied."
+msgstr[0] "%1$s copiato con successo."
+msgstr[1] "%1$s copiati con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:941
+#, php-format
+msgctxt "female"
+msgid "%1$s successfully copied."
+msgid_plural "%1$s successfully copied."
+msgstr[0] "%1$s copiata con successo."
+msgstr[1] "%1$s copiate con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:981
+#, php-format
+msgctxt "default"
+msgid "Do you confirm the copy of the following %1$s?"
+msgid_plural "Do you confirm the copy of the following %1$s?"
+msgstr[0] "Confermi la copia del seguente %1$s?"
+msgstr[1] "Confermi la copia dei seguenti %1$s?"
+
+#: app/src/Model/Mod/ModActionTrait.php:982
+#, php-format
+msgctxt "male"
+msgid "Do you confirm the copy of the following %1$s?"
+msgid_plural "Do you confirm the copy of the following %1$s?"
+msgstr[0] "Confermi la copia del seguente %1$s?"
+msgstr[1] "Confermi la copia dei seguenti %1$s?"
+
+#: app/src/Model/Mod/ModActionTrait.php:983
+#, php-format
+msgctxt "female"
+msgid "Do you confirm the copy of the following %1$s?"
+msgid_plural "Do you confirm the copy of the following %1$s?"
+msgstr[0] "Confermi la copia della seguente %1$s?"
+msgstr[1] "Confermi la copia delle seguenti %1$s?"
+
+#: app/src/Model/Mod/ModActionTrait.php:1001
+#, php-format
+msgid "Export %1$s"
+msgstr "Esporta %1$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:1268
+#, php-format
+msgid "Bulk %1$s of %2$d %3$s"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:1268
+msgid "Deletion"
+msgstr "Cancellazione"
+
+#: app/src/Model/Mod/ModActionTrait.php:1499
+msgid "Successfully logged out."
+msgstr "Disconnesso con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:1518
+#: app/view/back/controller/user/login.php:72
+#: app/view/back/controller/user/login.php:74 app/view/front/base/login.php:108
+#: app/view/front/base/login.php:110
+#: app/view/front/controller/member/signup.php:182
+#: app/view/front/controller/member/signup.php:184
+msgid "Password reset"
+msgstr "Reset password"
+
+#: app/src/Model/Mod/ModActionTrait.php:1621
+msgid "The url address you requested seems to be out of date or incorrect."
+msgstr "L'indirizzo URL richiesto sembra scaduto o errato."
+
+#: app/src/Model/Mod/ModActionTrait.php:1741
+#: app/src/Model/Mod/ModActionTrait.php:1955
+#, php-format
+msgid "%1$s %2$s by %3$s"
+msgstr ""
+
+#: app/src/Model/Mod/ModActionTrait.php:1749
+msgid "You can now log in with your new password."
+msgstr "Ora puoi accedere con la nuova password."
+
+#: app/src/Model/Mod/ModActionTrait.php:1794
+#, php-format
+msgid "%1$s %2$s request from %3$s"
+msgstr "Richiesta di %2$s %1$s da %3$s"
+
+#: app/src/Model/Mod/ModActionTrait.php:1842
+msgid ""
+"If the email entered is correct, you will receive an email with a link to "
+"reset your password."
+msgstr ""
+"Se l'email inserita è corretta, riceverai un'email con un link per "
+"reimpostare la password."
+
+#: app/src/Model/Mod/ModActionTrait.php:1966
+#, php-format
+msgctxt "default"
+msgid "%1$s successfully confirmed."
+msgstr "%1$s confermato con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:1967
+#, php-format
+msgctxt "male"
+msgid "%1$s successfully confirmed."
+msgstr "%1$s confermato con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:1968
+#, php-format
+msgctxt "female"
+msgid "%1$s successfully confirmed."
+msgstr "%1$s confermata con successo."
+
+#: app/src/Model/Mod/ModActionTrait.php:1986
+#, fuzzy
+#| msgid "The url address you requested seems to be out of date or incorrect."
+msgid "The url address you requested seems to be expired or incorrect."
+msgstr "L'indirizzo URL richiesto sembra scaduto o errato."
+
+#: app/src/Model/Mod/ModActionTrait.php:2297
+#, php-format
+msgctxt "default"
+msgid "Added %1$d %2$s -> %3$s -> %4$s"
+msgid_plural "Added %1$d %2$s -> %3$s -> %4$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Model/Mod/ModActionTrait.php:2298
+#, php-format
+msgctxt "male"
+msgid "Added %1$d %2$s -> %3$s -> %4$s"
+msgid_plural "Added %1$d %2$s -> %3$s -> %4$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Model/Mod/ModActionTrait.php:2299
+#, php-format
+msgctxt "female"
+msgid "Added %1$d %2$s -> %3$s -> %4$s"
+msgid_plural "Added %1$d %2$s -> %3$s -> %4$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/src/Model/Mod/ModActionTrait.php:2309
+msgid "Operation not performed."
+msgstr "Operazione non eseguita."
+
+#: app/src/Model/Mod/ModActionTrait.php:2317
+#, php-format
+msgctxt "default"
+msgid "%1$d item was already present."
+msgid_plural "%1$d items were already present."
+msgstr[0] "%1$d elemento era già presente."
+msgstr[1] "%1$d elementi erano già presenti."
+
+#: app/src/Model/Mod/ModActionTrait.php:2318
+#, php-format
+msgctxt "male"
+msgid "%1$d item was already present."
+msgid_plural "%1$d items were already present."
+msgstr[0] "%1$d elemento era già presente."
+msgstr[1] "%1$d elementi erano già presenti."
+
+#: app/src/Model/Mod/ModActionTrait.php:2319
+#, php-format
+msgctxt "female"
+msgid "%1$d item was already present."
+msgid_plural "%1$d items were already present."
+msgstr[0] "%1$d elemento era già presente."
+msgstr[1] "%1$d elementi erano già presenti."
+
+#: app/src/Model/Mod/ModAuthAdapterTrait.php:34
+#: app/src/Model/Mod/ModAuthAdapterTrait.php:82
+msgid "The entered credentials do not seem correct."
+msgstr "Le credenziali inserite non sembrano corrette."
+
+#: app/src/Model/Mod/ModValidateTrait.php:466
+#, php-format
+msgid "The value of the %1$s field must belong to the following types: %2$s"
+msgstr ""
+"Il valore del campo %1$s deve appartenere alle seguenti tipologie: %2$s"
+
+#: app/src/Model/Mod/ModValidateTrait.php:507
+msgid "Captcha"
+msgstr "Captcha"
+
+#: app/src/Model/Mod/ModValidateTrait.php:563
+#, php-format
+msgid ""
+"To change the %1$s field it is necessary to upload again the reference image."
+msgstr ""
+"Per cambiare il campo %1$s è necessario ricaricare nuovamente l'immagine di "
+"riferimento."
+
+#: app/src/Model/Mod/ModValidateTrait.php:599
+#, php-format
+msgid "You cannot delete a %1$s element."
+msgstr "Non puoi cancellare un elemento %1$s."
+
+#: app/src/Model/Mod/ModValidateTrait.php:663
+#: app/src/Model/Mod/ModValidateTrait.php:681
+#, php-format
+msgid "At least one %1$s element must always exist."
+msgstr "Deve esistere almeno un elemento %1$s."
+
+#: app/src/Model/Mod/ModValidateTrait.php:667
+#: app/src/Model/Mod/ModValidateTrait.php:685
+#: app/src/Model/Mod/ModValidateTrait.php:787
+#, php-format
+msgid "A %1$s element must always be active."
+msgstr "Un elemento %1$s deve sempre essere attivo."
+
+#: app/src/Model/Mod/ModValidateTrait.php:884
+#, php-format
+msgid "The value of the %1$s field already exists."
+msgstr "Il valore del campo %1$s esiste già."
+
+#: app/view/back/base/filter/index-active.php:25
+#: app/view/back/base/filter/index-main.php:25
+#: app/view/back/base/filter/index-preselected.php:25
+msgid "False"
+msgstr ""
+
+#: app/view/back/base/filter/index-active.php:26
+#: app/view/back/base/filter/index-main.php:26
+#: app/view/back/base/filter/index-preselected.php:26
+msgid "True"
+msgstr ""
+
+#: app/view/back/controller/formfield/partial/add-type.php:43
+#: app/view/back/controller/formfield/partial/edit-type.php:45
+msgid "Fields"
+msgstr "Campi"
+
+#: app/view/back/controller/formfield/partial/add-type.php:55
+#: app/view/back/controller/formfield/partial/edit-type.php:57
+msgid "Blocks"
+msgstr "Blocchi"
+
+#: app/view/back/controller/formfield/partial/add-type.php:67
+#: app/view/back/controller/formfield/partial/edit-type.php:69
+msgid "Special"
+msgstr "Speciali"
+
+#: app/view/back/controller/formfield/partial/type/input_file_multiple/add-1-max_files.php:31
+#: app/view/back/controller/formfield/partial/type/input_file_multiple/edit-1-max_files.php:31
+#: app/view/back/controller/formfield/partial/type/recommendation/add-2-max_files.php:31
+#: app/view/back/controller/formfield/partial/type/recommendation/edit-2-max_files.php:31
+#: app/view/front/controller/formfield/partial/fill-input_file_multiple.php:74
+#: app/view/front/controller/formfield/partial/fill-input_file_multiple.php:199
+#: app/view/front/controller/formvalue/partial/edit-data.php:76
+#: app/view/front/controller/formvalue/partial/edit-data.php:198
+#, php-format
+msgid "Maximum number of files: %1$d."
+msgstr "Numero massimo di file: %1$d."
+
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/add-1-values.php:25
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/edit-1-values.php:25
+#: app/view/back/controller/formfield/partial/type_multilang/radio/add-1-values.php:25
+#: app/view/back/controller/formfield/partial/type_multilang/radio/edit-1-values.php:25
+#: app/view/back/controller/formfield/partial/type_multilang/select/add-1-values.php:25
+#: app/view/back/controller/formfield/partial/type_multilang/select/edit-1-values.php:25
+msgid "Enter a value per line."
+msgstr "Inserire un valore per riga."
+
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/add-1-values.php:27
+#: app/view/back/controller/formfield/partial/type_multilang/checkbox/edit-1-values.php:27
+#: app/view/back/controller/formfield/partial/type_multilang/radio/add-1-values.php:27
+#: app/view/back/controller/formfield/partial/type_multilang/radio/edit-1-values.php:27
+#: app/view/back/controller/formfield/partial/type_multilang/select/add-1-values.php:27
+#: app/view/back/controller/formfield/partial/type_multilang/select/edit-1-values.php:27
+#, php-format
+msgid "You can specify the key-value pair in the form: %1$s."
+msgstr "È possibile specificare la coppia chiave-valore nel formato: %1$s."
+
+#: app/view/back/controller/formvalue/partial/reset-member_main.php:68
+#, php-format
+msgctxt "default"
+msgid "Delete all main %1$s."
+msgstr "Cancella tutti i %1$s principali."
+
+#: app/view/back/controller/formvalue/partial/reset-member_main.php:69
+#, php-format
+msgctxt "male"
+msgid "Delete all main %1$s."
+msgstr "Cancella tutti i %1$s principali."
+
+#: app/view/back/controller/formvalue/partial/reset-member_main.php:70
+#, php-format
+msgctxt "female"
+msgid "Delete all main %1$s."
+msgstr "Cancella tutti le %1$s principali."
+
+#: app/view/back/controller/formvalue/partial/reset-member_not_main_in.php:74
+#, php-format
+msgctxt "default"
+msgid ""
+"Delete all non-main %1$s who have filled out some %2$s in the selected %3$s."
+msgstr ""
+"Cancella tutti i %1$s non-principali che hanno compilato dei %2$s nella %3$s "
+"selezionata."
+
+#: app/view/back/controller/formvalue/partial/reset-member_not_main_in.php:75
+#, php-format
+msgctxt "male"
+msgid ""
+"Delete all non-main %1$s who have filled out some %2$s in the selected %3$s."
+msgstr ""
+"Cancella tutti i %1$s non-principali che hanno compilato dei %2$s nella %3$s "
+"selezionata."
+
+#: app/view/back/controller/formvalue/partial/reset-member_not_main_in.php:76
+#, php-format
+msgctxt "female"
+msgid ""
+"Delete all non-main %1$s who have filled out some %2$s in the selected %3$s."
+msgstr ""
+"Cancella tutti le %1$s non-principali che hanno compilato dei %2$s nella "
+"%3$s selezionata."
+
+#: app/view/back/controller/formvalue/partial/reset-member_not_main_out.php:74
+#, php-format
+msgctxt "default"
+msgid "Delete all non-main %1$s who have not filled in any %2$s in any %3$s."
+msgstr ""
+"Cancella tutti i %1$s non-principali che non hanno compilato alcun %2$s in "
+"nessuna %3$s."
+
+#: app/view/back/controller/formvalue/partial/reset-member_not_main_out.php:75
+#, php-format
+msgctxt "male"
+msgid "Delete all non-main %1$s who have not filled in any %2$s in any %3$s."
+msgstr ""
+"Cancella tutti i %1$s non-principali che non hanno compilato alcun %2$s in "
+"nessuna %3$s."
+
+#: app/view/back/controller/formvalue/partial/reset-member_not_main_out.php:76
+#, php-format
+msgctxt "female"
+msgid "Delete all non-main %1$s who have not filled in any %2$s in any %3$s."
+msgstr ""
+"Cancella tutti le %1$s non-principali che non hanno compilato alcun %2$s in "
+"nessuna %3$s."
+
+#: app/view/back/controller/member/control/index-status_id.php:67
+msgid "Completed"
+msgstr "Completato"
+
+#: app/view/back/controller/member/control/index-status_id.php:71
+msgid "Pending"
+msgstr "In sospeso"
+
+#: app/view/back/controller/setting/partial/type/input_file/add-1-value.php:17
+#: app/view/back/controller/setting/partial/type/input_file/edit-1-value.php:17
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:17
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:17
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/add-1-value.php:17
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/edit-1-value.php:17
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:17
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:17
+#: app/view/default/base/partial/add-file.php:19
+#: app/view/default/base/partial/add-img.php:19
+#: app/view/default/base/partial/add-multilang-file.php:19
+#: app/view/default/base/partial/edit-file.php:19
+#: app/view/default/base/partial/edit-img.php:19
+#: app/view/default/base/partial/edit-multilang-file.php:19
+msgid "The selected file exceeds the allowed size."
+msgstr "Il file selezionato supera la dimensione consentita."
+
+#: app/view/back/controller/setting/partial/type/input_file/add-1-value.php:18
+#: app/view/back/controller/setting/partial/type/input_file/edit-1-value.php:18
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:18
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:18
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/add-1-value.php:18
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/edit-1-value.php:18
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:18
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:18
+#: app/view/default/base/partial/add-file.php:20
+#: app/view/default/base/partial/add-img.php:20
+#: app/view/default/base/partial/add-multilang-file.php:20
+#: app/view/default/base/partial/edit-file.php:20
+#: app/view/default/base/partial/edit-img.php:20
+#: app/view/default/base/partial/edit-multilang-file.php:20
+msgid "The sum of the selected files exceeds the allowable size."
+msgstr "La somma dei file selezionati supera la dimensione consentita."
+
+#: app/view/back/controller/setting/partial/type/input_file/add-1-value.php:19
+#: app/view/back/controller/setting/partial/type/input_file/edit-1-value.php:19
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:19
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:19
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/add-1-value.php:19
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/edit-1-value.php:19
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:19
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:19
+#: app/view/default/base/partial/add-file.php:21
+#: app/view/default/base/partial/add-img.php:21
+#: app/view/default/base/partial/add-multilang-file.php:21
+#: app/view/default/base/partial/edit-file.php:21
+#: app/view/default/base/partial/edit-img.php:21
+#: app/view/default/base/partial/edit-multilang-file.php:21
+msgid "The selected file type is not allowed."
+msgstr "Il tipo di file selezionato non è consentito."
+
+#: app/view/back/controller/setting/partial/type/input_file/add-1-value.php:41
+#: app/view/back/controller/setting/partial/type/input_file/edit-1-value.php:41
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:52
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:52
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/add-1-value.php:41
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/edit-1-value.php:41
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:52
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:52
+#, php-format
+msgid "Allowed extensions: %1$s."
+msgstr "Estensioni consentite: %1$s."
+
+#: app/view/back/controller/setting/partial/type/input_file/add-1-value.php:45
+#: app/view/back/controller/setting/partial/type/input_file/edit-1-value.php:45
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:56
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:56
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/add-1-value.php:45
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/edit-1-value.php:45
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:56
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:56
+#: app/view/front/controller/formfield/partial/fill-input_file_multiple.php:78
+#: app/view/front/controller/formvalue/partial/edit-data.php:80
+#, php-format
+msgid "Maximum weight per file: %1$s."
+msgstr "Peso massimo per file: %1$s."
+
+#: app/view/back/controller/setting/partial/type/input_file/edit-1-value.php:91
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:104
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file/edit-1-value.php:91
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:104
+#: app/view/default/base/partial/edit-file.php:64
+#: app/view/default/base/partial/edit-img.php:66
+#: app/view/default/base/partial/edit-multilang-file.php:64
+#: app/view/front/controller/form/fill.php:295
+#: app/view/front/controller/formfield/partial/fill-input_file_multiple.php:120
+#: app/view/front/controller/formfield/partial/fill-input_file_multiple.php:229
+#: app/view/front/controller/formvalue/partial/edit-data.php:118
+#: app/view/front/controller/formvalue/partial/edit-data.php:229
+#: var/develop/cache/dynamic_translation.php:7
+msgid "delete"
+msgstr "Cancella"
+
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:43
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:43
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:43
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:43
+#: var/develop/cache/missing_translation.php:76
+#, php-format
+msgid "Recommended width: %1$d pixel."
+msgstr ""
+
+#: app/view/back/controller/setting/partial/type/input_file_img/add-1-value.php:47
+#: app/view/back/controller/setting/partial/type/input_file_img/edit-1-value.php:47
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/add-1-value.php:47
+#: app/view/back/controller/setting/partial/type_multilang/multilang_input_file_img/edit-1-value.php:47
+#: var/develop/cache/missing_translation.php:77
+#, php-format
+msgid "Minimum dimensions: %1$dx%2$d pixel."
+msgstr ""
+
+#: app/view/back/controller/user/login.php:58
+#: app/view/back/controller/user/reset.php:61
+#: app/view/back/layout/master.php:38 app/view/default/base/add.php:199
+#: app/view/default/base/delete-bulk.php:193
+#: app/view/default/base/delete.php:148 app/view/default/base/edit.php:205
+#: app/view/default/base/export.php:199 app/view/default/base/index.php:201
+#: app/view/default/base/reset.php:197 app/view/front/base/login.php:71
+#: app/view/front/controller/form/fill.php:113
+#: app/view/front/controller/member/reset.php:74
+#: app/view/front/controller/member/setting.php:24
+#: app/view/front/controller/member/setting.php:70
+#: app/view/front/controller/member/signup.php:145
+#: app/view/front/partial/form-delete.php:42
+msgid "Please wait"
+msgstr "Attendere prego"
+
+#: app/view/back/controller/user/reset.php:62
+#: app/view/front/controller/member/reset.php:77
+msgid "Submit"
+msgstr "Invia"
+
+#: app/view/back/layout/master.php:36 app/view/front/layout/master.php:39
+msgid "Connected to internet."
+msgstr "Connesso a internet."
+
+#: app/view/back/layout/master.php:37 app/view/front/layout/master.php:40
+msgid "No internet connection."
+msgstr "Nessuna connessione internet."
+
+#: app/view/back/layout/master.php:39 app/view/back/partial/codemirror.php:36
+msgid "Loading"
+msgstr "Attendere"
+
+#: app/view/back/layout/master.php:40
+#: var/develop/cache/missing_translation.php:37
+msgid "Click to load rich text editor"
+msgstr ""
+
+#: app/view/back/layout/master.php:41
+#: var/develop/cache/missing_translation.php:38
+msgid "TinyMCE will initialize when you click here"
+msgstr ""
+
+#: app/view/back/partial/footer-auth.php:24
+#: app/view/email/partial/footer-admin.php:49
+#: app/view/email/partial/footer.php:46
+#: var/develop/cache/missing_translation.php:58
+#, php-format
+msgid "Powered by %1$s"
+msgstr ""
+
+#: app/view/back/partial/footer.php:39 app/view/front/partial/footer.php:90
+#: var/develop/cache/missing_translation.php:44
+#, php-format
+msgid "© Copyright %1$d %2$s All rights reserved."
+msgstr ""
+
+#: app/view/back/partial/footer.php:52 app/view/front/partial/footer.php:103
+msgid "Back to top"
+msgstr "Torna su"
+
+#: app/view/back/partial/header-auth.php:19
+#: app/view/back/partial/nav-top.php:44 app/view/front/partial/nav-top.php:80
+#, php-format
+msgid "Toggle theme (%1$s)"
+msgstr "Cambia tema (%1$s)"
+
+#: app/view/back/partial/header-auth.php:19
+#: app/view/back/partial/header-auth.php:22
+#: app/view/back/partial/nav-top.php:44 app/view/back/partial/nav-top.php:55
+#: app/view/front/partial/nav-top.php:80 app/view/front/partial/nav-top.php:91
+msgid "light"
+msgstr "chiaro"
+
+#: app/view/back/partial/header-auth.php:27
+#: app/view/back/partial/nav-top.php:64 app/view/front/partial/nav-top.php:100
+msgid "dark"
+msgstr "scuro"
+
+#: app/view/back/partial/nav-aside.php:60
+msgid "Toggle sidebar"
+msgstr "Barra laterale"
+
+#: app/view/back/partial/nav-aside.php:86
+#: app/view/back/partial/nav-aside.php:88 app/view/front/partial/footer.php:57
+msgid "Terms of Service"
+msgstr ""
+
+#: app/view/back/partial/nav-aside.php:104
+#: app/view/back/partial/nav-aside.php:106 app/view/front/layout/master.php:43
+#: app/view/front/layout/master.php:47 app/view/front/layout/master.php:48
+#: app/view/front/partial/nav-bottom.php:82
+#: app/view/front/partial/nav-bottom.php:84
+#: var/develop/cache/missing_translation.php:43
+msgid "Cookie Policy"
+msgstr ""
+
+#: app/view/back/partial/nav-top.php:26
+#, php-format
+msgid "Install %1$s"
+msgstr "Installa %1$s"
+
+#: app/view/back/partial/nav-top.php:28
+#, php-format
+msgid "You can install %1$s on your device by tapping on the button above!"
+msgstr "Puoi installare %1$s sul tuo dispositivo premendo il pulsante in alto!"
+
+#: app/view/back/partial/nav-top.php:32
+msgid "Install"
+msgstr "Installa"
+
+#: app/view/back/partial/nav-top.php:48 app/view/front/partial/nav-top.php:84
+msgid "Theme"
+msgstr "Tema"
+
+#: app/view/back/partial/nav-top.php:110 app/view/back/partial/nav-top.php:112
+#: app/view/front/partial/nav-top.php:163
+#: app/view/front/partial/nav-top.php:166
+msgid "Profile"
+msgstr "Profilo"
+
+#: app/view/back/partial/nav-top.php:141 app/view/back/partial/nav-top.php:143
+msgid "Clear cache"
+msgstr "Svuota cache"
+
+#: app/view/back/partial/nav-top.php:156 app/view/back/partial/nav-top.php:158
+msgid "Public website"
+msgstr "Sito pubblico"
+
+#: app/view/default/base/add.php:202 app/view/default/base/edit.php:208
+#: app/view/front/controller/form/fill.php:116
+msgid "Save"
+msgstr "Salva"
+
+#: app/view/default/base/export.php:202
+msgid "Export"
+msgstr "Esporta"
+
+#: app/view/default/base/index.php:199
+#: app/view/front/controller/member/setting.php:68
+#: app/view/front/partial/form-delete.php:40
+msgid "Do you confirm the operation?"
+msgstr "Confermi l'operazione?"
+
+#: app/view/default/base/index.php:200
+#: app/view/front/controller/member/setting.php:69
+#: app/view/front/partial/form-delete.php:41
+msgid "Warning"
+msgstr "Attenzione"
+
+#: app/view/default/base/index.php:363
+#: app/view/default/partial/panel-mod.php:95
+#, php-format
+msgid "Total: %1$d"
+msgstr "Totale: %1$d"
+
+#: app/view/default/base/offline.php:247
+msgid "we cannot provide you with the requested contents."
+msgstr "non possiamo fornirti i contenuti richiesti."
+
+#: app/view/default/base/offline.php:248
+msgid "Check your connection and try again."
+msgstr "Controlla la tua connessione e riprova."
+
+#: app/view/default/base/partial/add-img_watermark_position.php:43
+#: app/view/default/base/partial/add-parent_id.php:43
+#: app/view/default/base/partial/edit-img_watermark_position.php:45
+#: app/view/default/base/partial/edit-parent_id.php:45
+msgctxt "default"
+msgid "none"
+msgstr "nessuno"
+
+#: app/view/default/base/partial/add-img_watermark_position.php:44
+#: app/view/default/base/partial/add-parent_id.php:45
+#: app/view/default/base/partial/edit-img_watermark_position.php:46
+#: app/view/default/base/partial/edit-parent_id.php:47
+msgctxt "female"
+msgid "none"
+msgstr "nessuna"
+
+#: app/view/default/base/partial/add-parent_id.php:44
+#: app/view/default/base/partial/edit-parent_id.php:46
+msgctxt "male"
+msgid "none"
+msgstr "nessuno"
+
+#: app/view/default/base/partial/add-perms.php:34
+#: app/view/default/base/partial/delete-perms.php:32
+#: app/view/default/base/partial/edit-perms.php:34
+#: app/view/default/base/partial/view-perms.php:32
+msgid "Module"
+msgstr "Modulo"
+
+#: app/view/default/base/partial/delete-gender.php:26
+msgid "Male"
+msgstr "Maschio"
+
+#: app/view/default/base/partial/delete-gender.php:26
+msgid "Female"
+msgstr "Femmina"
+
+#: app/view/default/base/partial/index-name.php:24
+#: var/develop/cache/dynamic_translation.php:11
+msgid "edit"
+msgstr "Modifica"
+
+#: app/view/default/base/widget/index.php:30
+msgid "View all"
+msgstr "Vedi tutto"
+
+#: app/view/default/controller/error/401.php:15
+msgid "You do not have permission to access the resource."
+msgstr "Non hai i permessi per accedere alla risorsa."
+
+#: app/view/default/controller/error/404.php:15
+msgid "Page not found."
+msgstr "Pagina non trovata."
+
+#: app/view/default/partial/address-company.php:60
+msgid "Reg. n."
+msgstr ""
+
+#: app/view/default/partial/address-company.php:65
+#: app/view/default/partial/address-credits.php:35
+msgid "REA"
+msgstr ""
+
+#: app/view/default/partial/address-company.php:70
+msgid "Social cap."
+msgstr "Cap. sociale"
+
+#: app/view/default/partial/address-company.php:83
+#: app/view/default/partial/address-credits.php:41
+#: var/develop/cache/missing_translation.php:41
+msgid "Tel"
+msgstr ""
+
+#: app/view/default/partial/address-company.php:97
+msgid "Mobile"
+msgstr "Cellulare"
+
+#: app/view/default/partial/address-company.php:111
+msgid "Fax"
+msgstr ""
+
+#: app/view/default/partial/address-company.php:149
+msgid "PEC"
+msgstr ""
+
+#: app/view/default/partial/address-company.php:163
+#: app/view/default/partial/address-credits.php:53
+msgid "Website"
+msgstr "Sito web"
+
+#: app/view/default/partial/deps.php:17
+msgid "Dependencies"
+msgstr "Dipendenze"
+
+#: app/view/default/partial/flash-modal.php:50
+msgid "Reset"
+msgstr "Annulla"
+
+#: app/view/default/partial/form-search.php:17
+msgid "Search"
+msgstr "Cerca"
+
+#: app/view/default/partial/nav-siblings.php:23
+msgid "Previous"
+msgstr "Precedente"
+
+#: app/view/default/partial/nav-siblings.php:34
+msgid "Next"
+msgstr "Seguente"
+
+#: app/view/default/partial/pagination.php:15
+msgid "Pagination"
+msgstr "Paginazione"
+
+#: app/view/default/partial/panel-mod.php:27
+#: app/view/default/partial/panel-mod.php:28
+#: var/develop/cache/dynamic_translation.php:6
+msgid "view"
+msgstr "Vedi"
+
+#: app/view/default/partial/section-footer.php:50
+msgid "Back"
+msgstr "Indietro"
+
+#: app/view/default/partial/share.php:17
+msgid "Share on"
+msgstr "Condividi su"
+
+#: app/view/default/partial/share.php:23 app/view/default/partial/share.php:30
+#: app/view/default/partial/share.php:37 app/view/default/partial/share.php:44
+#: app/view/default/partial/share.php:51 app/view/default/partial/share.php:58
+#, php-format
+msgid "Share on %1$s"
+msgstr "Condividi su %1$s"
+
+#: app/view/default/partial/sse.php:28
+#, php-format
+msgid "Some page elements have changed, please %1$s."
+msgstr "Alcuni elementi della pagina sono cambiati, per favore %1$s."
+
+#: app/view/default/partial/sse.php:28 app/view/default/partial/sse.php:34
+msgid "reload the page"
+msgstr "ricarica la pagina"
+
+#: app/view/default/partial/sse.php:34
+#, php-format
+msgid "Data retrieval error, please %1$s."
+msgstr "Errore durante il recupero dei dati, per favore %1$s."
+
+#: app/view/default/partial/uppy-awss3.php:105
+#: app/view/default/partial/uppy-standalone.php:150
+#: app/view/default/partial/uppy-standalone.php:152
+#: app/view/front/partial/form-delete.php:167
+msgid "file"
+msgid_plural "files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/view/default/partial/uppy-standalone.php:94
+msgid "This file type is not allowed"
+msgstr "Questa tipologia di file non è consentita"
+
+#: app/view/default/partial/uppy-standalone.php:110
+msgid "This upload seems stalled"
+msgstr "Questo upload sembra bloccato"
+
+#: app/view/default/partial/uppy-standalone.php:126
+msgid "This upload is no longer stalled"
+msgstr "Questo upload non è più bloccato"
+
+#: app/view/default/partial/uppy-standalone.php:171
+#, php-format
+msgctxt "default"
+msgid "%1$s successfully uploaded."
+msgid_plural "%1$s successfully uploaded."
+msgstr[0] "%1$s caricato con successo."
+msgstr[1] "%1$s caricati con successo."
+
+#: app/view/default/partial/uppy-standalone.php:172
+#, php-format
+msgctxt "male"
+msgid "%1$s successfully uploaded."
+msgid_plural "%1$s successfully uploaded."
+msgstr[0] "%1$s caricato con successo."
+msgstr[1] "%1$s caricati con successo."
+
+#: app/view/default/partial/uppy-standalone.php:173
+#, php-format
+msgctxt "female"
+msgid "%1$s successfully uploaded."
+msgid_plural "%1$s successfully uploaded."
+msgstr[0] "%1$s caricata con successo."
+msgstr[1] "%1$s caricate con successo."
+
+#: app/view/email/base/reset.php:15
+#: app/view/email/controller/formvalue/edit.php:4
+#: app/view/email/controller/member/sendkey.php:4
+#: app/view/email/controller/member/signup.php:4
+#, php-format
+msgid "Hi %1$s"
+msgstr "Ciao %1$s"
+
+#: app/view/email/base/reset.php:19
+#, php-format
+msgid ""
+"someone has requested a password reset for the following account at %1$s"
+msgstr ""
+"qualcuno ha richiesto la reimpostazione della password per il seguente "
+"account presso %1$s"
+
+#: app/view/email/base/reset.php:33
+msgid "To reset your password, click the following link"
+msgstr "Per reimpostare la password, clicca il seguente link"
+
+#: app/view/email/base/reset.php:71
+msgid "If it was an error, ignore this email and nothing will happen."
+msgstr ""
+"Se si tratta di un errore, puoi ignorare questa email e non succederà nulla."
+
+#: app/view/email/base/reset.php:75
+msgid "On this occasion, we send our best regards."
+msgstr "Con l'occasione porgiamo i nostri più cordiali saluti."
+
+#: app/view/email/controller/form/fill-admin.php:23
+#: app/view/email/controller/member/delete-admin.php:17
+#: app/view/email/controller/member/signup-admin.php:17
+#, php-format
+msgid ""
+"The user has expressed consent to the processing of personal data pursuant "
+"to art. 13 of the legislative decrete n. 196/2003 and 14 of the legislative "
+"(UE) 2016/679 (GDPR) as per the %1$s statement on the website."
+msgstr ""
+
+#: app/view/email/controller/form/fill-recommendation-signup.php:4
+#: app/view/email/controller/form/fill-recommendation.php:4
+#, php-format
+msgid "Dear %1$s"
+msgstr ""
+
+#: app/view/email/controller/form/fill-recommendation-signup.php:8
+#, php-format
+msgid "We proceeded to create a new account for you at %1$s."
+msgstr ""
+
+#: app/view/email/controller/form/fill-recommendation-signup.php:21
+#: app/view/email/controller/member/sendkey.php:14
+#: app/view/email/controller/member/signup.php:18
+msgid "Click the following link to confirm your email"
+msgstr "Clicca il link seguente per confermare la tua email"
+
+#: app/view/email/controller/form/fill-recommendation-signup.php:61
+#: app/view/email/controller/member/sendkey.php:52
+#: app/view/email/controller/member/signup.php:56
+msgid "Below is a summary of your personal data"
+msgstr "Di seguito è riportato un riepilogo dei tuoi dati personali"
+
+#: app/view/email/controller/form/fill-recommendation-signup.php:77
+#: app/view/email/controller/member/signup.php:78
+#, php-format
+msgid "Access now the site %1$s logging in with your credentials!"
+msgstr "Accedi adesso al sito %1$s loggandoti con le tue credenziali!"
+
+#: app/view/email/controller/form/fill-recommendation.php:8
+#, php-format
+msgid "You've received a new recommendation request at %1$s from"
+msgstr ""
+
+#: app/view/email/controller/form/fill-recommendation.php:19
+#, php-format
+msgid ""
+"Access now the site %1$s logging in with your credentials you received in a "
+"separate message."
+msgstr ""
+"Accedi adesso al sito %1$s loggandoti con le tue credenziali che hai "
+"ricevuto in un altro messaggio."
+
+#: app/view/email/controller/form/fill-recommendation.php:33
+msgid ""
+"The aforementioned student is waiting for your letter of recommendation to "
+"be uploaded!"
+msgstr ""
+
+#: app/view/email/controller/form/fill.php:7
+#, php-format
+msgid "Congratulations %1$s"
+msgstr "Congratulazioni %1$s"
+
+#: app/view/email/controller/form/fill.php:11
+#, php-format
+msgid "You have successfully completed all application forms in category %1$s."
+msgstr ""
+"Hai completato con successo tutti gli application forms nella categoria %1$s."
+
+#: app/view/email/controller/form/fill.php:26
+#, php-format
+msgid ""
+"Now you are allowed to print all application forms you have filled going to "
+"%1$s page."
+msgstr ""
+"Ora puoi stampare tutti gli application forms che hai compilato andando alla "
+"pagina %1$s."
+
+#: app/view/email/controller/form/fill.php:39
+#: app/view/email/controller/formvalue/edit.php:23
+msgid "See you soon!"
+msgstr "A presto!"
+
+#: app/view/email/controller/formvalue/edit.php:8
+#, php-format
+msgid "your recommendation request has been accepted at %1$s"
+msgstr ""
+
+#: app/view/email/controller/formvalue/edit.php:19
+msgid ""
+"If all recommendation requests made have been accepted, you can complete all "
+"application forms."
+msgstr ""
+
+#: app/view/email/controller/member/sendkey.php:8
+#, php-format
+msgid "your email address %1$s is still not confirmed."
+msgstr "il tuo indirizzo email %1$s non è ancora confermato."
+
+#: app/view/email/controller/member/sendkey.php:68
+#: app/view/email/controller/member/signup.php:72
+msgctxt "default"
+msgid "selected during registration"
+msgstr "selezionato in fase di registrazione"
+
+#: app/view/email/controller/member/sendkey.php:69
+#: app/view/email/controller/member/signup.php:73
+msgctxt "male"
+msgid "selected during registration"
+msgstr "selezionato in fase di registrazione"
+
+#: app/view/email/controller/member/sendkey.php:70
+#: app/view/email/controller/member/signup.php:74
+msgctxt "female"
+msgid "selected during registration"
+msgstr "selezionata in fase di registrazione"
+
+#: app/view/email/controller/member/sendkey.php:74
+msgid ""
+"If you do not confirm your email, your account will automatically be "
+"canceled in the future."
+msgstr ""
+"Se non confermi la tua email, il tuo account verrà automaticamente "
+"cancellato in futuro."
+
+#: app/view/email/controller/member/signup.php:8
+#, php-format
+msgid "thank you for registering with the site %1$s."
+msgstr "grazie per esserti registrato al sito %1$s."
+
+#: app/view/email/controller/member/signup.php:88
+msgid "We are waiting for you!"
+msgstr "Ti stiamo aspettando!"
+
+#: app/view/email/controller/user/notify.php:19
+msgid "Date"
+msgstr "Data"
+
+#: app/view/email/partial/footer-admin.php:20
+msgid "Technical data"
+msgstr "Dati tecnici"
+
+#: app/view/email/partial/footer-admin.php:25
+msgid "Submit page"
+msgstr "Pagina di invio"
+
+#: app/view/email/partial/footer-admin.php:27
+msgid "Referer page"
+msgstr "Pagina di provenienza"
+
+#: app/view/email/partial/footer-admin.php:29
+msgid "Browser languages"
+msgstr "Lingue browser"
+
+#: app/view/email/partial/footer-admin.php:32
+msgid "Browser"
+msgstr ""
+
+#: app/view/email/partial/footer.php:22
+#, php-format
+msgid ""
+"You receive this email because you have consented to the processing of "
+"personal data pursuant to art. 13 of the legislative decrete n. 196/2003 and "
+"14 of the legislative (UE) 2016/679 (GDPR) as per the %1$s statement on the "
+"website."
+msgstr ""
+
+#: app/view/email/partial/nota-bene.php:13
+msgid "NOTA BENE"
+msgstr ""
+
+#: app/view/email/partial/nota-bene.php:15
+msgid ""
+"Recommendation letters must be written on a headed paper of the University "
+"concerned and signed. All recommendation letters without a headed paper and "
+"not signed will not be considered and the student’s application will be "
+"incomplete."
+msgstr ""
+
+#: app/view/email/partial/nota-bene.php:16
+msgid ""
+"Please, inform your student when you have uploaded the letter, as the "
+"student needs to complete and submit the application after all documents "
+"have been provided."
+msgstr ""
+
+#: app/view/email/partial/nota-bene.php:19
+#, php-format
+msgid ""
+"In case of technical problems, you can contact the following address: %1$s"
+msgstr ""
+
+#: app/view/email/partial/nota-bene.php:36
+msgid "Thank you for your attention"
+msgstr ""
+
+#: app/view/email/partial/nota-bene.php:37
+#, php-format
+msgid "The %1$s staff"
+msgstr ""
+
+#: app/view/front/base/login.php:62 app/view/front/controller/form/fill.php:103
+#: app/view/front/controller/member/reset.php:65
+#: app/view/front/controller/member/signup.php:136
+msgid "Required fields"
+msgstr "Campi obbligatori"
+
+#: app/view/front/controller/form/fill.php:273
+msgid "Status"
+msgstr "Stato"
+
+#: app/view/front/controller/form/fill.php:287
+#: var/develop/cache/dynamic_translation.php:8
+msgid "add"
+msgstr "Aggiungi"
+
+#: app/view/front/controller/form/index.php:36
+#: app/view/front/controller/form/index.php:59
+msgid "Header"
+msgstr "Intestazione"
+
+#: app/view/front/controller/form/index.php:80
+#: app/view/front/partial/nav-aside.php:202
+#, php-format
+msgid "Form %1$d"
+msgstr ""
+
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:168
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:192
+#, php-format
+msgid "Last email sent to teacher at %1$s"
+msgstr ""
+
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:170
+msgid "Waiting teacher's feedback"
+msgstr ""
+
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:178
+#, php-format
+msgid "The teacher declined the request at %1$s"
+msgstr ""
+
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:180
+msgid "Now you can complete all forms"
+msgstr ""
+
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:188
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:200
+#, php-format
+msgid "The teacher has uploaded the required documents at %1$s"
+msgstr ""
+
+#: app/view/front/controller/formfield/partial/fill-recommendation.php:190
+msgid "The teacher has not yet confirmed the operation"
+msgstr "L'insegnante non ha ancora confermato l'operazione"
+
+#: app/view/front/controller/formvalue/partial/view-data.php:33
+msgid "Notification date"
+msgstr "Data di notifica"
+
+#: app/view/front/controller/formvalue/partial/view-data.php:35
+msgid "File"
+msgid_plural "Files"
+msgstr[0] ""
+msgstr[1] ""
+
+#: app/view/front/controller/member/setting.php:22
+msgid "Didn't receive the confirmation email?"
+msgstr "Non hai ricevuto l'email di conferma?"
+
+#: app/view/front/controller/member/setting.php:29
+msgid "Send again"
+msgstr "Invia di nuovo"
+
+#: app/view/front/controller/member/setting.php:48
+msgid "Do you want to delete your account?"
+msgstr "Vuoi eliminare il tuo account?"
+
+#: app/view/front/controller/member/setting.php:53
+msgid "Delete account"
+msgstr "Elimina account"
+
+#: app/view/front/controller/member/signup.php:117
+#, php-format
+msgctxt "default"
+msgid "I have read the %1$s and agree"
+msgid_plural "I have read the %1$s and agree"
+msgstr[0] "Ho letto il %1$s e acconsento."
+msgstr[1] "Ho letto i %1$s e acconsento."
+
+#: app/view/front/controller/member/signup.php:118
+#, php-format
+msgctxt "male"
+msgid "I have read the %1$s and agree"
+msgid_plural "I have read the %1$s and agree"
+msgstr[0] "Ho letto il %1$s e acconsento."
+msgstr[1] "Ho letto i %1$s e acconsento."
+
+#: app/view/front/controller/member/signup.php:119
+#, php-format
+msgctxt "female"
+msgid "I have read the %1$s and agree"
+msgid_plural "I have read the %1$s and agree"
+msgstr[0] "Ho letto la %1$s e acconsento."
+msgstr[1] "Ho letto le %1$s e acconsento."
+
+#: app/view/front/layout/master.php:44
+msgid "More informations"
+msgstr "Maggiori informazioni"
+
+#: app/view/front/layout/master.php:51 app/view/front/layout/master.php:52
+msgid "contact us"
+msgstr "contattaci"
+
+#: app/view/front/partial/footer.php:41
+msgid "Links"
+msgstr ""
+
+#: app/view/front/partial/footer.php:55
+#, php-format
+msgid "This site is protected by reCAPTCHA and the Google %1$s and %2$s apply."
+msgstr ""
+
+#: app/view/front/partial/footer.php:64
+msgid "Contacts"
+msgstr "Contatti"
+
+#: app/view/front/partial/main-catform.php:66
+#: app/view/front/partial/main-catform.php:85
+#: app/view/front/partial/main-catform.php:104
+#: app/view/front/partial/nav-aside.php:282
+#: app/view/front/partial/nav-aside.php:297
+#: app/view/front/partial/nav-aside.php:312
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s alle %2$s"
+
+#: app/view/front/partial/main-catform.php:114
+#: app/view/front/partial/nav-aside.php:320
+#, php-format
+msgid "Total %1$s"
+msgid_plural "Total %1$s"
+msgstr[0] "%1$s totale"
+msgstr[1] "%1$s totali"
+
+#: app/view/front/partial/main-catform.php:149
+msgid "Enter"
+msgstr "Entra"
+
+#: app/view/front/partial/nav-aside.php:259
+msgid "Application form details"
+msgstr "Dettagli application form"
+
+#: app/view/front/partial/nav-bottom.php:90
+#: app/view/front/partial/nav-bottom.php:92
+msgid "Cookie preferences"
+msgstr "Preferenze cookie"
+
+#: app/view/front/partial/nav-top.php:147
+#: app/view/front/partial/nav-top.php:150
+msgid "Administration"
+msgstr "Amministrazione"
+
+#: cli/available/migration.php:30 cli/main.php:119
+#, fuzzy, php-format
+#| msgid "Print %1$s"
+msgid "Processing %1$s"
+msgstr "Stampa %1$s"
+
+#: cli/main.php:52
+msgid ""
+"Relative directory o file with extension, e.g. \"daily\" or \"enabled/"
+"hello.php\""
+msgstr ""
+
+#: cli/main.php:57
+msgid "Alternative modes: \"raw\""
+msgstr ""
+
+#: cli/main.php:62
+msgid "User's username"
+msgstr ""
+
+#: cli/main.php:67
+msgid "Default monolog level: \"debug\", \"info\", etc."
+msgstr ""
+
+#: cli/main.php:72
+msgid "Stop if there are some errors: \"true\" o \"false\""
+msgstr ""
+
+#: cli/main.php:77
+msgid "Tread ID, only for daemon"
+msgstr ""
+
+#: cli/main.php:82
+#, fuzzy
+#| msgid "Other"
+msgid "Other stuff"
+msgstr "Altro"
+
+#: cli/main.php:86
+msgid "Print this help"
+msgstr ""
+
+#: cli/main.php:125
+#, fuzzy, php-format
+#| msgid "%1$s at %2$s"
+msgid "%1$s output: %2$s"
+msgstr "%1$s alle %2$s"
+
+#: cli/main.php:156
+#, fuzzy, php-format
+#| msgid "%1$s %2$s at %3$s"
+msgid "%1$s %2$s report - %3$s"
+msgstr "%1$s %2$s su %3$s"
+
+#: var/develop/cache/dynamic_translation.php:9
+#: var/develop/cache/missing_translation.php:65
+msgid "download"
+msgstr "Download"
+
+#: var/develop/cache/dynamic_translation.php:10
+#: var/develop/cache/missing_translation.php:66
+msgid "catform_id"
+msgstr "categoria form"
+
+#: var/develop/cache/dynamic_translation.php:12
+#: var/develop/cache/missing_translation.php:68
+msgid "download-bulk"
+msgstr "Download massivo"
+
+#: var/develop/cache/dynamic_translation.php:13
+#: var/develop/cache/missing_translation.php:69
+msgid "catmember_id"
+msgstr "gruppo"
+
+#: var/develop/cache/dynamic_translation.php:14
+#: var/develop/cache/missing_translation.php:70
+msgid "country_id"
+msgstr "nazione"
+
+#: var/develop/cache/dynamic_translation.php:15
+#: var/develop/cache/missing_translation.php:71
+msgid "status_id"
+msgstr "stato"
+
+#: var/develop/cache/dynamic_translation.php:16
+#: var/develop/cache/missing_translation.php:72
+msgid "export"
+msgstr "Esporta"
+
+#: var/develop/cache/dynamic_translation.php:17
+#: var/develop/cache/missing_translation.php:73
+msgid "reset"
+msgstr "Resetta"
+
+#: var/develop/cache/dynamic_translation.php:18
+#: var/develop/cache/missing_translation.php:78
+msgid "index"
+msgstr "Elenco"
+
+#: var/develop/cache/dynamic_translation.php:19
+#: var/develop/cache/missing_translation.php:79
+msgid "api"
+msgstr "Api"
+
+#: var/develop/cache/dynamic_translation.php:20
+#: var/develop/cache/missing_translation.php:80
+msgid "back"
+msgstr "Back"
+
+#: var/develop/cache/dynamic_translation.php:21
+#: var/develop/cache/missing_translation.php:81
+msgid "front"
+msgstr "Front"
+
+#: var/develop/cache/dynamic_translation.php:22
+#: var/develop/cache/missing_translation.php:82
+msgid "fill"
+msgstr "Compila"
+
+#: var/develop/cache/dynamic_translation.php:23
+#: var/develop/cache/missing_translation.php:83
+msgid "delete-cache"
+msgstr "Cancella cache"
+
+#: var/develop/cache/dynamic_translation.php:24
+#: var/develop/cache/missing_translation.php:84
+msgid "switch"
+msgstr "Switch"
+
+#: var/develop/cache/dynamic_translation.php:25
+#: var/develop/cache/missing_translation.php:85
+msgid "catuser_id"
+msgstr "gruppo"
+
+#: var/develop/cache/dynamic_translation.php:26
+#: var/develop/cache/missing_translation.php:86
+msgid "print"
+msgstr "Stampa"
+
+#: var/develop/cache/dynamic_translation.php:27
+#: var/develop/cache/missing_translation.php:87
+msgid "upload"
+msgstr "Upload"
+
+#: var/develop/cache/dynamic_translation.php:28
+#: var/develop/cache/missing_translation.php:88
+msgid "delete-file"
+msgstr "Cancella"
+
+#: var/develop/cache/dynamic_translation.php:29
+#: var/develop/cache/missing_translation.php:89
+msgid "parent_id"
+msgstr "genitore"
+
+#: var/develop/cache/dynamic_translation.php:30
+#: var/develop/cache/missing_translation.php:92
+msgid "member_id"
+msgstr "utente"
+
+#: var/develop/cache/dynamic_translation.php:31
+#: var/develop/cache/missing_translation.php:93
+msgid "form_id"
+msgstr "form"
+
+#: var/develop/cache/dynamic_translation.php:32
+#: var/develop/cache/missing_translation.php:94
+msgid "formfield_id"
+msgstr "campo form"
+
+#: var/develop/cache/missing_translation.php:33
+msgid "Aside"
+msgstr ""
+
+#: var/develop/cache/missing_translation.php:34
+msgid "Footer"
+msgstr ""
+
+#: var/develop/cache/missing_translation.php:35
+msgid "Print Form Header"
+msgstr ""
+
+#~ msgctxt "default"
+#~ msgid "Country"
+#~ msgstr "Nazione"
+
+#~ msgctxt "female"
+#~ msgid "Country"
+#~ msgstr "Nazione"
+
+#~ msgctxt "default"
+#~ msgid "Page"
+#~ msgstr "Pagina"
+
+#~ msgctxt "female"
+#~ msgid "Page"
+#~ msgstr "Pagina"
+
+#~ msgid "Maximum number of teachers."
+#~ msgstr "Numero massimo di professori."
+
+#~ msgid "Pre-application opening date"
+#~ msgstr "Data inizio"
+
+#~ msgid "End closing date"
+#~ msgstr "Data fine"
+
+#, fuzzy
+#~| msgctxt "default"
+#~| msgid "New %1$s"
+#~ msgid "View %1$s"
+#~ msgstr "Nuovo %1$s"
+
+#~ msgid "Maximum size per attachment: %1$s."
+#~ msgstr "Dimensione massima per allegato: %1$s."
+
+#~ msgid "Settings"
+#~ msgstr "Impostazioni"
+
+#~ msgid "Delete"
+#~ msgstr "Cancella"
+
+#~ msgid "status"
+#~ msgstr "Stato"
+
+#~ msgid "%1$s %2$s to %3$s"
+#~ msgstr "%1$s %2$s a %3$s"
+
+#~ msgid "Queue"
+#~ msgid_plural "Queues"
+#~ msgstr[0] "Processo"
+#~ msgstr[1] "Processi"
+
+#~ msgid ""
+#~ "The system is processing some queued items, please %1$s in a few moments"
+#~ msgstr ""
+#~ "Il sistema sta elaborando alcuni elementi in coda, per favore %1$s fra "
+#~ "qualche istante"
+
+#~ msgctxt "default"
+#~ msgid "This %1$s cannot be stopped."
+#~ msgstr "Questo %1$s non può essere arrestato."
+
+#~ msgctxt "male"
+#~ msgid "This %1$s cannot be stopped."
+#~ msgstr "Questo %1$s non può essere arrestato."
+
+#~ msgctxt "female"
+#~ msgid "This %1$s cannot be stopped."
+#~ msgstr "Questa %1$s non può essere arrestata."
+
+#~ msgctxt "default"
+#~ msgid "This %1$s cannot be synced."
+#~ msgstr "Questo %1$s non può essere sincronizzato."
+
+#~ msgctxt "male"
+#~ msgid "This %1$s cannot be synced."
+#~ msgstr "Questo %1$s non può essere sincronizzato."
+
+#~ msgctxt "female"
+#~ msgid "This %1$s cannot be synced."
+#~ msgstr "Questa %1$s non può essere sincronizzata."
+
+#~ msgctxt "default"
+#~ msgid "%1$s successfully stopped."
+#~ msgstr "%1$s stoppato con successo."
+
+#~ msgctxt "male"
+#~ msgid "%1$s successfully stopped."
+#~ msgstr "%1$s stoppato con successo."
+
+#~ msgctxt "female"
+#~ msgid "%1$s successfully stopped."
+#~ msgstr "%1$s stoppata con successo."
+
+#~ msgid "Sync %1$s"
+#~ msgstr "Sincronizzazione %1$s"
+
+#~ msgctxt "default"
+#~ msgid "%1$s successfully synced."
+#~ msgstr "%1$s sincronizzato con successo."
+
+#~ msgctxt "male"
+#~ msgid "%1$s successfully synced."
+#~ msgstr "%1$s sincronizzato con successo."
+
+#~ msgctxt "female"
+#~ msgid "%1$s successfully synced."
+#~ msgstr "%1$s sincronizzata con successo."
+
+#~ msgctxt "default"
+#~ msgid "Do you confirm the sync of the following %1$s?"
+#~ msgid_plural "Do you confirm the sync of the following %1$s?"
+#~ msgstr[0] "Confermi la sincronizzazione del seguente %1$s?"
+#~ msgstr[1] "Confermi la sincronizzazione dei seguenti %1$s?"
+
+#~ msgctxt "male"
+#~ msgid "Do you confirm the sync of the following %1$s?"
+#~ msgid_plural "Do you confirm the sync of the following %1$s?"
+#~ msgstr[0] "Confermi la sincronizzazione del seguente %1$s?"
+#~ msgstr[1] "Confermi la sincronizzazione dei seguenti %1$s?"
+
+#~ msgctxt "female"
+#~ msgid "Do you confirm the sync of the following %1$s?"
+#~ msgid_plural "Do you confirm the sync of the following %1$s?"
+#~ msgstr[0] "Confermi la sincronizzazione della seguente %1$s?"
+#~ msgstr[1] "Confermi la sincronizzazione delle seguenti %1$s?"
+
+#~ msgid "Consumptions stats"
+#~ msgstr "Statistiche consumi"
+
+#~ msgid "Hrs/Script stats"
+#~ msgstr "Statistiche Hrs/Script"
+
+#~ msgid "vCPU/Hrs/Script stats"
+#~ msgstr "Statistiche vCPU/Hrs/Script"
+
+#~ msgid "Simulation"
+#~ msgid_plural "Simulations"
+#~ msgstr[0] "Simulazione"
+#~ msgstr[1] "Simulazioni"
+
+#~ msgid "ram-standard"
+#~ msgstr "standard (4.00 Gb per vCPU)"
+
+#~ msgid "ram-highmem"
+#~ msgstr "highmem (8.00 Gb per vCPU)"
+
+#~ msgid "ram-highcpu"
+#~ msgstr "highcpu (1.00 Gb per vCPU)"
+
+#~ msgid "ram-highcore"
+#~ msgstr "highcore (2.00 Gb per CORE)"
+
+#~ msgid "signal-SIGTSTP"
+#~ msgstr "Soft"
+
+#~ msgid "signal-SIGINT"
+#~ msgstr "Hard"
+
+#~ msgid "signal-SIGQUIT"
+#~ msgstr "Sync"
+
+#~ msgid "Images"
+#~ msgstr "Immagini"
+
+#~ msgid "VNC remote desktop"
+#~ msgstr "VNC desktop remoto"
+
+#~ msgid "Size"
+#~ msgstr "Dimensione"
+
+#~ msgid "Email notification"
+#~ msgstr "Notifica email"
+
+#~ msgid "Receive a notification email at the end of each simulation."
+#~ msgstr "Ricevi una mail di notifica al termine di ogni simulazione."
+
+#~ msgid ""
+#~ "Receive a notification every time you reach this consumption threshold."
+#~ msgstr ""
+#~ "Ricevi una notifica ogni volta che raggiungi questa soglia di consumo."
+
+#~ msgid "Set it to %1$d to disable."
+#~ msgstr "Impostalo a %1$d per disabilitarlo."
+
+#~ msgid "SSH key"
+#~ msgstr "Chiave SSH"
+
+#~ msgid ""
+#~ "Minimum %1$d characters lowercase (%2$s), uppercase (%3$s) or numbers "
+#~ "(%4$s)."
+#~ msgstr ""
+#~ "Minimo %1$d caratteri minuscoli (%2$s), maiuscoli (%3$s) o numeri (%4$s)."
+
+#~ msgid "These special characters are also allowed: %1$s."
+#~ msgstr "Anche questi caratteri speciali sono permessi: %1$s."
+
+#~ msgid "Firstname and lastname"
+#~ msgstr "Nome e Cognome"
+
+#~ msgid "Company"
+#~ msgstr "Azienda"
+
+#~ msgid "Address line 1"
+#~ msgstr "Indirizzo riga 1"
+
+#~ msgid "Address line 2"
+#~ msgstr "Indirizzo riga 2"
+
+#~ msgid "City"
+#~ msgstr "Città"
+
+#~ msgid "Province or region"
+#~ msgstr "Provincia o regione"
+
+#~ msgid "Invoices are sent to this email address."
+#~ msgstr "Le fatture vengono inviate a questo indirizzo email."
+
+#~ msgid "Sole shareholder"
+#~ msgstr "Socio unico"
+
+#~ msgid "Phone"
+#~ msgstr "Telefono"
+
+#~ msgid "Month"
+#~ msgstr "Mese"
+
+#~ msgid "Payment methods"
+#~ msgstr "Metodi di pagamento"
+
+#~ msgid "or"
+#~ msgstr "o"
+
+#~ msgid "Help"
+#~ msgstr "Aiuto"
+
+#~ msgid "search"
+#~ msgstr "Cerca"
+
+#~ msgid "stop"
+#~ msgstr "Stop"
+
+#~ msgid "sync"
+#~ msgstr "Sincronizza"
+
+#~ msgid "view-license"
+#~ msgstr "Download licenza"
+
+#~ msgid "view-api"
+#~ msgstr "Vedi API"
+
+#~ msgid "index-advanced"
+#~ msgstr "Elenco avanzato"
+
+#~ msgid "index-short"
+#~ msgstr "Elenco short"
+
+#~ msgid "view-advanced"
+#~ msgstr "Vedi avanzato"
+
+#~ msgid "view-short"
+#~ msgstr "Vedi short"
+
+#~ msgid "view-cpu"
+#~ msgstr "Vedi CPU"
+
+#~ msgid "view-ram"
+#~ msgstr "Vedi RAM"
+
+#~ msgid "view-scripts"
+#~ msgstr "Vedi scripts"
+
+#~ msgid "view-stats"
+#~ msgstr "Vedi statistiche consumi"
+
+#~ msgid "view-script-stats"
+#~ msgstr "Vedi statistiche Hrs/Script"
+
+#~ msgid "view-script-cpu-stats"
+#~ msgstr "Vedi statistiche vCPU/Hrs/Script"
+
+#~ msgid "view-logs"
+#~ msgstr "Vedi logs"
+
+#~ msgid "view-vnc"
+#~ msgstr "Connetti"
+
+#~ msgid "add-advanced"
+#~ msgstr "Aggiungi avanzato"
+
+#~ msgid "stop-advanced"
+#~ msgstr "Stop avanzato"
+
+#~ msgid "edit-stop"
+#~ msgstr "Stop (v1)"
+
+#~ msgid "edit-stop-advanced"
+#~ msgstr "Stop avanzato (v1)"
+
+#~ msgid "edit-sync"
+#~ msgstr "Sincronizza (v1)"
+
+#~ msgid "delete-advanced"
+#~ msgstr "Cancella avanzato"
+
+#~ msgid "index-recursive"
+#~ msgstr "Elenco ricorsivo"
+
+#~ msgid "view-by-path"
+#~ msgstr "Vedi tramite path"
+
+#~ msgid "view-url"
+#~ msgstr "Vedi URL"
+
+#~ msgid "view-download"
+#~ msgstr "Download (v1)"
+
+#~ msgid "view-bucket"
+#~ msgstr "Vedi bucket"
+
+#~ msgid "view-bucket-catuser-%1$d"
+#~ msgstr "Vedi bucket Gruppo #%1$d"
+
+#~ msgid "edit-advanced"
+#~ msgstr "Modifica avanzato"
+
+#~ msgid "edit-billing"
+#~ msgstr "Modifica fatturazione"
+
+#~ msgid "dir"
+#~ msgstr "Cartella"
+
+#~ msgid "copy"
+#~ msgstr "Copia"
+
+#~ msgctxt "default"
+#~ msgid "Do you confirm the %1$s of the following %2$s?"
+#~ msgid_plural "Do you confirm the %1$s of the following %2$s?"
+#~ msgstr[0] "Confermi il %1$s del seguente %2$s?"
+#~ msgstr[1] "Confermi il %1$s dei seguenti %2$s?"
+
+#~ msgctxt "female"
+#~ msgid "Do you confirm the %1$s of the following %2$s?"
+#~ msgid_plural "Do you confirm the %1$s of the following %2$s?"
+#~ msgstr[0] "Confermi la %1$s della seguente %2$s?"
+#~ msgstr[1] "Confermi l'arresto della seguente %1$s?"
+
+#~ msgid "We cannot provide you with the requested contents."
+#~ msgstr "Non possiamo fornirti i contenuti richiesti."
+
+#~ msgid "Description"
+#~ msgstr "Descrizione"
+
+#~ msgid "We cannot provide you with the necessary content."
+#~ msgstr "Non possiamo fornirti il contenuto necessario."
+
+#~ msgid "No files selected"
+#~ msgstr "Nessun file selezionato"
+
+#, fuzzy
+#~| msgid "view-bucket-catuser #%1$d"
+#~ msgid "view-bucket-catuser-4"
+#~ msgstr "Vedi bucket Gruppo #%1$d"
+
+#, fuzzy
+#~| msgid "view-bucket-catuser #%1$d"
+#~ msgid "view-bucket-catuser-3"
+#~ msgstr "Vedi bucket Gruppo #%1$d"
+
+#, fuzzy
+#~| msgid "view-bucket-catuser #%1$d"
+#~ msgid "view-bucket-catuser-2"
+#~ msgstr "Vedi bucket Gruppo #%1$d"
+
+#~ msgctxt "default"
+#~ msgid "Connect via VNC to %1$s"
+#~ msgstr "Connettiti via VNC al %1$s"
+
+#~ msgctxt "female"
+#~ msgid "Connect via VNC to %1$s"
+#~ msgstr "Connettiti via VNC alla %1$s"
+
+#~ msgctxt "default"
+#~ msgid "It is not possible to connect via VNC to this %1$s."
+#~ msgstr "Non è possibile connettersi via VNC al %1$s."
+
+#~ msgctxt "female"
+#~ msgid "It is not possible to connect via VNC to this %1$s."
+#~ msgstr "Non è possibile connettersi via VNC alla %1$s."
+
+#~ msgid ""
+#~ "You are using an outdated browser. Please %1$s to improve your browsing "
+#~ "experience."
+#~ msgstr ""
+#~ "Stai utilizzando un browser obsoleto. Per favore %1$s per migliorare la "
+#~ "tua esperienza di navigazione."
+
+#~ msgid "upgrade your browser"
+#~ msgstr "aggiorna il tuo browser"
+
+#~ msgid "Only these special characters are allowed: %1$s."
+#~ msgstr "Solo questi caratteri speciali sono permessi: %1$s."
+
+#~ msgctxt "female"
+#~ msgid "Queue"
+#~ msgstr "Processo"
+
+#~ msgctxt "female"
+#~ msgid "Queues"
+#~ msgstr "Processi"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "%1$s has not been added."
+#~ msgstr "Questo %1$s non può essere sincronizzato."
+
+#, fuzzy
+#~ msgctxt "female"
+#~ msgid "%1$s has not been added."
+#~ msgstr "Questa %1$s non può essere sincronizzata."
+
+#, fuzzy
+#~ msgid "These characters are not allowed: %1$d."
+#~ msgstr "Gli spazi non sono permessi."
+
+#, fuzzy
+#~ msgid "highcpu"
+#~ msgstr "highcpu (0.75 Gb per CPU)"
+
+#, fuzzy
+#~ msgid "standard"
+#~ msgstr "standard (3.75 Gb per CPU)"
+
+#, fuzzy
+#~ msgid "highmem"
+#~ msgstr "highmem (6.00 Gb per CPU)"
+
+#~ msgid "signal-SIGSTOP"
+#~ msgstr "Soft"
+
+#~ msgid "There is a technical problem, please try again later"
+#~ msgstr "Si è verificato un problema tecnico, riprova più tardi"
+
+#, fuzzy
+#~ msgid "api.view-bucket-catuser #%1$d"
+#~ msgstr "Vedi bucket Gruppo #%1$d"
+
+#~ msgid "api-index"
+#~ msgstr "API: Elenco"
+
+#~ msgid "api-view"
+#~ msgstr "API: Vedi"
+
+#~ msgid "api-edit"
+#~ msgstr "API: Modifica"
+
+#, fuzzy
+#~ msgctxt "info"
+#~ msgid "User"
+#~ msgstr "Utente"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "Group"
+#~ msgstr "Gruppo"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "Groups"
+#~ msgstr "Gruppi"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "api-index"
+#~ msgstr "Elenco"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "api-view"
+#~ msgstr "Vedi"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "api-edit"
+#~ msgstr "Modifica"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "api-delete"
+#~ msgstr "Cancella"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "User"
+#~ msgstr "Utente"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "Users"
+#~ msgstr "Utenti"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "PID"
+#~ msgstr "ID"
+
+#, fuzzy
+#~ msgctxt "default"
+#~ msgid "TID"
+#~ msgstr "ID"
+
+#~ msgid "Stop"
+#~ msgstr "Stop"
+
+#~ msgid "Countries"
+#~ msgstr "Nazioni"
+
+#~ msgid "Footnote ID"
+#~ msgstr "ID nota piè di pagina"
+
+#~ msgid "Field option"
+#~ msgstr "Opzione campo"
+
+#~ msgid "Quantity"
+#~ msgstr "Quantità"
+
+#~ msgid "Area classification"
+#~ msgstr "Classificazione Area"
+
+#~ msgid "Applicable project standards"
+#~ msgstr "Norme di progetto applicabili"
+
+#~ msgid "Liquid"
+#~ msgstr "Liquido"
+
+#~ msgid "Nominal or range values"
+#~ msgstr "Valore nominale o range"
+
+#~ msgid "Viscosity"
+#~ msgstr "Viscosità"
+
+#~ msgid "UM"
+#~ msgstr "UM"
+
+#~ msgid "Min"
+#~ msgstr "Min"
+
+#~ msgid "Density"
+#~ msgstr "Densità"
+
+#~ msgid "Temperature"
+#~ msgstr "Temperatura"
+
+#~ msgid "ø max solid in suspension"
+#~ msgstr "ø max solidi sospensione"
+
+#~ msgid "% solid in suspension"
+#~ msgstr "% solidi in sospensione"
+
+#~ msgid "pH"
+#~ msgstr "pH"
+
+#~ msgid "Corrosive"
+#~ msgstr "Corrosivo"
+
+#~ msgid "Abrasive"
+#~ msgstr "Abrasivo"
+
+#~ msgid "Toxic"
+#~ msgstr "Tossico"
+
+#~ msgid "Flammable"
+#~ msgstr "Infiammabile"
+
+#~ msgid "Explosive"
+#~ msgstr "Esplosivo"
+
+#~ msgid "Room temperature"
+#~ msgstr "Temperatura ambiente"
+
+#~ msgid "Altitude"
+#~ msgstr "Altitudine"
+
+#~ msgid "Ambient humidity"
+#~ msgstr "Umidità ambiente"
+
+#~ msgid "Type of installation"
+#~ msgstr "Tipo Installazione"
+
+#~ msgid "Days/year"
+#~ msgstr "Giorni/anno"
+
+#~ msgid "N° starts/hour"
+#~ msgstr "n° avviamenti/ora"
+
+#~ msgid "Performance"
+#~ msgstr "Prestazioni"
+
+#~ msgid "Flow"
+#~ msgstr "Portata"
+
+#~ msgid "Intake pressure"
+#~ msgstr "Pressione in aspirazione"
+
+#~ msgid "Delivery pressure"
+#~ msgstr "Pressione in mandata"
+
+#~ msgid "Differential pressure"
+#~ msgstr "Pressione differenziale"
+
+#~ msgid "NPSHa"
+#~ msgstr "NPSHa"
+
+#~ msgid "Max. allowed speed"
+#~ msgstr "Max. velocità ammessa"
+
+#~ msgid "Pressure at suction tank"
+#~ msgstr "Pressione serbatoio aspirazione"
+
+#~ msgid "Inner diameter"
+#~ msgstr "Diametro ingresso"
+
+#~ msgid "Length L1"
+#~ msgstr "Lunghezza L1"
+
+#~ msgid "Length L1A"
+#~ msgstr "Lunghezza L1A"
+
+#~ msgid "Length L2"
+#~ msgstr "Lunghezza L2"
+
+#~ msgid "N° of elbows 90°"
+#~ msgstr "N. gomiti 90°"
+
+#~ msgid "N° of stop valves"
+#~ msgstr "Numero valvole di non ritorno"
+
+#~ msgid "Pipe material"
+#~ msgstr "Materiale tubazioni"
+
+#~ msgid "Discharge"
+#~ msgstr "Mandata"
+
+#~ msgid "Pressure at discharge tank"
+#~ msgstr "Pressione serbatoio di mandata"
+
+#~ msgid "Length L3"
+#~ msgstr "Lunghezza L3"
+
+#~ msgid "Length L4"
+#~ msgstr "Lunghezza L4"
+
+#~ msgid "Length L3A"
+#~ msgstr "Lunghezza L3A"
+
+#~ msgid "Capacity required"
+#~ msgstr "Capacità richiesta"
+
+#~ msgid "Fluid density"
+#~ msgstr "Densità del fluido"
+
+#~ msgid "Mouths"
+#~ msgstr "Bocche"
+
+#~ msgid "Diameter"
+#~ msgstr "Diametro"
+
+#~ msgid "Flange finish"
+#~ msgstr "Finitura flange"
+
+#~ msgid "Suction position"
+#~ msgstr "Pos. aspirazione"
+
+#~ msgid "Delivery position"
+#~ msgstr "Pos. mandata"
+
+#~ msgid "Drainage"
+#~ msgstr "Drenaggio"
+
+#~ msgid "Breather"
+#~ msgstr "Sfiato"
+
+#~ msgid "Materials"
+#~ msgstr "Materiali"
+
+#~ msgid "Body"
+#~ msgstr "Corpo"
+
+#~ msgid "Material"
+#~ msgstr "Materiale"
+
+#~ msgid "Impeller"
+#~ msgstr "Girante"
+
+#~ msgid "Wear plate"
+#~ msgstr "Piatto d'usura"
+
+#~ msgid "Intake valve"
+#~ msgstr "Valvola aspirazione"
+
+#~ msgid "Tree"
+#~ msgstr "Albero"
+
+#~ msgid "Pivot"
+#~ msgstr "Perno"
+
+#~ msgid "Rotor"
+#~ msgstr "Rotore"
+
+#~ msgid "Idle wheel"
+#~ msgstr "Ruota oziosa"
+
+#~ msgid "Cover"
+#~ msgstr "Coperchio"
+
+#~ msgid "Support flange"
+#~ msgstr "Flangia supporto"
+
+#~ msgid "Bushes"
+#~ msgstr "Bronzine"
+
+#~ msgid "Seal"
+#~ msgstr "Tenuta"
+
+#~ msgid "Braid"
+#~ msgstr "Baderna"
+
+#~ msgid "Seal type"
+#~ msgstr "Tipo tenuta"
+
+#~ msgid "Mechanics"
+#~ msgstr "Meccanica"
+
+#~ msgid "Magnetic drag"
+#~ msgstr "Trascinamento magnetico"
+
+#~ msgid "Sealing temperature sensor"
+#~ msgstr "Sensore temperatura tenuta"
+
+#~ msgid "Mechanical seal accessories"
+#~ msgstr "Accessori tenuta meccanica"
+
+#~ msgid "Pump accessories"
+#~ msgstr "Accessori pompa"
+
+#~ msgid "Heated body ( +R )"
+#~ msgstr "Corpo riscaldato ( +R )"
+
+#~ msgid "Heated holding tray ( +R1 )"
+#~ msgstr "Portatenuta riscaldato ( +R1 )"
+
+#~ msgid "Cover heating jacket ( +R2 )"
+#~ msgstr "Camicia risc. coperchio ( +R2 )"
+
+#~ msgid "Electric heating ( +EH )"
+#~ msgstr "Camicia risc. coperchio ( +R2 )"
+
+#~ msgid "By-pass valve ( +Y )"
+#~ msgstr "Valvola by-pass ( +Y )"
+
+#~ msgid "Set up with engine"
+#~ msgstr "Allestimento con motore"
+
+#~ msgid "Pump-motor coupling"
+#~ msgstr "Accoppiamento pompa-motore"
+
+#~ msgid "Type of joint"
+#~ msgstr "Tipo di giunto"
+
+#~ msgid "Type of setup"
+#~ msgstr "Tipo di allestimento"
+
+#~ msgid "RAL painting"
+#~ msgstr "RAL verniciatura"
+
+#~ msgid "Electric motor"
+#~ msgstr "Motore elettrico"
+
+#~ msgid "Power supply type"
+#~ msgstr "Tipo alimentazione"
+
+#~ msgid "Network frequency"
+#~ msgstr "Frequenza rete"
+
+#~ msgid "Supply voltage"
+#~ msgstr "Tensione alimentazione"
+
+#~ msgid "Degree of protection"
+#~ msgstr "Grado protezione"
+
+#~ msgid "Poles"
+#~ msgstr "Poli"
+
+#~ msgid "Efficiency"
+#~ msgstr "Efficienza"
+
+#~ msgid "Working by inverter"
+#~ msgstr "Funzionamento per inverter"
+
+#~ msgid "Servo-cooling"
+#~ msgstr "Servoventilazione"
+
+#~ msgid "Brand"
+#~ msgstr "Marca"
+
+#~ msgid "Documentation/Testing"
+#~ msgstr "Documentazione/Collaudi"
+
+#~ msgid "Certificates"
+#~ msgstr "Certificati"
+
+#~ msgid "Thank you."
+#~ msgstr "Grazie."
+
+#~ msgid "Form value"
+#~ msgstr "Valore"
+
+#~ msgid "Form values"
+#~ msgstr "Valori"
+
+#~ msgid "Members"
+#~ msgstr "Membri"
+
+#~ msgid "Legal notice"
+#~ msgstr "Avviso legale"
+
+#~ msgid "Information on the processing of navigation data and cookies"
+#~ msgstr "Informazioni sul trattamento dei dati di navigazione e dei cookie"
+
+#~ msgid "Invalid field"
+#~ msgstr "Campo non valido"
+
+#~ msgid "obligatory fields"
+#~ msgstr "campi obbligatori"
+
+#~ msgid "Save and continue"
+#~ msgstr "Salva e continua"
+
+#~ msgid "m abs"
+#~ msgstr "m c.a."
+
+#~ msgid "m"
+#~ msgstr "m"
+
+#~ msgid "Enter positive value if flooded suction."
+#~ msgstr "Inserire un valore positivo se sotto battente."
+
+#~ msgid "If specific request."
+#~ msgstr "Se richiesta specifica."
+
+#~ msgid "Legend"
+#~ msgstr "Legenda"
+
+#~ msgid ""
+#~ "Test carried out before shipment in accordance with the technical "
+#~ "specificiations in the order, on the products to be supplied or on the "
+#~ "test bed for the products to be supplied, in order to ascertain if the "
+#~ "products comply with the requirements of the order."
+#~ msgstr ""
+#~ "Controllo specifico:Controllo effettuato prima della fornitura in "
+#~ "conformità con le prescrizioni tecniche dell'ordinazione sui prodotti da "
+#~ "fornire o sulle unità di collaudo dei prodotti da fornire, al fine di "
+#~ "verificare se tali prodotti rispondono a quanto prescritto "
+#~ "sull’ordinazione."
+
+#~ msgid "Non-specific control"
+#~ msgstr "Controllo non specifico"
+
+#~ msgid ""
+#~ "Test carried out by the manufacturer according to company procedures to "
+#~ "ascertain if the products comply with the requirements agreed to in the "
+#~ "order."
+#~ msgstr ""
+#~ "Controllo effettuato dal produttore secondo proprie modalità per "
+#~ "accertare se i prodotti risultanti dal proprio processo di produzione "
+#~ "sono conformi a quanto convenuto nell’ordinazione."
+
+#~ msgid ""
+#~ "The products tested are not necessarily the products which are actually "
+#~ "shipped."
+#~ msgstr ""
+#~ "I prodotti sottoposti a controllo non sono necessariamente i prodotti "
+#~ "effettivamente forniti."
+
+#~ msgid ""
+#~ "Test certificate type 3.1 becomes a Test Report type 3.2 if signed by an "
+#~ "Inspector nominated by the Customer (Witnessed Test)."
+#~ msgstr ""
+#~ "Il Certificato di Collaudo tipo 3.1 diventa Verbale di Collaudo tipo 3.2 "
+#~ "se firmato da un Ispettore del Cliente (collaudo presenziato)."
+
+#~ msgid ""
+#~ "The expenses and fees of Third Party Inspectors who witness tests on "
+#~ "behalf of the Customer, are at Customer charge and aren't included in "
+#~ "this Price List."
+#~ msgstr ""
+#~ "Le parcelle degli enti terzi che presenziano al collaudo per conto del "
+#~ "Cliente sono sempre da considerarsi a carico della Committente e non "
+#~ "compresi nei prezzi sopra riportati."
+
+#~ msgid "Confirm all steps"
+#~ msgstr "Conferma tutte le selezioni."
+
+#~ msgid ""
+#~ "Cookies help us deliver our services. Using these services, you consent "
+#~ "to the use of cookies."
+#~ msgstr ""
+#~ "I cookie ci aiutano a fornire i nostri servizi. Utilizzando questi "
+#~ "servizi, acconsenti all'utilizzo dei cookie."
+
+#~ msgid "Ok, i got it"
+#~ msgstr "Ok, ho capito"

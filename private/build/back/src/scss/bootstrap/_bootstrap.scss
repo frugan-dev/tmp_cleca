@@ -1,0 +1,123 @@
+@import "~bootstrap/scss/mixins/banner";
+@include bsBanner("");
+
+
+// scss-docs-start import-stack
+// Configuration
+@import "~bootstrap/scss/functions";
+@import "variables";
+
+@import "../bootswatch/flatly/variables";
+
+//https://stackoverflow.com/a/55191149/3929620
+//@import "~bootswatch/dist/#{$theme}/variables";
+@import "~bootswatch/dist/flatly/variables";
+
+@import "~bootstrap/scss/variables";
+@import "variables-dark";
+@import "~bootstrap/scss/variables-dark";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "background-color": map-merge(
+      map-get($utilities, "background-color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "background-color"), "values"),
+          (
+            gray-400: $gray-400,
+            gray-500: $gray-500,
+          ),
+        ),
+      ),
+    ),
+    //https://www.w3schools.com/cssref/pr_class_cursor.asp
+    //https://css-tricks.com/almanac/properties/c/cursor/
+    "cursor": (
+      property: cursor,
+      values: alias all-scroll auto cell context-menu col-resize copy crosshair default e-resize ew-resize grab grabbing help move n-resize ne-resize nesw-resize ns-resize nw-resize nwse-resize no-drop none not-allowed pointer progress row-resize s-resize se-resize sw-resize text w-resize wait zoom-in zoom-out,
+    ),
+    "display": map-merge(
+      map-get($utilities, "display"),
+      (
+        //FIXME - https://github.com/twbs/bootstrap/issues/29492
+        //values: map-get(map-get($utilities, "display"), "values")
+        values: inline inline-block block grid table table-row table-cell flex inline-flex none table-caption
+      ),
+    ),
+    "font-size": map-merge(
+      map-get($utilities, "font-size"),
+      (
+        //https://github.com/twbs/bootstrap/issues/34718
+        //FIXED - responsive: true needs $enable-rfs: false
+        //responsive: true,
+        values: map-merge(
+          map-get(map-get($utilities, "font-size"), "values"),
+          (
+            small: $small-font-size,
+            xs: calc($font-size-base * .75),
+          ),
+        ),
+      ),
+    ),
+    "z-index": map-merge(
+      map-get($utilities, "z-index"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "z-index"), "values"),
+          (
+            fixed: $zindex-fixed,
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+// Layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+//@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+//@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+//@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+//@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+//@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+//@import "~bootstrap/scss/placeholders";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+// Utilities
+@import "~bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
+
+//https://stackoverflow.com/a/55191149/3929620
+//@import "~bootswatch/dist/#{$theme}/bootswatch";
+@import "~bootswatch/dist/flatly/bootswatch";

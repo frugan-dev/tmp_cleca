@@ -1,0 +1,19 @@
+--- src/ValueFilter.php	2017-04-20 05:28:07.000000000 +0000
++++ ../../../patch/aura/filter/src/ValueFilter.php	2023-10-12 17:03:12.297840834 +0000
+@@ -31,6 +31,16 @@
+     protected $subject;
+ 
+     /**
++     * @var ValidateLocator
++     */
++    protected $validate_locator;
++
++    /**
++     * @var SanitizeLocator
++     */
++    protected $sanitize_locator;
++
++    /**
+      *
+      * Constructor.
+      *

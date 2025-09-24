@@ -1,0 +1,154 @@
+/* =============================================================================
+   width
+   ========================================================================== */
+
+//https://stackoverflow.com/a/37485864
+
+// Smartphones (portrait)
+@media (max-width: 320px) {
+
+}
+
+// Smartphones (landscape)
+@media (min-width: 321px) {
+
+}
+
+// Smartphones (portrait and landscape)
+@media (min-device-width: 320px) and (max-device-width: 576px) {
+
+}
+
+/* from 0 to 576px */
+@include media-breakpoint-down(sm) {
+
+}
+
+/* from 576px to 768px */
+@include media-breakpoint-only(sm) {
+
+}
+
+/* from 576px upwards */
+@include media-breakpoint-up(sm) {
+
+}
+
+/* from 0 to 768px */
+@include media-breakpoint-down(md) {
+
+}
+
+/* from 768px to 992px */
+@include media-breakpoint-only(md) {
+
+}
+
+/* from 768px upwards */
+@include media-breakpoint-up(md) {
+
+}
+
+/* from 0 to 992px */
+@include media-breakpoint-down(lg) {
+
+}
+
+/* from 992px to 1200px */
+@include media-breakpoint-only(lg) {
+
+}
+
+/* from 992px upwards */
+@include media-breakpoint-up(lg) {
+
+}
+
+/* from 0 to 1200px */
+@include media-breakpoint-down(xl) {
+
+}
+
+/* from 1200px to 1400px */
+@include media-breakpoint-only(xl) {
+
+}
+
+/* from 1200px upwards */
+@include media-breakpoint-up(xl) {
+  //https://getbootstrap.com/docs/4.1/migration/#components
+  //https://stackoverflow.com/a/47878455
+  //https://abouolia.github.io/sticky-sidebar/
+  //https://github.com/blixhavn/sticky-sidebar-v2
+  //https://dev.to/clairecodes/how-to-make-a-sticky-sidebar-with-two-lines-of-css-2ki7
+  @supports (position: sticky) {
+
+    aside {
+      position: sticky;
+      top: $spacer;
+
+      //https://stackoverflow.com/a/54876112/3929620
+      z-index: $zindex-sticky - 5;
+    }
+  }
+}
+
+/* from 0 to 1400px */
+@include media-breakpoint-down(xxl) {
+
+}
+
+/* from 1400px upwards */
+@include media-breakpoint-up(xxl) {
+
+}
+
+
+/* =============================================================================
+   height
+   ========================================================================== */
+
+/* from 0 to 576px */
+@media (max-height: 576px) {
+
+}
+
+/* from 576px to 768px */
+@media (min-height: 576px) and (max-height: 768px) {
+
+}
+
+/* from 576px upwards */
+@media (min-height: 576px)  {
+
+}
+
+/* from 0 to 768px */
+@media (max-height: 768px) {
+
+}
+
+/* from 576px to 768px */
+@media (min-height: 576px) and (max-height: 768px) {
+
+}
+
+/* from 768px upwards */
+@media (min-height: 768px)  {
+
+}
+
+/* from 768px to 992px */
+@media (min-height: 768px) and (max-height: 992px) {
+
+}
+
+/* from 768px upwards */
+@media (min-height: 768px)  {
+
+}
+
+/* from 992px upwards */
+@media (min-height: 992px)  {
+
+}

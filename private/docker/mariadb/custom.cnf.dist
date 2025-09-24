@@ -1,0 +1,8 @@
+#https://stackoverflow.com/a/12425526/3929620
+[mysqld]
+max_allowed_packet=64M
+
+#https://stackoverflow.com/a/27502149/3929620
+#https://superuser.com/a/1580277
+[mysql]
+skip_auto_rehash

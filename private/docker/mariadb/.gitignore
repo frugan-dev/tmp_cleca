@@ -1,0 +1,9 @@
+#http://stackoverflow.com/a/932982
+*
+
+!.gitignore
+!data/
+!data/.gitignore
+!init/
+!init/*
+!*.dist

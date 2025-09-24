@@ -1,0 +1,53 @@
+--- src/Translator/Translator.php	2025-04-15 09:07:02.000000000 +0000
++++ ../../../patch/laminas/laminas-i18n/src/Translator/Translator.php	2025-06-10 14:07:45.814088461 +0000
+@@ -384,7 +384,7 @@
+         $locale = null
+     ) {
+         $locale    ??= $this->getLocale();
+-        $translation = $this->getTranslatedMessage($singular, $locale, $textDomain);
++        $translation = $this->getTranslatedMessage($singular, $locale, $textDomain, $plural);
+ 
+         if (is_string($translation)) {
+             $translation = [$translation];
+@@ -424,12 +424,14 @@
+      * @param    string $message
+      * @param    string $locale
+      * @param    string $textDomain
++     * @param    string $plural
+      * @return   string|null
+      */
+     protected function getTranslatedMessage(
+         $message,
+         $locale,
+-        $textDomain = 'default'
++        $textDomain = 'default',
++        $plural = false
+     ) {
+         if ($message === '' || $message === null) {
+             return '';
+@@ -439,7 +441,7 @@
+             $this->loadMessages($textDomain, $locale);
+         }
+ 
+-        if (isset($this->messages[$textDomain][$locale][$message])) {
++        if (!empty($this->messages[$textDomain][$locale][$message])) {
+             return $this->messages[$textDomain][$locale][$message];
+         }
+ 
+@@ -456,7 +458,7 @@
+          *   "Top %s Products" => ""
+          * ]
+          */
+-        if (isset($this->messages[$textDomain][$locale][$textDomain . "\x04" . $message])) {
++        if (!empty($this->messages[$textDomain][$locale][$textDomain . "\x04" . $message])) {
+             return $this->messages[$textDomain][$locale][$textDomain . "\x04" . $message];
+         }
+ 
+@@ -465,6 +467,7 @@
+ 
+             $event = new Event(self::EVENT_MISSING_TRANSLATION, $this, [
+                 'message'     => $message,
++                'plural'      => $plural,
+                 'locale'      => $locale,
+                 'text_domain' => $textDomain,
+             ]);

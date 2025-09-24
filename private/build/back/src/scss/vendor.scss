@@ -1,0 +1,47 @@
+@import "var";
+
+@import "~bootstrap/scss/functions";
+
+@import "bootstrap/variables";
+@import "bootswatch/flatly/variables";
+
+//https://stackoverflow.com/a/55191149/3929620
+//@import "~bootswatch/dist/#{$theme}/variables";
+@import "~bootswatch/dist/flatly/variables";
+
+@import "~bootstrap/scss/variables";
+@import "bootstrap/variables-dark";
+@import "~bootstrap/scss/variables-dark";
+
+//@import "~flag-icons/sass/flag-icons";
+
+@at-root {
+  :root {
+    --animate-duration: 800ms;
+    //--animate-delay: 1s;
+    //--animate-repeat: 1;
+  }
+}
+//@import "~animate.css/animate.compat.css"; // v3.x and under with no prefix `animate__` at all
+@import "~animate.css/animate.css";
+
+//@import "~@uppy/core/src/style";
+//@import "~@uppy/dashboard/src/style";
+
+@import "~intro.js/introjs.css";
+@import "~intro.js/themes/introjs-dark.css";
+//@import "~intro.js/themes/introjs-flattener.css";
+//@import "~intro.js/themes/introjs-modern.css";
+//@import "~intro.js/themes/introjs-nassim.css";
+//@import "~intro.js/themes/introjs-nazanin.css";
+//@import "~intro.js/themes/introjs-royal.css";
+
+@import "~swagger-ui/dist/swagger-ui.css";
+
+@at-root {
+  /* stylelint-disable-next-line selector-class-pattern */
+  .fancybox__thumbs {
+    --f-thumb-outline-color: #{$primary};
+  }
+}
+@import "~@fancyapps/ui/dist/fancybox/fancybox.css";

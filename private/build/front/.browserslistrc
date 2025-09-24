@@ -1,0 +1,12 @@
+# https://browsersl.ist
+# https://github.com/twbs/bootstrap/blob/main/.browserslistrc
+# https://getbootstrap.com/docs/4.0/browser-bugs/
+# https://github.com/twbs/bootstrap/issues/35228#issuecomment-946893363
+# https://github.com/swc-project/swc/issues/3085#issuecomment-1250268854
+
+defaults
+
+#https://en.wikipedia.org/wiki/Safari_version_history
+#https://www.reddit.com/r/learnjavascript/comments/h7jl8m/global_var_doesnt_work_on_safari/fulazal/
+iOS >= 12
+Safari >= 12

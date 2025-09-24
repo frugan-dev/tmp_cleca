@@ -1,0 +1,210 @@
+/* =============================================================================
+   header
+   ========================================================================== */
+
+
+/* =============================================================================
+   aside
+   ========================================================================== */
+//https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp
+//https://getbootstrap.com/docs/5.0/examples/sidebars/
+//https://dev.to/codeply/bootstrap-5-sidebar-examples-38pb
+//https://stackoverflow.com/a/37113430
+html.master {
+
+  body {
+
+    .d-none-collapsed {
+      display: none;
+    }
+
+    .d-inline-collapsed {
+      display: inline;
+    }
+
+    .d-block-collapsed {
+      display: block;
+    }
+
+    > .wrapper,
+    > footer {
+      margin-left: $sidebar-width-collapse;
+      @include transition(margin-left .3s ease);
+    }
+
+    .sidebar {
+      z-index: $zindex-offcanvas;
+      width: $sidebar-width-collapse;
+      //overflow-x: hidden; // allow .badge
+      @include transition(width .3s ease);
+
+      //https://css-tricks.com/scrollbars-on-hover/
+      //https://www.html.it/articoli/css-personalizzare-la-scrollbar-di-navigazione/
+      //https://stackoverflow.com/a/21684424/3929620
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-clip: padding-box;
+        border: 3px solid transparent;
+        @extend .bg-light;
+        @include border-radius($border-radius-pill);
+      }
+
+      .nav {
+
+        .nav-link {
+          @extend .text-reset;
+          @extend .shadow-none;
+        }
+      }
+
+      .navbar-primary {
+
+        // override TWBS
+        &.nav-fill .nav-link {
+          @extend .text-center;
+        }
+
+        .nav-link {
+          @extend .px-2;
+
+          &:hover {
+            @extend .bg-gray-400;
+          }
+
+          &.active,
+          &.active:hover {
+            @extend .text-bg-light;
+          }
+        }
+      }
+
+      .navbar-secondary {
+
+        .nav-link {
+          @extend .border;
+          @extend .border-secondary;
+          @extend .btn;
+          @extend .btn-outline-secondary;
+          @extend .btn-sm;
+          @extend .py-0;
+          @extend .fs-xs;
+          @extend .mb-1;
+
+          &:last-child {
+            @extend .mb-0;
+          }
+        }
+      }
+    }
+
+    .sidebar-backdrop {
+      display: none;
+      @include overlay-backdrop($zindex-offcanvas-backdrop, $offcanvas-backdrop-bg, $offcanvas-backdrop-opacity);
+      @include transition(opacity .3s ease);
+    }
+
+    &.collapsing {
+
+      .sidebar {
+        overflow: hidden;
+      }
+    }
+
+    &.collapsing-to-show,
+    &.show {
+
+      .d-none-expanded {
+        display: none;
+      }
+
+      .d-inline-expanded {
+        display: inline;
+      }
+
+      .d-block-expanded {
+        display: block;
+      }
+
+      .sidebar {
+        width: $sidebar-width;
+
+        .navbar-primary {
+
+          // override TWBS
+          &.nav-fill .nav-link {
+            @extend .text-start;
+          }
+
+          .nav-link {
+            @extend .px-3;
+          }
+        }
+      }
+    }
+  }
+
+  &[data-bs-theme="dark"] {
+
+    body {
+
+      .sidebar {
+
+        .navbar-primary {
+
+          .nav-link {
+
+            &:hover,
+            &.active,
+            &.active:hover {
+              @extend .text-bg-primary;
+            }
+          }
+        }
+
+        .navbar-secondary {
+
+          .nav-link {
+            @extend .border-primary;
+            @extend .btn-outline-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* =============================================================================
+   footer
+   ========================================================================== */
+footer {
+
+  .btn-scroll-top {
+    position: fixed; //FIXED - TWBS `position-fixed` use !important
+    right: calc($spacer * 2);
+    bottom: calc($spacer * 2);
+    z-index: $zindex-sticky - 1;
+    display: none;
+    @include transition(display 2s ease);
+  }
+}
+
+
+/* =============================================================================
+   tiny-mce
+   ========================================================================== */
+// Hide textarea content when overlay is active
+.tinymce-textarea-hidden {
+  color: transparent;
+
+  &::placeholder {
+    color: transparent;
+  }
+}

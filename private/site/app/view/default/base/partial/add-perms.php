@@ -1,0 +1,110 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of the Slim 4 PHP application.
+ *
+ * (ɔ) Frugan <dev@frugan.it>
+ *
+ * This source file is subject to the GNU GPLv3 license that is bundled
+ * with this source code in the file COPYING.
+ */
+
+use Laminas\Stdlib\ArrayUtils;
+
+echo '<div'.$this->escapeAttr(['class' => ['row', 'row-'.$this->helper->Nette()->Strings()->webalize($key), 'mb-3']]).'>'.PHP_EOL;
+echo '<label class="col-sm-3 col-md-2 col-form-label text-sm-end">'.PHP_EOL; // <--
+
+echo $val[$this->env]['label']; // <-- no escape, it can contain html tags
+
+echo !empty($val[$this->env]['attr']['required']) ? ' *' : '';
+
+echo '</label>'.PHP_EOL;
+echo '<div'.$this->escapeAttr([
+    'class' => array_merge($this->config['theme.'.$this->env.'.'.$this->action.'.value.class'] ?? $this->config['theme.'.$this->env.'.value.class'] ?? $this->config['theme.'.$this->action.'.value.class'] ?? $this->config['theme.value.class'] ?? [], ['col-lg-10']),
+]).'>'.PHP_EOL; // <--
+
+echo '<div class="table-responsive">'.PHP_EOL;
+echo '<table class="table table-bordered table-striped table-sm small">'.PHP_EOL;
+
+echo '<thead>'.PHP_EOL;
+echo '<tr>'.PHP_EOL;
+
+echo '<th scope="col" class="text-nowrap">'.$this->escape()->html(__('Module')).'</th>'.PHP_EOL;
+
+foreach ($this->config['mod.perms.action.arr'] as $action) {
+    echo '<th scope="col" class="text-nowrap">'.$this->escape()->html(__($action)).'</th>'.PHP_EOL;
+}
+
+echo '</tr>'.PHP_EOL;
+echo '</thead>'.PHP_EOL;
+
+echo '<tbody>'.PHP_EOL;
+
+$keyData = [];
+
+if (isset($this->Mod->postData[$key])) {
+    $keyData = (array) $this->Mod->postData[$key];
+}
+
+foreach ($this->Mod->mods as $controller => $row) {
+    echo '<tr>'.PHP_EOL;
+
+    echo '<td class="text-nowrap text-end fw-bold">'.PHP_EOL;
+    echo $this->escape()->html($row['pluralName']);
+    echo '</td>'.PHP_EOL;
+
+    foreach ($this->config['mod.perms.action.arr'] as $action) {
+        echo '<td class="text-nowrap">'.PHP_EOL;
+
+        if (array_key_exists($action, $row['perms'])) {
+            foreach ($row['perms'][$action] as $env => $perms) {
+                foreach ($perms as $perm) {
+                    $params = [];
+
+                    $params['attr']['name'] = $key.'[]';
+
+                    if (!empty($keyData)) {
+                        if (in_array($controller.'.'.$env.'.'.$perm, $keyData, true)) {
+                            $params['value'] = $controller.'.'.$env.'.'.$perm;
+                        }
+                    }
+
+                    $params['attr']['value'] = $params['attr']['id'] = $controller.'.'.$env.'.'.$perm;
+
+                    echo '<div'.$this->escapeAttr(['class' => array_merge(['form-check'], !empty($this->config['theme.checkbox.switches']) ? ['form-switch'] : [])]).'>'.PHP_EOL;
+
+                    $params = ArrayUtils::merge($val[$this->env], $params);
+
+                    echo $this->helper->Html()->getFormField($params);
+
+                    echo '<label class="form-check-label"'.$this->escapeAttr(['for' => $params['attr']['id']]).'>'.$this->escape()->html(__($env).': '.$this->container->get('Mod\\'.ucfirst((string) $controller.'\\'.ucfirst((string) $env)))->getPermLabel($perm)).'</label>'.PHP_EOL;
+
+                    echo '</div>'.PHP_EOL;
+
+                    echo '<div class="invalid-feedback"></div>'.PHP_EOL;
+                }
+            }
+        }
+
+        echo '</td>'.PHP_EOL;
+    }
+
+    echo '</tr>'.PHP_EOL;
+}
+
+echo '</tbody>'.PHP_EOL;
+
+echo '</table>'.PHP_EOL;
+echo '</div>'.PHP_EOL;
+
+if (!empty($params['help'])) {
+    echo '<div'.$this->escapeAttr([
+        'id' => 'help-'.$this->helper->Nette()->Strings()->webalize($key),
+        'class' => ['form-text'],
+    ]).'>'.nl2br(is_array($params['help']) ? implode(PHP_EOL, $params['help']) : $params['help']).'</div>'.PHP_EOL;
+}
+
+echo '</div>'.PHP_EOL;
+echo '</div>'.PHP_EOL;

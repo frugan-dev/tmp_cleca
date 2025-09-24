@@ -1,0 +1,11 @@
+--- src/Escaper/AttrEscaper.php	2022-04-13 22:16:33.470748752 +0000
++++ ../../../patch/aura/html/src/Escaper/AttrEscaper.php	2022-04-13 22:30:48.303885572 +0000
+@@ -93,7 +93,7 @@
+     public function __invoke($raw)
+     {
+         if (! is_array($raw)) {
+-            return $this->replace($raw, '/[^a-z0-9,\.\-_]/iSu');
++            return $this->html->__invoke($raw);
+         }
+ 
+         $esc = '';

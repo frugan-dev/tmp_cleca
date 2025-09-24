@@ -1,0 +1,7 @@
+{
+  "name": "php",
+  "dockerComposeFile": ["../../docker-compose.yml"],
+  "service": "php",
+  "shutdownAction": "none",
+  "workspaceFolder": "/app/${APP_ID}"
+}

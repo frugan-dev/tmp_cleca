@@ -1,0 +1,16 @@
+includes:
+    - phar://phpstan.phar/conf/bleedingEdge.neon
+
+parameters:
+    level: max
+    paths:
+        - .
+        - ./../../public
+    excludePaths:
+        - ./inc/*
+        - ./patch/*
+        - ./var/*
+        - ./vendor/*
+
+includes:
+    - vendor/thecodingmachine/phpstan-safe-rule/phpstan-safe-rule.neon

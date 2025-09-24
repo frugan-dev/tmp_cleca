@@ -1,0 +1,58 @@
+#https://serverfault.com/a/933537
+# mail uses system sendmail to submit a message to postfix queue, then postfix uses SMTP to deliver the message to external servers.
+# smtpd_sender_restrictions apply only to incoming SMTP sessions on your postfix system.
+#
+# msmtp: /home/daemon/.msmtprc: contains secrets and therefore must be owned by you
+# msmtp: /home/daemon/.msmtprc: contains secrets and therefore must have no more than user read/write permissions
+#
+# echo "Subject: Test" | /usr/bin/msmtp to@domain.tld
+# echo -e "Subject: Test\n\nTest message" | /usr/bin/msmtp -f from@domain.tld -- to@domain.tld
+
+defaults
+auth            on
+tls             on
+
+# Docker containers typically don't run syslog daemons, making this option ineffective.
+# Syslog messages would be lost since there's no syslog service to receive them.
+#syslog          on
+
+# By default, msmtp only logs errors to stderr and doesn't log successful operations (`logfile` directive).
+# msmtp runs in the context of the PHP-FPM process (user: daemon), therefore:
+# - stderr output is automatically captured by the container's stderr stream (if php-fpm error_log = /dev/stderr)
+#   otherwise they end up in php-fpm error_log file (e.g. /opt/bitnami/php/logs/php-fpm.log)
+# - `logfile /opt/bitnami/php/logs/php-fpm.log` is ok (owned by daemon) but doesn't make sense
+#   if php-fpm error_log = /dev/stderr
+# - `logfile /dev/stderr` (symlink to /proc/self/fd/2) would fail due to permission issues (owned by root)
+# - `logfile -` sends detailed transaction logs to stdout (captured by container by default)
+# Comment this line if you only want error messages.
+logfile         -
+
+account         postfix
+host            postfix
+#port            587
+from            postmaster@domain.tld
+user            user@domain.tld
+password        changeme
+tls_certcheck   off
+
+# A sandbox subdomain of mailgun.org. Example: sandboxXX.mailgun.org.
+# This option allows for quick testing, without having to setup DNS entries.
+# This domain is provisioned automatically with every new account.
+# But you can send only to authorized recipients.
+account         mailgun
+host            smtp.eu.mailgun.org
+port            587
+from            postmaster@mg.domain.tld
+user            postmaster@mg.domain.tld
+password        changeme
+
+account         mailpit
+auth            off
+host            mailpit
+port            1025
+from            webmaster@domain.tld
+tls             off
+
+account default : mailpit
+
+aliases         /etc/aliases

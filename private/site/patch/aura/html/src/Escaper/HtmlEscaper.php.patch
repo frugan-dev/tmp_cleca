@@ -1,0 +1,13 @@
+--- src/Escaper/HtmlEscaper.php	2022-02-19 07:18:21.000000000 +0000
++++ ../../../patch/aura/html/src/Escaper/HtmlEscaper.php	2023-07-19 20:30:42.480511832 +0000
+@@ -71,6 +71,10 @@
+             return $raw;
+         }
+ 
++        if (str_starts_with($raw, '#RAW#')) {
++            return substr($raw, strlen('#RAW#'));
++        }
++
+         // return the escaped string
+         return htmlspecialchars(
+             $raw,

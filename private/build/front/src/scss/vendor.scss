@@ -1,0 +1,39 @@
+@import "var";
+
+@import "~bootstrap/scss/functions";
+
+@import "bootstrap/variables";
+@import "bootswatch/cosmo/variables";
+
+//https://stackoverflow.com/a/55191149/3929620
+//@import "~bootswatch/dist/#{$theme}/variables";
+@import "~bootswatch/dist/cosmo/variables";
+
+@import "~bootstrap/scss/variables";
+@import "bootstrap/variables-dark";
+@import "~bootstrap/scss/variables-dark";
+
+@import "~flag-icons/sass/flag-icons";
+
+@at-root {
+  :root {
+    --animate-duration: 800ms;
+    //--animate-delay: 1s;
+    //--animate-repeat: 1;
+  }
+}
+//@import '~animate.css/animate.compat.css'; // v3.x and under with no prefix `animate__` at all
+@import "~animate.css/animate.css";
+
+@import "~@uppy/core/src/style";
+@import "~@uppy/progress-bar/src/style";
+
+@at-root {
+  /* stylelint-disable-next-line selector-class-pattern */
+  .fancybox__thumbs {
+    --f-thumb-outline-color: #{$primary};
+  }
+}
+@import "~@fancyapps/ui/dist/fancybox/fancybox.css";
+
+@import "~vanilla-cookieconsent/dist/cookieconsent.css";

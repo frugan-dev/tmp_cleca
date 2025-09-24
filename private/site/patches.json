@@ -1,0 +1,22 @@
+{
+  "patches": {
+    "aura/filter": {
+      "Compatible with JsonSerializable::jsonSerialize()": "patch/aura/filter/src/Failure/Failure.php.patch",
+      "DateTimeImmutable::getLastErrors() compatible with PHP >= 8.2": "patch/aura/filter/src/Rule/AbstractDateTime.php.patch",
+      "Creation of dynamic property is deprecated with PHP >= 8.2": "patch/aura/filter/src/ValueFilter.php.patch"
+    },
+    "aura/html": {
+      "Add #RAW# support to HtmlEscaper": "patch/aura/html/src/Escaper/HtmlEscaper.php.patch",
+      "Allow custom rel attribute in fixAttr method": "patch/aura/html/src/Helper/Styles.php.patch"
+    },
+    "laminas/laminas-i18n": {
+      "Add $plural argument to getTranslatedMessage() method": "patch/laminas/laminas-i18n/src/Translator/Translator.php.patch"
+    },
+    "middlewares/www": {
+      "Remove port in response https://github.com/middlewares/www/issues/1#issue-906570492": "patch/middlewares/www/src/Www.php.patch"
+    },
+    "shudrum/array-finder": {
+      "PHP 8.1 compatibility https://github.com/Shudrum/ArrayFinder/pull/6": "patch/shudrum/array-finder/ArrayFinder.php.patch"
+    }
+  }
+}

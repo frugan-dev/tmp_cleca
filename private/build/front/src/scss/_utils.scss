@@ -1,0 +1,35 @@
+/* =============================================================================
+   utils
+   ========================================================================== */
+
+.outline-none {
+
+  &,
+  * {
+    outline: none;
+  }
+}
+
+//https://github.com/twbs/bootstrap/pull/29135#issuecomment-870514773
+.pre-scrollable {
+  max-height: 340px;
+  overflow-y: scroll;
+}
+
+//https://tobiasahlin.com/blog/flexbox-break-to-new-row/
+.flex-break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+a > .img-thumbnail,
+a > picture > .img-thumbnail {
+  //https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+  //https://stackoverflow.com/a/61402073/3929620
+  @include transition($transition-base);
+
+  &:hover {
+    border-color: $link-hover-color;
+    @include box-shadow($box-shadow);
+  }
+}

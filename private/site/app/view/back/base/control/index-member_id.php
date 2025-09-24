@@ -1,0 +1,155 @@
+<?php
+
+declare(strict_types=1);
+
+/*
+ * This file is part of the Slim 4 PHP application.
+ *
+ * (ɔ) Frugan <dev@frugan.it>
+ *
+ * This source file is subject to the GNU GPLv3 license that is bundled
+ * with this source code in the file COPYING.
+ */
+
+use Symfony\Component\EventDispatcher\GenericEvent;
+
+$ModCat = $this->container->get('Mod\Catmember\\'.ucfirst((string) $this->env));
+$Mod = $this->container->get('Mod\Member\\'.ucfirst((string) $this->env));
+
+$params = [
+    'type' => 'select',
+    'attr' => [
+        'name' => $val,
+        'id' => $val,
+        'class' => ['form-select', 'form-select-sm', 'select-location'],
+    ],
+];
+
+$routeParamsArr = $this->Mod->routeParamsArrWithoutPg;
+
+if (($paramId = array_search($val, $routeParamsArr, true)) !== false) {
+    if (isset($routeParamsArr[$paramId + 1])) {
+        $params['value'] = $this->uri([
+            'routeName' => $this->env.'.'.$this->controller.'.params',
+            'data' => [
+                'action' => $this->action,
+                'params' => implode('/', [
+                    $this->Mod->orderBy,
+                    $this->Mod->orderDir,
+                ] + $routeParamsArr),
+            ],
+        ]);
+
+        unset($routeParamsArr[$paramId], $routeParamsArr[$paramId + 1]);
+    }
+}
+
+$firstOptionKey = $this->uri([
+    'routeName' => $this->env.'.'.$this->controller.'.params',
+    'data' => [
+        'action' => $this->action,
+        'params' => implode('/', [
+            $this->Mod->orderBy,
+            $this->Mod->orderDir,
+        ] + $routeParamsArr),
+    ],
+]);
+
+if (($paramId = array_search('cat'.$Mod->modName.'_id', $routeParamsArr, true)) !== false) {
+    if (isset($routeParamsArr[$paramId + 1])) {
+        ${'cat'.$Mod->modName.'Id'} = $routeParamsArr[$paramId + 1];
+    }
+}
+
+if (empty(${'cat'.$Mod->modName.'Id'})) {
+    $ModCat->removeAllListeners();
+
+    $eventName = 'event.'.$this->env.'.'.$ModCat->modName.'.getOne.where';
+    $callback = function (GenericEvent $event) use ($ModCat): void {
+        $ModCat->dbData['sql'] .= ' AND a.preselected = :preselected';
+
+        $ModCat->dbData['args']['preselected'] = 1;
+    };
+
+    $this->dispatcher->addListener($eventName, $callback);
+
+    $row = $ModCat->getOne(
+        [
+            'id' => false,
+        ]
+    );
+
+    $this->dispatcher->removeListener($eventName, $callback);
+
+    $ModCat->addAllListeners();
+
+    if (!empty($row['id'])) {
+        ${'cat'.$Mod->modName.'Id'} = $row['id'];
+    }
+}
+
+$params['options'] = [];
+
+$params['options'][$firstOptionKey] = '- '.__($val).' -';
+
+if (!empty(${'cat'.$Mod->modName.'Id'})) {
+    $catId = ${'cat'.$Mod->modName.'Id'};
+    $eventName = 'event.'.$this->env.'.'.$Mod->modName.'.getAll.where';
+    $callback = function (GenericEvent $event) use ($Mod, $catId): void {
+        $Mod->dbData['sql'] .= ' AND a.cat'.$Mod->modName.'_id = :cat'.$Mod->modName.'_id';
+        $Mod->dbData['args']['cat'.$Mod->modName.'_id'] = (int) $catId;
+    };
+
+    $this->dispatcher->addListener($eventName, $callback);
+
+    $result = $Mod->getAll([
+        'order' => 'a.lastname ASC, a.firstname ASC',
+    ]);
+
+    $this->dispatcher->removeListener($eventName, $callback);
+
+    if ((is_countable($result) ? count($result) : 0) > 0) {
+        foreach ($result as $row) {
+            $routeParamsArr = $this->Mod->routeParamsArrWithoutPg;
+
+            if (!isset($routeParamsArr[0])) {
+                $routeParamsArr[0] = $this->Mod->orderBy;
+            }
+
+            if (!isset($routeParamsArr[1])) {
+                $routeParamsArr[1] = $this->Mod->orderDir;
+            }
+
+            if (($paramId = array_search($val, $routeParamsArr, true)) !== false) {
+                $routeParamsArr[$paramId] = $val;
+                $routeParamsArr[$paramId + 1] = $row['id'];
+            } else {
+                $routeParamsArr[] = $val;
+                $routeParamsArr[] = $row['id'];
+            }
+
+            $params['options'][$this->uri([
+                'routeName' => $this->env.'.'.$this->controller.'.params',
+                'data' => [
+                    'action' => $this->action,
+                    'params' => implode('/', $routeParamsArr),
+                ],
+            ])] = [
+                'attr' => [
+                    'value' => $this->uri([
+                        'routeName' => $this->env.'.'.$this->controller.'.params',
+                        'data' => [
+                            'action' => $this->action,
+                            'params' => implode('/', $routeParamsArr),
+                        ],
+                    ]),
+                ],
+                'value' => $this->escape()->html($this->helper->Nette()->Strings()->truncate($row['id'].' - '.$row['lastname'].' '.$row['firstname'].' ('.$row['email'].')', 50)),
+            ];
+        }
+    }
+} else {
+    $params['attr']['disabled'] = true;
+}
+
+echo $this->helper->Html()->getFormField($params);

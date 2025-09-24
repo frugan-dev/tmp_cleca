@@ -1,0 +1,12 @@
+#https://unix.stackexchange.com/a/531586/81288
+
+# Send root to Joe and Jane
+#root: joe_smith@example.com, jane_chang@example.com
+
+# Send cron to Mark
+#cron: mark_jones@example.com
+
+#devnull: postmaster@mg.domain.tld
+
+# Send everything else to admin
+#default: admin@domain.example

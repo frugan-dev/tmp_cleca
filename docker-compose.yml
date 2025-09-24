@@ -1,0 +1,164 @@
+services:
+
+  mariadb:
+    container_name: ${APP_ID}_mariadb
+    image: frugan/bitnamilegacy-mariadb:${MARIADB_TAG:-latest}
+    networks:
+      - default
+    userns_mode: 'host'
+    #https://github.com/bitnami/bitnami-docker-suitecrm/issues/72#issuecomment-355543792
+    user: root
+    restart: always
+    volumes:
+      - ${PWD}/private/docker/mariadb/data:/bitnami/mariadb
+      - ${PWD}/private/docker/mariadb/init:/docker-entrypoint-initdb.d
+      #https://stackoverflow.com/a/61075455/3929620
+      #https://stackoverflow.com/a/54658017/3929620
+      - ${PWD}/private/docker/mariadb/custom.cnf:/opt/bitnami/mariadb/conf/my_custom.cnf:ro
+    environment:
+      MARIADB_ROOT_USER: ${MARIADB_ROOT_USER}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASES: ${MARIADB_DATABASES}
+
+  apache:
+    container_name: ${APP_ID}_apache
+    image: frugan/bitnami-apache:${APACHE_TAG:-latest}
+    networks:
+      - default
+    restart: always
+    ports:
+      - ${APACHE_HTTP_PORT}:8080
+      - ${APACHE_HTTPS_PORT}:8443
+    volumes:
+      - ${PWD}:/app/${APP_ID}
+      - ${PWD}/private/docker/apache/vhosts.conf:/vhosts/vhosts.conf:ro
+      - ${PWD}/private/docker/apache/certs:/certs
+    environment:
+      APP_ENV: ${APP_ENV}
+      APACHE_REWRITE_MODULE_ENABLED: ${APACHE_REWRITE_MODULE_ENABLED}
+      APACHE_LDAP_MODULE_ENABLED: ${APACHE_LDAP_MODULE_ENABLED}
+      APACHE_EVASIVE_MODULE_ENABLED: ${APACHE_EVASIVE_MODULE_ENABLED}
+      APACHE_DEFLATE_MODULE_ENABLED: ${APACHE_DEFLATE_MODULE_ENABLED}
+      APACHE_ENV_MODULE_ENABLED: ${APACHE_ENV_MODULE_ENABLED}
+      APACHE_EXPIRES_MODULE_ENABLED: ${APACHE_EXPIRES_MODULE_ENABLED}
+      APACHE_EXT_FILTER_MODULE_ENABLED: ${APACHE_EXT_FILTER_MODULE_ENABLED}
+      APACHE_FILTER_MODULE_ENABLED: ${APACHE_FILTER_MODULE_ENABLED}
+      APACHE_HEADERS_MODULE_ENABLED: ${APACHE_HEADERS_MODULE_ENABLED}
+      APACHE_MIME_MODULE_ENABLED: ${APACHE_MIME_MODULE_ENABLED}
+      APACHE_SETENVIF_MODULE_ENABLED: ${APACHE_SETENVIF_MODULE_ENABLED}
+      APACHE_HTTP2_MODULE_ENABLED: ${APACHE_HTTP2_MODULE_ENABLED}
+      APACHE_SECURITY3_MODULE_ENABLED: ${APACHE_SECURITY3_MODULE_ENABLED}
+      APACHE_REMOTEIP_MODULE_ENABLED: ${APACHE_REMOTEIP_MODULE_ENABLED}
+      APACHE_PAGESPEED_MODULE_ENABLED: ${APACHE_PAGESPEED_MODULE_ENABLED}
+
+  php:
+    container_name: ${APP_ID}_php
+    image: frugan/bitnami-php-fpm:${PHP_TAG:-latest}
+    networks:
+      - default
+    userns_mode: 'host'
+    restart: always
+    depends_on:
+      - mariadb
+    volumes:
+      - ${PWD}:/app/${APP_ID}
+      - ${PWD}/private/docker/php/msmtprc:/home/daemon/.msmtprc
+      - ${PWD}/private/docker/php/aliases:/etc/aliases
+    environment:
+      APP_ENV: ${APP_ENV}
+      APP_ID: ${APP_ID}
+      USER_ID: ${USER_ID}
+      GROUP_ID: ${GROUP_ID}
+      TZ:  ${PHP_TZ}
+      PHP_WAITFORIT_CONTAINER_NAME: ${PHP_WAITFORIT_CONTAINER_NAME}
+      PHP_WAITFORIT_CONTAINER_PORT: ${PHP_WAITFORIT_CONTAINER_PORT}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+      NEWRELIC_ENABLED: ${NEWRELIC_ENABLED}
+      NEWRELIC_VERSION: ${NEWRELIC_VERSION}
+      PHP_CUSTOM_ENV_VARS: ${PHP_CUSTOM_ENV_VARS}
+      PHP_WITH_ALL_LOCALES: ${PHP_WITH_ALL_LOCALES}
+      PHP_EXTRA_LOCALES: ${PHP_EXTRA_LOCALES}
+      PHP_COMPOSER_GLOBAL_LIBS: ${PHP_COMPOSER_GLOBAL_LIBS}
+      PHP_COMPOSER_PATHS: ${PHP_COMPOSER_PATHS}
+      PHP_COMPOSER_VERSION: ${PHP_COMPOSER_VERSION}
+      PHP_COMPOSER_ARG: ${PHP_COMPOSER_ARG}
+      COMPOSER_ALLOW_SUPERUSER: 1
+      COMPOSER_PROCESS_TIMEOUT: ${PHP_COMPOSER_PROCESS_TIMEOUT}
+      PHP_WP_CLI_ENABLED: ${PHP_WP_CLI_ENABLED}
+      PHP_APCU_ENABLED: ${PHP_APCU_ENABLED}
+      PHP_MCRYPT_ENABLED: ${PHP_MCRYPT_ENABLED}
+      PHP_IMAGICK_ENABLED: ${PHP_IMAGICK_ENABLED}
+      PHP_IMAGICK_POLICY_RULES: ${PHP_IMAGICK_POLICY_RULES}
+      PHP_MAXMINDDB_ENABLED: ${PHP_MAXMINDDB_ENABLED}
+      PHP_MONGODB_ENABLED: ${PHP_MONGODB_ENABLED}
+      PHP_XDEBUG_ENABLED: ${PHP_XDEBUG_ENABLED}
+      PHP_MEMCACHED_ENABLED: ${PHP_MEMCACHED_ENABLED}
+      PHP_PDO_DBLIB_ENABLED: ${PHP_PDO_DBLIB_ENABLED}
+      PHP_PDO_PGSQL_ENABLED: ${PHP_PDO_PGSQL_ENABLED}
+      PHP_PGSQL_ENABLED: ${PHP_PGSQL_ENABLED}
+      PHP_OPCACHE_ENABLED: ${PHP_OPCACHE_ENABLED}
+      PHP_SODIUM_ENABLED: ${PHP_SODIUM_ENABLED}
+      PHP_REDIS_ENABLED: ${PHP_REDIS_ENABLED}
+      PHP_IGBINARY_ENABLED: ${PHP_IGBINARY_ENABLED}
+      PHP_MSGPACK_ENABLED: ${PHP_MSGPACK_ENABLED}
+      PHP_SUPERCRONIC_ENABLED: ${PHP_SUPERCRONIC_ENABLED}
+      PHP_SUPERCRONIC_FLAGS: ${PHP_SUPERCRONIC_FLAGS}
+      SENTRY_DSN: ${PHP_SENTRY_DSN}
+      PHP_JIT_BUFFER_SIZE: ${PHP_JIT_BUFFER_SIZE}
+      PHP_SENDMAIL_PATH: ${PHP_SENDMAIL_PATH}
+
+  node:
+    container_name: ${APP_ID}_node
+    image: frugan/bitnamilegacy-node:${NODE_TAG:-latest}
+    #image: frugan/node:${NODE_TAG:-latest}
+    networks:
+      - default
+    restart: unless-stopped
+    #depends_on:
+    #  - mariadb
+    ports:
+      - ${NODE_PORT}:3000
+    volumes:
+      - ${PWD}:/app/${APP_ID}
+      #- ${PWD}:/opt/app/${APP_ID}
+    #https://dev.to/igmrrf/docker-react-exited-with-code-0-398n
+    #https://stackoverflow.com/a/63427684/3929620
+    #https://stackoverflow.com/a/52336349/3929620
+    tty: true
+    environment:
+      APP_ID: ${APP_ID}
+      USER_ID: ${USER_ID}
+      GROUP_ID: ${GROUP_ID}
+      NODE_ENV: ${NODE_ENV}
+      NODE_WAITFORIT_CONTAINER_NAME: ${NODE_WAITFORIT_CONTAINER_NAME}
+      NODE_WAITFORIT_CONTAINER_PORT: ${NODE_WAITFORIT_CONTAINER_PORT}
+      NODE_NPM_GLOBAL_LIBS: ${NODE_NPM_GLOBAL_LIBS}
+      NODE_NPM_PATHS: ${NODE_NPM_PATHS}
+
+  phpmyadmin:
+    container_name: ${APP_ID}_phpmyadmin
+    image: frugan/bitnamilegacy-phpmyadmin:${PHPMYADMIN_TAG:-latest}
+    networks:
+      - default
+    ports:
+      - ${PHPMYADMIN_HTTP_PORT}:8080
+      - ${PHPMYADMIN_HTTPS_PORT}:8443
+    depends_on:
+      - mariadb
+    volumes:
+      - ${PWD}/private/docker/apache/certs:/opt/bitnami/apache/conf/bitnami/certs
+    environment:
+      PHPMYADMIN_ALLOW_ARBITRARY_SERVER: ${PHPMYADMIN_ALLOW_ARBITRARY_SERVER}
+      DATABASE_ALLOW_NO_PASSWORD: ${PHPMYADMIN_ALLOW_NO_PASSWORD}
+      DATABASE_HOST: ${PHPMYADMIN_DATABASE_HOST}
+      DATABASE_PORT_NUMBER: ${PHPMYADMIN_DATABASE_PORT_NUMBER}
+      DATABASE_ENABLE_SSL: ${PHPMYADMIN_DATABASE_ENABLE_SSL}
+      DATABASE_SSL_KEY: ${PHPMYADMIN_DATABASE_SSL_KEY}
+      DATABASE_SSL_CERT: ${PHPMYADMIN_DATABASE_SSL_CERT}
+      DATABASE_SSL_CA: ${PHPMYADMIN_DATABASE_SSL_CA}
+      DATABASE_SSL_CA_PATH: ${PHPMYADMIN_DATABASE_SSL_CA_PATH}
+      DATABASE_SSL_CIPHERS: ${PHPMYADMIN_DATABASE_SSL_CIPHERS}
+      DATABASE_SSL_VERIFY: ${PHPMYADMIN_DATABASE_SSL_VERIFY}
+
+networks:
+  default:

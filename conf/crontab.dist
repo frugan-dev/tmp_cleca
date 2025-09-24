@@ -1,0 +1,18 @@
+#https://en.wikipedia.org/wiki/Cron
+#https://crontab.guru
+#https://pkg.go.dev/github.com/robfig/cron
+#https://stackoverflow.com/a/35808520/3929620
+
+#CRON_TZ=Europe/Rome
+
+# Run every minute
+#*/1 * * * * echo "hello"
+
+# Run every 2 seconds
+#*/2 * * * * * * ls 2>/dev/null
+
+# Run once every hour
+#@hourly echo "$SOME_HOURLY_JOB"
+
+# Run once every day
+#@daily cd /app/myappid/private/cli && php -f app.php

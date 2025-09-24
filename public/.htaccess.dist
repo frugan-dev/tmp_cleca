@@ -1,0 +1,33 @@
+# ##########################################################
+# Apache Values                                            #
+# ##########################################################
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Redirect Trailing Slashes
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+	#https://stackoverflow.com/a/22554024
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  	RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.+)\.(\d+)\.(bmp|css|cur|gif|ico|jpe?g|m?js|a?png|svgz?|webp|webmanifest)$ $1.$3 [L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^(.+)/(\w{2})/(\d+)-(.+)\.(bmp|css|cur|gif|ico|jpe?g|m?js|a?png|svgz?|webp|pdf)$ $1/$3.$5 [L]
+
+    #https://httpd.apache.org/docs/2.4/mod/mod_dir.html#fallbackresource
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+
+# ##########################################################
+# PHP Values                                               #
+# ##########################################################
+
+<IfModule mod_php7.c>
+    php_value date.timezone Europe/Rome
+</IfModule>

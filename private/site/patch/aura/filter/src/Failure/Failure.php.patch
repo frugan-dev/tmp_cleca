@@ -1,0 +1,11 @@
+--- src/Failure/Failure.php	2017-04-20 05:28:07.000000000 +0000
++++ ../../../patch/aura/filter/src/Failure/Failure.php	2023-06-01 09:36:11.726042378 +0000
+@@ -112,7 +112,7 @@
+     * @return array
+     *
+     */
+-    public function jsonSerialize()
++    public function jsonSerialize(): mixed
+     {
+         return array(
+             'field' => $this->field,

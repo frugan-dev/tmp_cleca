@@ -1,0 +1,150 @@
+#https://httpd.apache.org/docs/2.4/env.html
+#https://httpd.apache.org/docs/2.4/mod/core.html#define
+#https://docstore.mik.ua/orelly/linux/apache/ch04_06.htm
+#https://docs.bitnami.com/tutorials/develop-http-api-php-containers/
+#https://serverfault.com/a/966685/377751
+
+ServerName domain.tld
+
+IncludeOptional "/opt/bitnami/apache/conf/h5bp.conf"
+
+Listen 80
+Listen 443
+
+######################### domain.tld
+
+<VirtualHost *:8080 *:80>
+	ServerAdmin webmaster@domain.tld
+	DocumentRoot "/app/APP_ID/public"
+	ServerName domain.tld
+	ServerAlias www.domain.tld
+
+	DirectoryIndex index.html index.htm index.php
+
+	<Directory "/app/APP_ID/public">
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+	#ProxyErrorOverride On
+
+    # method #1
+    #https://serverfault.com/a/609232
+    #https://gist.github.com/ejimz/5815306
+    #https://stackoverflow.com/q/27355514
+    #ProxyPass /wp-content/plugins !
+    #ProxyPass /wp-content/uploads !
+    #ProxyPassMatch ^/(ajax\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/public/cms/wp-admin/admin-$1
+	#ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/public/$1
+
+    # method #2
+    #https://stackoverflow.com/q/71307609
+	<FilesMatch \.php$>
+        SetHandler proxy:fcgi://APP_ID_php:9000
+    </FilesMatch>
+</VirtualHost>
+
+<VirtualHost *:8443 *:443>
+	ServerAdmin webmaster@domain.tld
+	DocumentRoot "/app/APP_ID/public"
+	ServerName domain.tld
+	ServerAlias www.domain.tld
+
+	SSLEngine on
+	SSLCertificateFile "/certs/server.crt"
+	SSLCertificateKeyFile "/certs/server.key"
+
+	DirectoryIndex index.html index.htm index.php
+
+	<Directory "/app/APP_ID/public">
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+	#ProxyErrorOverride On
+
+    # method #1
+    #https://serverfault.com/a/609232
+    #https://gist.github.com/ejimz/5815306
+    #https://stackoverflow.com/q/27355514
+    #ProxyPass /wp-content/plugins !
+    #ProxyPass /wp-content/uploads !
+    #ProxyPassMatch ^/(ajax\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/public/cms/wp-admin/admin-$1
+	#ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/public/$1
+
+    # method #2
+    #https://stackoverflow.com/q/71307609
+	<FilesMatch \.php$>
+        SetHandler proxy:fcgi://APP_ID_php:9000
+    </FilesMatch>
+</VirtualHost>
+
+######################### dev.domain.tld
+
+<VirtualHost *:8080 *:80>
+	ServerAdmin webmaster@domain.tld
+	DocumentRoot "/app/APP_ID/domains/dev.domain.tld/public"
+	ServerName dev.domain.tld
+
+	DirectoryIndex index.html index.htm index.php
+
+	<Directory "/app/APP_ID/domains/dev.domain.tld/public">
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+	#ProxyErrorOverride On
+
+    # method #1
+    #https://serverfault.com/a/609232
+    #https://gist.github.com/ejimz/5815306
+    #https://stackoverflow.com/q/27355514
+    #ProxyPass /wp-content/plugins !
+    #ProxyPass /wp-content/uploads !
+    #ProxyPassMatch ^/(ajax\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/domains/dev.domain.tld/public/cms/wp-admin/admin-$1
+	#ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/domains/dev.domain.tld/public/$1
+
+    # method #2
+    #https://stackoverflow.com/q/71307609
+	<FilesMatch \.php$>
+        SetHandler proxy:fcgi://APP_ID_php:9000
+    </FilesMatch>
+</VirtualHost>
+
+<VirtualHost *:8443 *:443>
+	ServerAdmin webmaster@domain.tld
+	DocumentRoot "/app/APP_ID/domains/dev.domain.tld/public"
+	ServerName dev.domain.tld
+
+	SSLEngine on
+	SSLCertificateFile "/certs/server.crt"
+	SSLCertificateKeyFile "/certs/server.key"
+
+	DirectoryIndex index.html index.htm index.php
+
+	<Directory "/app/APP_ID/domains/dev.domain.tld/public">
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+	#ProxyErrorOverride On
+
+    # method #1
+    #https://serverfault.com/a/609232
+    #https://gist.github.com/ejimz/5815306
+    #https://stackoverflow.com/q/27355514
+    #ProxyPass /wp-content/plugins !
+    #ProxyPass /wp-content/uploads !
+    #ProxyPassMatch ^/(ajax\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/domains/dev.domain.tld/public/cms/wp-admin/admin-$1
+	#ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://APP_ID_php:9000/app/APP_ID/domains/dev.domain.tld/public/$1
+
+    # method #2
+    #https://stackoverflow.com/q/71307609
+	<FilesMatch \.php$>
+        SetHandler proxy:fcgi://APP_ID_php:9000
+    </FilesMatch>
+</VirtualHost>

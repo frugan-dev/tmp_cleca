@@ -1,0 +1,11 @@
+#https://en.wikipedia.org/wiki/Cron
+#https://crontab.guru
+#https://pkg.go.dev/github.com/robfig/cron
+#https://stackoverflow.com/a/35808520/3929620
+#https://github.com/mcuadros/ofelia/issues/98#issuecomment-620221931
+#[job-exec "my-job-name"]
+#schedule = @daily
+#container = myappid_php
+#user = daemon
+#command = sh -c 'PATH=$PATH && cd /app/myappid/private/cli && php -f app.php'
+#no-overlap = true

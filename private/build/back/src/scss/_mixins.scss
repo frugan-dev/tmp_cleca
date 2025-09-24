@@ -1,0 +1,27 @@
+/* =============================================================================
+   mixins
+   ========================================================================== */
+
+
+/* =============================================================================
+   functions
+   ========================================================================== */
+//https://css-tricks.com/snippets/sass/strip-unit-function/
+@function strip-unit($number) {
+  @if type-of($number) == "number" and not unitless($number) {
+    $divider: ($number * 0 + 1);
+    @return calc($number / $divider);
+  }
+
+  @return $number;
+}
+
+//https://dev.to/nikolab/convert-px-to-rem-using-sass-3-methods-4ep2
+@function px-to-rem($value) {
+  $new-value: strip-unit($value);
+  @return calc($new-value / 16) + rem;
+}
+@function rem-to-px($value) {
+  $new-value: strip-unit($value);
+  @return calc($new-value * 16) + px;
+}
