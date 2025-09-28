@@ -58,8 +58,13 @@ class RecaptchaV3 extends Model
             return true;
         }
 
-        $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-            'error' => var_export($resp->getErrorCodes(), true),
+        $this->logger->warning('reCAPTCHA v3 verification failed', [
+            'error_codes' => $resp->getErrorCodes(),
+            'challenge_ts' => $resp->getChallengeTs(),
+            // 'hostname' => $resp->getHostname(),
+            'score' => $resp->getScore(), // only v3
+            'action' => $resp->getAction(), // only v3
+            'captcha_response_preview' => substr((string) $value, 0, 20).'...',
         ]);
 
         return false;

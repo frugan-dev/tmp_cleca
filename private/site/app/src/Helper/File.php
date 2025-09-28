@@ -193,12 +193,12 @@ class File extends Helper
 
             $return = true;
         } catch (\Exception $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'text' => implode(PHP_EOL, [
-                    \sprintf('%1$s: %2$s', '$items', var_export($items, true)),
-                    \sprintf('%1$s: %2$s', '$dest', $dest),
-                ]),
+                'text' => $e->getTraceAsString(),
+                'items', $items,
+                'dest', $dest,
             ]);
         }
 
@@ -266,12 +266,12 @@ class File extends Helper
 
             $return = true;
         } catch (\Exception $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'text' => implode(PHP_EOL, [
-                    \sprintf('%1$s: %2$s', '$src', $src),
-                    \sprintf('%1$s: %2$s', '$dest', $dest),
-                ]),
+                'text' => $e->getTraceAsString(),
+                'src' => $src,
+                'dest' => $dest,
             ]);
         }
 
@@ -285,12 +285,12 @@ class File extends Helper
 
             return true;
         } catch (FilesystemException $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'text' => implode(PHP_EOL, [
-                    \sprintf('%1$s: %2$s', '$src', $src),
-                    \sprintf('%1$s: %2$s', '$dest', $dest),
-                ]),
+                'text' => $e->getTraceAsString(),
+                'src' => $src,
+                'dest' => $dest,
             ]);
         }
 
@@ -299,12 +299,12 @@ class File extends Helper
 
             return true;
         } catch (ExecException $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'text' => implode(PHP_EOL, [
-                    \sprintf('%1$s: %2$s', '$src', $src),
-                    \sprintf('%1$s: %2$s', '$dest', $dest),
-                ]),
+                'text' => $e->getTraceAsString(),
+                'src' => $src,
+                'dest' => $dest,
             ]);
         }
 

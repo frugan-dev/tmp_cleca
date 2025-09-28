@@ -59,8 +59,11 @@ class TokenProviderFactory extends Model
             // Mark as unhealthy
             $this->updateProviderHealth($providerName, false);
 
-            $this->logger->error("Failed to create OAuth2 provider: {$providerName}", [
+            $this->logger->error('Failed to create OAuth2 provider: {provider}', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
+                'provider' => $providerName,
             ]);
 
             throw new \RuntimeException("Cannot create OAuth2 provider '{$providerName}': ".$e->getMessage(), 0, $e);
@@ -96,8 +99,10 @@ class TokenProviderFactory extends Model
                 return $provider;
             } catch (\Exception $e) {
                 $this->logger->warning('Configured provider failed, falling back to auto-selection', [
-                    'configured_provider' => $configuredProvider,
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'configured_provider' => $configuredProvider,
                 ]);
 
                 $this->updateProviderHealth($configuredProvider, false);
@@ -113,7 +118,9 @@ class TokenProviderFactory extends Model
 
             foreach ($healthyProviders as $providerName) {
                 try {
-                    $this->logger->debugInternal("Attempting healthy OAuth2 provider: {$providerName}");
+                    $this->logger->debugInternal('Attempting healthy OAuth2 provider: {provider}', [
+                        'provider' => $providerName,
+                    ]);
 
                     $provider = $this->resolveProvider($providerName);
                     if (!$provider) {
@@ -123,13 +130,18 @@ class TokenProviderFactory extends Model
                     // Update health status
                     $this->updateProviderHealth($providerName, true);
 
-                    $this->logger->debugInternal("Successfully using healthy OAuth2 provider: {$providerName}");
+                    $this->logger->debugInternal('Successfully using healthy OAuth2 provider: {provider}', [
+                        'provider' => $providerName,
+                    ]);
 
                     return $provider;
                 } catch (\Exception $e) {
                     $lastException = $e;
-                    $this->logger->warning("Healthy provider failed: {$providerName}", [
+                    $this->logger->warning('Healthy provider failed: {provider}', [
+                        'exception' => $e,
                         'error' => $e->getMessage(),
+                        'text' => $e->getTraceAsString(),
+                        'provider' => $providerName,
                     ]);
 
                     // Mark as unhealthy
@@ -158,7 +170,9 @@ class TokenProviderFactory extends Model
             }
 
             try {
-                $this->logger->debugInternal("Attempting fallback OAuth2 provider: {$providerName}");
+                $this->logger->debugInternal('Attempting fallback OAuth2 provider: {provider}', [
+                    'provider' => $providerName,
+                ]);
 
                 $provider = $this->resolveProvider($providerName);
                 if (!$provider) {
@@ -173,13 +187,18 @@ class TokenProviderFactory extends Model
                 // Update health status
                 $this->updateProviderHealth($providerName, true);
 
-                $this->logger->debugInternal("Successfully using fallback OAuth2 provider: {$providerName}");
+                $this->logger->debugInternal('Successfully using fallback OAuth2 provider: {provider}', [
+                    'provider' => $providerName,
+                ]);
 
                 return $provider;
             } catch (\Exception $e) {
                 $lastException = $e;
-                $this->logger->warning("Fallback provider failed: {$providerName}", [
+                $this->logger->warning('Fallback provider failed: {provider}', [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'provider' => $providerName,
                 ]);
 
                 // Mark as unhealthy
@@ -218,7 +237,10 @@ class TokenProviderFactory extends Model
         // Try preferred provider first if available and healthy
         if ($preferredProvider && $this->supports($preferredProvider) && $this->isProviderHealthy($preferredProvider)) {
             try {
-                $this->logger->debugInternal("Using preferred provider for domain {$domain}: {$preferredProvider}");
+                $this->logger->debugInternal('Using preferred provider for domain {domain}: {provider}', [
+                    'domain' => $domain,
+                    'provider' => $preferredProvider,
+                ]);
 
                 $provider = $this->resolveProvider($preferredProvider);
                 if (!$provider) {
@@ -231,9 +253,9 @@ class TokenProviderFactory extends Model
                 return $provider;
             } catch (\Exception $e) {
                 $this->logger->debugInternal('Preferred provider failed, using fallback', [
-                    'email_domain' => $domain,
-                    'preferred_provider' => $preferredProvider,
-                    'error' => $e->getMessage(),
+                    'exception' => $e,
+                    'domain' => $domain,
+                    'provider' => $preferredProvider,
                 ]);
 
                 // Mark as unhealthy
@@ -299,8 +321,8 @@ class TokenProviderFactory extends Model
                 $this->updateProviderHealth($providerName, false);
 
                 $healthReport[$providerName] = [
+                    'exception' => $e,
                     'healthy' => false,
-                    'error' => $e->getMessage(),
                     'checked_at' => time(),
                 ];
             }
@@ -347,8 +369,9 @@ class TokenProviderFactory extends Model
                 }
             }
         } catch (\Exception $e) {
-            $this->logger->debugInternal("Health check failed for provider: {$providerName}", [
-                'error' => $e->getMessage(),
+            $this->logger->debugInternal('Health check failed for provider: {provider}', [
+                'exception' => $e,
+                'provider' => $providerName,
             ]);
 
             $this->updateProviderHealth($providerName, false);
@@ -376,8 +399,9 @@ class TokenProviderFactory extends Model
                     $provider->clearHealthCache();
                 }
             } catch (\Exception $e) {
-                $this->logger->debugInternal("Failed to clear health cache for provider: {$providerName}", [
-                    'error' => $e->getMessage(),
+                $this->logger->debugInternal('Failed to clear health cache for provider: {provider}', [
+                    'exception' => $e,
+                    'provider' => $providerName,
                 ]);
             }
         }
@@ -407,9 +431,9 @@ class TokenProviderFactory extends Model
                 }
             } catch (\Exception $e) {
                 $statuses[$providerName] = [
+                    'exception' => $e,
                     'provider' => $providerName,
                     'healthy' => false,
-                    'error' => $e->getMessage(),
                 ];
             }
         }
@@ -498,7 +522,9 @@ class TokenProviderFactory extends Model
             ]);
         } catch (\Exception $e) {
             $this->logger->error('Failed to initialize TokenProviderFactory', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
         }
     }
@@ -509,7 +535,9 @@ class TokenProviderFactory extends Model
     private function validateProviderConfig(string $name, array $settings): bool
     {
         if (!isset($settings['class'])) {
-            $this->logger->warning('Skipping provider registration - missing class', ['provider' => $name]);
+            $this->logger->warning('Skipping provider registration - missing class', [
+                'provider' => $name,
+            ]);
 
             return false;
         }
@@ -548,8 +576,8 @@ class TokenProviderFactory extends Model
                 }
             } catch (\Exception $e) {
                 $this->logger->debugInternal('Failed to resolve provider from container', [
+                    'exception' => $e,
                     'provider' => $providerName,
-                    'error' => $e->getMessage(),
                 ]);
             }
         }

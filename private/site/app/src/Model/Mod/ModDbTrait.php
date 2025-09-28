@@ -377,8 +377,10 @@ trait ModDbTrait
 
             return $insertId;
         } catch (\Exception $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');
@@ -462,8 +464,10 @@ trait ModDbTrait
 
             return true;
         } catch (\Exception $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');
@@ -491,8 +495,10 @@ trait ModDbTrait
 
             return true;
         } catch (\Exception $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');
@@ -525,8 +531,10 @@ trait ModDbTrait
 
             return $row->{$this->postData['field']};
         } catch (\Exception $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');

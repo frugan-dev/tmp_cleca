@@ -69,9 +69,8 @@ class TrackedTransport implements TransportInterface
         } catch (\Exception $e) {
             // Record the failure
             $failureInfo = array_merge($transportInfo, [
+                'exception' => $e,
                 'success' => false,
-                'error' => $e->getMessage(),
-                'error_class' => $e::class,
             ]);
 
             self::$failedTransports[] = $failureInfo;

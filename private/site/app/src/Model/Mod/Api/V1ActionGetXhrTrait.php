@@ -32,8 +32,8 @@ trait V1ActionGetXhrTrait
                 throw new HttpMethodNotAllowedException($request);
             }
         } catch (\Exception $e) {
-            $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                'error' => $e->getMessage(),
+            $this->logger->debug($e->getMessage(), [
+                'exception' => $e,
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');

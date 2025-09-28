@@ -608,16 +608,19 @@ trait FormActionTrait
                     }
 
                     if (\count($this->errors) > 0) {
+                        $message = current($this->errors);
+
                         $this->session->addFlash([
                             'type' => 'alert',
                             'options' => [
                                 'type' => 'danger',
-                                'message' => current($this->errors),
+                                'message' => $message,
                             ],
                         ]);
 
-                        $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                            'error' => var_export($this->errors, true),
+                        $this->logger->warning(strip_tags((string) $message), [
+                            'error' => strip_tags((string) $message),
+                            'text' => \Safe\json_encode($this->errors),
                         ]);
                     }
                 }
@@ -1173,8 +1176,8 @@ trait FormActionTrait
             $this->viewRegistryPaths = $oldViewRegistryPaths;
             $this->viewLayout = $oldViewLayout;
         } else {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                'error' => 'missing catmember main',
+            $this->logger->error('Missing catmember main', [
+                'args' => $args,
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');

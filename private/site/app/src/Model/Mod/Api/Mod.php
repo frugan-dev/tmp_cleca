@@ -110,16 +110,16 @@ class Mod extends \App\Model\Mod\Mod
             if ($this->config['debug.enabled']) {
                 throw $e;
             }
-        } catch (\Throwable $t) {
-            $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                'error' => $t->getMessage(),
+        } catch (\Throwable $e) {
+            $this->logger->debug($e->getMessage(), [
+                'exception' => $e,
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');
 
             // rethrow it
             if ($this->config['debug.enabled']) {
-                throw $t;
+                throw $e;
             }
         }
 
@@ -128,8 +128,9 @@ class Mod extends \App\Model\Mod\Mod
                 $this->statusCode = 403;
             }
 
-            $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                'error' => var_export($this->errors, true),
+            $this->logger->debug($e->getMessage(), [
+                'exception' => $e,
+                'errors' => $this->errors,
             ]);
 
             $this->responseData['errors'] = $this->errors;

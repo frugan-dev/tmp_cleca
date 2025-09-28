@@ -231,7 +231,7 @@ class CacheFactory extends Model implements CacheInterface
                 // Ignore errors during cache setup to avoid breaking the application
                 // This can happen if translator is not yet fully initialized
                 $this->logger->warningInternal('Failed to setup translator cache', [
-                    'error' => $e->getMessage(),
+                    'exception' => $e,
                 ]);
             }
         }

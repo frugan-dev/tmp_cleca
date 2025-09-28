@@ -55,7 +55,6 @@ use App\Factory\Logger\LoggerFactory;
 use App\Factory\Logger\LoggerInterface;
 use App\Factory\Mailer\MailerFactory;
 use App\Factory\Mailer\MailerInterface;
-use App\Factory\Mailer\OAuth2\Authenticator\XOAuth2Authenticator;
 use App\Factory\Mailer\OAuth2\TokenProvider\TokenProviderFactory;
 use App\Factory\Mailer\OAuth2\TokenProvider\TokenProviderInterface;
 use App\Factory\Mailer\OAuth2\Transport\OAuthEsmtpTransportFactoryDecorator;
@@ -378,10 +377,11 @@ return static function (ConfigArrayWrapper|Repository $config) {
             try {
                 return $factory->createWithFallback();
             } catch (Exception $e) {
-                $container->get(LoggerInterface::class)->warning(
-                    'No OAuth2 providers available in container',
-                    ['error' => $e->getMessage()]
-                );
+                $container->get(LoggerInterface::class)->warning('No OAuth2 providers available in container', [
+                    'exception' => $e,
+                    'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                ]);
 
                 // Return null to allow fallback to SMTP
                 return null;
@@ -393,7 +393,6 @@ return static function (ConfigArrayWrapper|Repository $config) {
         TransportFactoryInterface::class => fn (ContainerInterface $container, TokenProviderFactory $tokenProviderFactory, LoggerInterface $logger) => new OAuthEsmtpTransportFactoryDecorator($container, $container->get('transportFactoryInterface'), $tokenProviderFactory, $logger),
 
         TokenProviderFactory::class => DI\autowire(TokenProviderFactory::class),
-        XOAuth2Authenticator::class => DI\autowire(XOAuth2Authenticator::class),
         TransportFactoryRegistry::class => DI\autowire(TransportFactoryRegistry::class),
 
         EventDispatcherInterface::class => DI\autowire(EventDispatcher::class),

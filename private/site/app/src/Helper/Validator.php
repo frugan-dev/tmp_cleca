@@ -163,8 +163,11 @@ class Validator extends Helper
 
             return $phoneUtil->format($swissNumberProto, $format);
         } catch (NumberParseException $e) {
-            $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__.' -> '.$value, [
+            $this->logger->warning($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
+                'value' => $value,
             ]);
 
             return false;

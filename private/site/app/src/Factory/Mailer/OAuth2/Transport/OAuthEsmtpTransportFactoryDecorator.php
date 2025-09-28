@@ -14,10 +14,10 @@ declare(strict_types=1);
 namespace App\Factory\Mailer\OAuth2\Transport;
 
 use App\Factory\Logger\LoggerInterface;
-use App\Factory\Mailer\OAuth2\Authenticator\XOAuth2Authenticator;
 use App\Factory\Mailer\OAuth2\TokenProvider\TokenProviderFactory;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\Mailer\Transport\Dsn;
+use Symfony\Component\Mailer\Transport\Smtp\Auth\XOAuth2Authenticator;
 use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
 use Symfony\Component\Mailer\Transport\TransportFactoryInterface;
 use Symfony\Component\Mailer\Transport\TransportInterface;
@@ -66,35 +66,74 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
     }
 
     /**
-     * Configure OAuth2 authentication for the transport.
+     * Get configuration value with environment fallback using existing ConfigManager.
+     *
+     * @param null|mixed $default
+     */
+    protected function getConfigWithFallback(string $suffix = '', $default = null, ?array $prefixes = null): mixed
+    {
+        $env = $this->container->get('env');
+
+        $prefixes ??= [
+            "mail.{$env}",
+            'mail',
+        ];
+
+        $config = $this->container->get('config');
+
+        return $config->getRepository()->getWithFallback($prefixes, $suffix, $default);
+    }
+
+    /**
+     * Configure OAuth2 authentication on transport using Symfony's built-in authenticator.
      */
     private function configureOAuth2Transport(EsmtpTransport $transport, Dsn $dsn): void
     {
         try {
             $providerName = $this->extractProviderName($dsn);
 
-            // Create authenticator instance for this specific provider
-            $authenticator = $this->createAuthenticatorForProvider($providerName);
-
-            // Add OAuth2 authenticator to transport
-            $transport->addAuthenticator($authenticator);
-
-            // Set provider hint in username for authenticator
-            if ($providerName) {
-                $transport->setUsername("oauth2:{$providerName}");
+            if (!$providerName) {
+                throw new \Exception('OAuth2 provider name not found in DSN');
             }
 
-            // Set a placeholder password that will be replaced by the authenticator
-            $transport->setPassword('oauth2_token_placeholder');
-
-            $this->logger->debugInternal('OAuth2 transport configured', [
+            $this->logger->debugInternal('Configuring OAuth2 transport', [
                 'provider' => $providerName,
                 'host' => $dsn->getHost(),
                 'port' => $dsn->getPort(),
             ]);
+
+            // Get OAuth2 token from provider
+            $provider = $this->tokenProviderFactory->create($providerName);
+            $tokenData = $provider->getAccessToken();
+            $accessToken = $tokenData['access_token'];
+
+            // Configure transport for built-in XOAuth2Authenticator
+            $transport->setUsername($dsn->getUser()); // Real email
+            $transport->setPassword($accessToken); // OAuth2 token
+
+            $forceOnly = $this->getConfigWithFallback('oauth2.force_only', false);
+            if ($forceOnly) {
+                // Force OAuth2-only authentication when explicitly requested to prevent fallback
+                // to plain/login authenticators during OAuth2 testing. This ensures OAuth2
+                // implementation works correctly without silently falling back to other methods
+                // (e.g., Mailpit supports plain/login but not OAuth2, causing authentication
+                // to succeed with wrong method)
+                $this->removeNonOAuth2Authenticators($transport);
+            }
+
+            $this->logger->debugInternal('OAuth2 transport configured successfully', [
+                'provider' => $providerName,
+                'host' => $dsn->getHost(),
+                'port' => $dsn->getPort(),
+                'username' => $dsn->getUser(),
+                'token_length' => \strlen($accessToken),
+            ]);
         } catch (\Exception $e) {
             $this->logger->error('Failed to configure OAuth2 transport', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
+                'provider' => $providerName ?? 'unknown',
                 'dsn_scheme' => $dsn->getScheme(),
                 'dsn_host' => $dsn->getHost(),
                 'dsn_port' => $dsn->getPort(),
@@ -105,37 +144,29 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
     }
 
     /**
-     * Create authenticator for specific provider or with fallback.
+     * Remove all authenticators except XOAUTH2 to force OAuth2-only authentication.
      */
-    private function createAuthenticatorForProvider(?string $providerName): XOAuth2Authenticator
+    private function removeNonOAuth2Authenticators(EsmtpTransport $transport): void
     {
         try {
-            $provider = null;
+            $reflection = new \ReflectionClass($transport);
+            $property = $reflection->getProperty('authenticators');
 
-            if ($providerName) {
-                $provider = $this->tokenProviderFactory->create($providerName);
-            } else {
-                $provider = $this->tokenProviderFactory->createWithFallback();
-            }
+            $authenticators = $property->getValue($transport);
+            $xoauth2Only = array_filter($authenticators, fn ($auth) => $auth instanceof XOAuth2Authenticator);
 
-            return new XOAuth2Authenticator($this->container, $this->tokenProviderFactory, $provider);
-        } catch (\Exception $e) {
-            $this->logger->error('Failed to create OAuth2 authenticator', [
-                'provider' => $providerName,
-                'error' => $e->getMessage(),
+            $property->setValue($transport, array_values($xoauth2Only));
+
+            $this->logger->debugInternal('OAuth2-only authentication enforced', [
+                'total_authenticators' => \count($authenticators),
+                'oauth2_authenticators' => \count($xoauth2Only),
             ]);
-
-            throw $e;
+        } catch (\Exception $e) {
+            $this->logger->warning('Failed to enforce OAuth2-only authentication', [
+                'exception' => $e,
+            ]);
+            // Non-critical error, continue without forcing OAuth2-only
         }
-    }
-
-    /**
-     * Extract provider name from DSN options.
-     */
-    private function extractProviderName(Dsn $dsn): ?string
-    {
-        // Check for oauth2_provider parameter in DSN
-        return $dsn->getOption('oauth2_provider');
     }
 
     /**

@@ -64,8 +64,10 @@ class Strings extends Helper
         try {
             return serialize(new SerializableClosure($data));
         } catch (\Exception $e) {
-            $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->warning($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
         }
 

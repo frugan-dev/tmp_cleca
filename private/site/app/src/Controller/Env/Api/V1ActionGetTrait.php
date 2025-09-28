@@ -41,8 +41,8 @@ trait V1ActionGetTrait
                 throw new HttpMethodNotAllowedException($request);
             }
         } catch (\Exception $e) {
-            $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                'error' => $e->getMessage(),
+            $this->logger->debug($e->getMessage(), [
+                'exception' => $e,
             ]);
 
             $this->errors[] = __('A technical problem has occurred, try again later.');
@@ -136,8 +136,8 @@ trait V1ActionGetTrait
                     // https://www.php.net/manual/en/features.connection-handling.php
                     $connectionStatus = connection_status();
                     if (CONNECTION_NORMAL !== $connectionStatus) {
-                        $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                            'text' => \sprintf('%1$s: %2$s', 'connection_status()', $connectionStatus),
+                        $this->logger->debug('Client connection lost, terminating loop', [
+                            'connection_status' => $connectionStatus,
                         ]);
 
                         break;

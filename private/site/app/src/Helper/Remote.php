@@ -63,12 +63,16 @@ class Remote extends Helper
                     throw new \InvalidArgumentException("Invalid return_type: {$params['return_type']}");
             }
         } catch (BadResponseException $e) {
-            $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__.' -> '.$e::class, [
+            $this->logger->warning($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
         } catch (\Exception $e) {
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__.' -> '.$e::class, [
+            $this->logger->error($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
         }
 

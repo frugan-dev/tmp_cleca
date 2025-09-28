@@ -39,8 +39,10 @@ class ShutdownMiddleware extends \App\Middleware\ShutdownMiddleware implements M
                 $xml .= '  <retry_after_seconds>'.max(0, $retryDate->timestamp - time()).'</retry_after_seconds>'.PHP_EOL;
             } catch (\Throwable $e) {
                 $this->logger->warning('Failed to parse retry after date for XML response', [
-                    'retryAfter' => $retryAfter,
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'retryAfter' => $retryAfter,
                 ]);
             }
         }

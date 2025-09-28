@@ -173,8 +173,10 @@ return static function (App $app): void {
                     } catch (Exception $e) {
                         if ($container->has(LoggerInterface::class)) {
                             try {
-                                $container->get(LoggerInterface::class)->warning(__FUNCTION__.' -> '.__LINE__, [
+                                $container->get(LoggerInterface::class)->warning($e->getMessage(), [
+                                    'exception' => $e,
                                     'error' => $e->getMessage(),
+                                    'text' => $e->getTraceAsString(),
                                     'message' => $message,
                                 ]);
                             } catch (Exception) {
@@ -276,8 +278,10 @@ return static function (App $app): void {
                     } catch (Exception $e) {
                         if ($container->has(LoggerInterface::class)) {
                             try {
-                                $container->get(LoggerInterface::class)->warning(__FUNCTION__.' -> '.__LINE__, [
+                                $container->get(LoggerInterface::class)->warning($e->getMessage(), [
+                                    'exception' => $e,
                                     'error' => $e->getMessage(),
+                                    'text' => $e->getTraceAsString(),
                                     'singular' => $singular,
                                     'plural' => $plural,
                                     'number' => $number,

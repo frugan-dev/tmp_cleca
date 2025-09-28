@@ -77,33 +77,44 @@ return [
     // similar to failover, until a transport succeeds or all fail.
     'transports.technique' => 'failover', // failover, roundrobin
 
-    'smtp.host' => 'smtp.mailgun.org',
-    'smtp.port' => 587, // 25, 465, 587
-    'smtp.username' => $_ENV['SMTP_USERNAME'],
-    'smtp.password' => $_ENV['SMTP_PASSWORD'],
-    'smtp.verify_peer' => null,
-    'smtp.local_domain' => null,
-    'smtp.restart_threshold' => null,
-    'smtp.restart_threshold_sleep' => null,
-    'smtp.ping_threshold' => null,
+    'smtp' => [
+        'host' => 'smtp.mailgun.org',
+        'port' => 587, // 25, 465, 587
+        'username' => $_ENV['SMTP_USERNAME'],
+        'password' => $_ENV['SMTP_PASSWORD'],
+        'options' => [
+            'verify_peer' => null,
+            'local_domain' => null,
+            'restart_threshold' => null,
+            'restart_threshold_sleep' => null,
+            'ping_threshold' => null,
+        ],
+    ],
 
-    'oauth2.providers' => [
-        'microsoft-office365' => [
-            'class' => Office365OAuthTokenProvider::class,
-            'config' => [
-                'tenant' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_TENANT'],
-                'client_id' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_CLIENT_ID'],
-                'client_secret' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_CLIENT_SECRET'],
-                'scope' => 'https://outlook.office365.com/SMTP.Send',
+    'oauth2' => [
+        'providers' => [
+            'microsoft-office365' => [
+                'class' => Office365OAuthTokenProvider::class,
+                'config' => [
+                    'tenant' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_TENANT'],
+                    'client_id' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_CLIENT_ID'],
+                    'client_secret' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_CLIENT_SECRET'],
+                    'scope' => 'https://outlook.office365.com/.default',
 
-                'smtp' => [
-                    'host' => 'smtp.office365.com',
-                    'port' => 587,
-                    'username' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_USERNAME'],
-                    'verify_peer' => true,
+                    'smtp' => [
+                        'host' => 'smtp.office365.com',
+                        'port' => 587,
+                        'username' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_USERNAME'],
+                        'options' => [
+                            'verify_peer' => true,
+                        ],
+                    ],
                 ],
             ],
         ],
+
+        // Set to true to force OAuth2-only authentication (removes plain/login authenticators)
+        'force_only' => false,
     ],
 
     // https://symfony.com/doc/current/mailer.html

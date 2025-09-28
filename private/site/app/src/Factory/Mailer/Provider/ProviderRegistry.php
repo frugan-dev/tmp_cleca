@@ -135,7 +135,9 @@ class ProviderRegistry
 
             foreach ($providers as $name => $settings) {
                 if (!isset($settings['class'])) {
-                    $this->logger->warning('Skipping provider registration - missing class', ['provider' => $name]);
+                    $this->logger->warning('Skipping provider registration - missing class', [
+                        'provider' => $name,
+                    ]);
 
                     continue;
                 }
@@ -153,7 +155,9 @@ class ProviderRegistry
             ]);
         } catch (\Exception $e) {
             $this->logger->error('Failed to auto-register OAuth2 providers', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
         }
     }
@@ -171,9 +175,11 @@ class ProviderRegistry
                 }
             } catch (\Exception $e) {
                 $this->logger->warning('Error checking provider support', [
-                    'registered_name' => $registeredName,
-                    'provider_name' => $providerName,
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'provider' => $providerName,
+                    'registered_name' => $registeredName,
                 ]);
             }
         }

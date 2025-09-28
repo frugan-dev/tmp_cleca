@@ -52,8 +52,10 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
                 return $this->cache->get($cacheKey, $this->fetchToken(...));
             } catch (\Exception $e) {
                 $this->logger->warning('Cache failed, fetching token directly', [
-                    'provider' => $this->getProviderName(),
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'provider' => $this->getProviderName(),
                 ]);
 
                 // Fallback to direct fetch if cache fails
@@ -73,7 +75,8 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
 
         for ($attempt = 1; $attempt <= static::MAX_RETRY_ATTEMPTS; ++$attempt) {
             try {
-                $this->logger->debugInternal("Fetching OAuth2 token for provider: {$this->getProviderName()}", [
+                $this->logger->debugInternal('Fetching OAuth2 token for provider: {provider}', [
+                    'provider' => $this->getProviderName(),
                     'attempt' => $attempt,
                     'max_attempts' => static::MAX_RETRY_ATTEMPTS,
                 ]);
@@ -86,7 +89,8 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
                     $cacheItem->expiresAfter(max(static::MIN_CACHE_TTL, $expiresIn));
                 }
 
-                $this->logger->debugInternal("OAuth2 token fetched successfully for provider: {$this->getProviderName()}", [
+                $this->logger->debugInternal('OAuth2 token fetched successfully for provider: {provider}', [
+                    'provider' => $this->getProviderName(),
                     'expires_in' => $tokenData['expires_in'] ?? 'unknown',
                     'token_type' => $tokenData['token_type'] ?? 'Bearer',
                     'attempt' => $attempt,
@@ -96,8 +100,10 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
             } catch (\Exception $e) {
                 $lastException = $e;
 
-                $this->logger->warning("OAuth2 token fetch attempt {$attempt} failed for provider: {$this->getProviderName()}", [
+                $this->logger->warning('OAuth2 token fetch attempt {attempt} failed for provider: {provider}', [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
                     'provider' => $this->getProviderName(),
                     'attempt' => $attempt,
                     'max_attempts' => static::MAX_RETRY_ATTEMPTS,
@@ -111,7 +117,7 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
         }
 
         // All attempts failed
-        $this->logger->error("All OAuth2 token fetch attempts failed for provider: {$this->getProviderName()}", [
+        $this->logger->error('All OAuth2 token fetch attempts failed for provider: {provider}', [
             'provider' => $this->getProviderName(),
             'total_attempts' => static::MAX_RETRY_ATTEMPTS,
             'last_error' => $lastException?->getMessage(),
@@ -147,7 +153,8 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
             $maxAge = $this->healthStatus ? self::HEALTH_CACHE_TTL : self::HEALTH_CACHE_FAILED_TTL;
 
             if ($cacheAge < $maxAge) {
-                $this->logger->debugInternal("Using cached health status for {$this->getProviderName()}", [
+                $this->logger->debugInternal('Using cached health status for {provider}', [
+                    'provider' => $this->getProviderName(),
                     'healthy' => $this->healthStatus,
                     'cache_age' => $cacheAge,
                     'max_age' => $maxAge,
@@ -171,8 +178,8 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
                 return $this->healthStatus;
             } catch (\Exception $e) {
                 $this->logger->debugInternal('Health cache failed, performing direct check', [
+                    'exception' => $e,
                     'provider' => $this->getProviderName(),
-                    'error' => $e->getMessage(),
                 ]);
             }
         }
@@ -210,8 +217,10 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
                 $this->cache->set($cacheKey, $result, $ttl);
             } catch (\Exception $e) {
                 $this->logger->warning('Failed to update health cache', [
-                    'provider' => $this->getProviderName(),
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'provider' => $this->getProviderName(),
                 ]);
             }
         }
@@ -232,8 +241,8 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
                 $this->cache->delete($this->getHealthCacheKey());
             } catch (\Exception $e) {
                 $this->logger->debugInternal('Failed to clear health cache', [
+                    'exception' => $e,
                     'provider' => $this->getProviderName(),
-                    'error' => $e->getMessage(),
                 ]);
             }
         }
@@ -356,14 +365,17 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
         $now = time();
 
         try {
-            $this->logger->debugInternal("Performing health check for provider: {$this->getProviderName()}");
+            $this->logger->debugInternal('Performing health check for provider: {provider}', [
+                'provider' => $this->getProviderName(),
+            ]);
 
             // Quick test with minimal scope and short timeout
             $tokenData = $this->doHealthCheckRequest();
 
             $duration = round((microtime(true) - $startTime) * 1000, 2);
 
-            $this->logger->debugInternal("Health check passed for provider: {$this->getProviderName()}", [
+            $this->logger->debugInternal('Health check passed for provider: {provider}', [
+                'provider' => $this->getProviderName(),
                 'duration_ms' => $duration,
             ]);
 
@@ -375,16 +387,17 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
         } catch (\Exception $e) {
             $duration = round((microtime(true) - $startTime) * 1000, 2);
 
-            $this->logger->debugInternal("Health check failed for provider: {$this->getProviderName()}", [
-                'error' => $e->getMessage(),
+            $this->logger->debugInternal('Health check failed for provider: {provider}', [
+                'exception' => $e,
+                'provider' => $this->getProviderName(),
                 'duration_ms' => $duration,
             ]);
 
             return [
+                'exception' => $e,
                 'healthy' => false,
                 'checked_at' => $now,
                 'duration_ms' => $duration,
-                'error' => $e->getMessage(),
             ];
         }
     }

@@ -24,7 +24,7 @@
         "aura/html": "^2.5",
         "aura/view": "^2.3",
         "browscap/browscap-php": "^7.4",
-        "cohensive/oembed": "^0.19.0",
+        "cohensive/oembed": "^0.20.1",
         "creitive/breadcrumbs": "^3.3",
         "davidgorges/color-contrast": "dev-master",
         "egulias/email-validator": "^4.0",
@@ -146,6 +146,6 @@
         "quality": "@check --tasks=phpmnd,phpparser",
         "rector": "@php -d max_execution_time=0 -d memory_limit=-1 -f ./vendor/bin/rector -- process --ansi --clear-cache",
         "security": "@check --tasks=securitychecker_roave",
-        "test": "@php -d xdebug.mode=off ./vendor/bin/phpunit"
+        "test": "@php -d max_execution_time=0 -d memory_limit=-1 -d xdebug.mode=off ./vendor/bin/phpunit"
     }
 }

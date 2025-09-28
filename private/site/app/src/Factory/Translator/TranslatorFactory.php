@@ -170,7 +170,7 @@ class TranslatorFactory extends Model implements TranslatorInterface
         } catch (\Throwable $e) {
             // Fallback if route parsing fails - this can happen during early initialization
             $this->logger->warningInternal('RouteParsingService failed in TranslatorFactory', [
-                'error' => $e->getMessage(),
+                'exception' => $e,
             ]);
         }
 
@@ -769,7 +769,7 @@ class TranslatorFactory extends Model implements TranslatorInterface
             } catch (\Throwable $e) {
                 // Fallback to simple parsing if negotiation fails
                 $this->logger->warningInternal('Language negotiation failed', [
-                    'error' => $e->getMessage(),
+                    'exception' => $e,
                 ]);
             }
         }

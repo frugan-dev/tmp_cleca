@@ -127,8 +127,11 @@ trait SettingValidateTrait
 
                 if ($fileObj instanceof UploadedFile) {
                     if (($uploadError = $fileObj->getError()) !== UPLOAD_ERR_OK) {
-                        $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                            'error' => $uploadError,
+                        $this->logger->warning('File upload failed with error', [
+                            'upload_error_code' => $uploadError,
+                            'file_name' => $fileObj->getClientFilename(),
+                            'file_size' => $fileObj->getSize(),
+                            'file_type' => $fileObj->getClientMediaType(),
                         ]);
 
                         $this->filterSubject->validate($postDataKey)->is('error')->setMessage(\sprintf(__('The %1$s field does not seem correct.'), '<i>'.$field['label'].($langId ? ' ('.$this->lang->arr[$langId]['name'].')' : '').'</i>'));

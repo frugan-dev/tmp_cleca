@@ -105,8 +105,8 @@ trait V1ActionPostXhrTrait
                     $this->errors[] = __('The data sent does not seem correct.');
                 }
             } catch (\Exception $e) {
-                $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                    'error' => $e->getMessage(),
+                $this->logger->debug($e->getMessage(), [
+                    'exception' => $e,
                 ]);
 
                 $this->errors[] = __('A technical problem has occurred, try again later.');

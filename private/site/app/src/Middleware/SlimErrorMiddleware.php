@@ -174,8 +174,9 @@ final class SlimErrorMiddleware implements MiddlewareInterface
             $logLevel = $exception instanceof HttpException && $exception->getCode() < 500 ? 'warning' : 'error';
 
             $this->logger->{$logLevel}('Custom error rendering failed', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'original_error' => $exception->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             // Re-throw original exception to let Slim's default system handle it

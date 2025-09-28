@@ -374,12 +374,11 @@ class MissingTranslationListener extends BaseTranslationListener
         } catch (\Throwable $e) {
             // Log the error for debugging
             $this->logger->warningInternal('Error checking translation existence', [
+                'exception' => $e,
                 'message' => $message,
                 'context' => $context,
                 'locale' => $locale,
                 'domain' => $domain,
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
             ]);
 
             // If we can't check properly, assume it exists to avoid false positives

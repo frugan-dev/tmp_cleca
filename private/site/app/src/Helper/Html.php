@@ -296,8 +296,10 @@ class Html extends Helper
                     throw new \RuntimeException('Unable to fetch embed data from: '.$html);
                 }
 
-                $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+                $this->logger->debug('oEmbed data retrieved successfully', [
+                    'url' => $html,
                     'data' => $oembed->data(),
+                    'with_access_token' => !empty($options['access_token']),
                 ]);
 
                 $html = $oembed->html();
@@ -316,8 +318,10 @@ class Html extends Helper
                     }
                 }
             } catch (\Exception $e) {
-                $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+                $this->logger->warning($e->getMessage(), [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
                 ]);
             }
 

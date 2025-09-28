@@ -119,16 +119,18 @@ trait MemberActionTrait
             });
 
             if (\count($this->errors) > 0) {
+                $message = current($this->errors);
+
                 $this->session->addFlash([
                     'type' => 'toast',
                     'options' => [
                         'type' => 'warning',
-                        'message' => current($this->errors),
+                        'message' => $message,
                     ],
                 ]);
 
-                $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                    'error' => var_export($this->errors, true),
+                $this->logger->debug(strip_tags((string) $message), [
+                    'errors' => $this->errors,
                 ]);
             }
 

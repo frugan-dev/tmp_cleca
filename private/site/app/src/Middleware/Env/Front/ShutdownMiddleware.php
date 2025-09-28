@@ -33,8 +33,9 @@ class ShutdownMiddleware extends \App\Middleware\ShutdownMiddleware implements M
             return (string) (new ShutdownRender())($request);
         } catch (\Throwable $e) {
             $this->logger->error('Frontend shutdown render failed', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             // Ultimate fallback

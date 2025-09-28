@@ -69,8 +69,9 @@ class ShutdownMiddleware extends Model implements MiddlewareInterface
             return $response->withHeader('Content-Type', $this->mimeType);
         } catch (\Throwable $e) {
             $this->logger->error('Shutdown middleware failed', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             // Fallback: show basic maintenance message
@@ -183,8 +184,10 @@ class ShutdownMiddleware extends Model implements MiddlewareInterface
             }
         } catch (\Throwable $e) {
             $this->logger->warning('Invalid retryAfter configuration', [
-                'retryAfter' => $retryAfter,
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
+                'retryAfter' => $retryAfter,
             ]);
         }
     }

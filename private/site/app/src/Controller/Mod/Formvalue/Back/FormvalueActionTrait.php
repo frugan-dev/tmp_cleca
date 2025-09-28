@@ -265,16 +265,19 @@ trait FormvalueActionTrait
             }
 
             if (\count($this->errors) > 0) {
+                $message = current($this->errors);
+
                 $this->session->addFlash([
                     'type' => 'toast',
                     'options' => [
                         'type' => 'danger',
-                        'message' => current($this->errors),
+                        'message' => $message,
                     ],
                 ]);
 
-                $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                    'error' => var_export($this->errors, true),
+                $this->logger->warning(strip_tags((string) $message), [
+                    'error' => strip_tags((string) $message),
+                    'text' => \Safe\json_encode($this->errors),
                 ]);
             }
         }

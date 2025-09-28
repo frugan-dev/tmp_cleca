@@ -41,8 +41,10 @@ class ShutdownMiddleware extends \App\Middleware\ShutdownMiddleware implements M
                 $response['retry_after_seconds'] = max(0, $retryDate->timestamp - time());
             } catch (\Throwable $e) {
                 $this->logger->warning('Failed to parse retry after date for API response', [
-                    'retryAfter' => $retryAfter,
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'retryAfter' => $retryAfter,
                 ]);
             }
         }
@@ -57,7 +59,9 @@ class ShutdownMiddleware extends \App\Middleware\ShutdownMiddleware implements M
             return $this->helper->Nette()->Json()->encode($response);
         } catch (\Throwable $e) {
             $this->logger->error('Failed to encode API shutdown response', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
                 'response' => $response,
             ]);
 

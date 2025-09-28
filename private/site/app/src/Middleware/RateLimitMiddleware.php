@@ -64,8 +64,10 @@ class RateLimitMiddleware extends Model implements MiddlewareInterface
             $this->checkRateLimit($request);
 
             if (\count($this->errors) > 0) {
-                $this->logger->debug($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                    'error' => var_export($this->errors, true),
+                $message = current($this->errors);
+
+                $this->logger->debug(strip_tags((string) $message), [
+                    'errors' => $this->errors,
                 ]);
 
                 $this->responseData['errors'] = $this->errors;

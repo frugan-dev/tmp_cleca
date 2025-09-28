@@ -53,8 +53,11 @@ class RecaptchaV2 extends Model
             return true;
         }
 
-        $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-            'error' => var_export($resp->getErrorCodes(), true),
+        $this->logger->warning('reCAPTCHA v2 verification failed', [
+            'error_codes' => $resp->getErrorCodes(),
+            'challenge_ts' => $resp->getChallengeTs(),
+            // 'hostname' => $resp->getHostname(),
+            'captcha_response_preview' => substr((string) $value, 0, 20).'...',
         ]);
 
         return false;

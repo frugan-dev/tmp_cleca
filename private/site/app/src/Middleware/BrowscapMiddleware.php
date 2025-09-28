@@ -40,8 +40,10 @@ class BrowscapMiddleware extends Model implements MiddlewareInterface
 
             $request = $request->withAttribute('browscapInfo', $browscap->getBrowser());
         } catch (\Exception $e) {
-            $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+            $this->logger->warning($e->getMessage(), [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
         }
 

@@ -129,8 +129,10 @@ trait PageEventTrait
                 $this->db->exec('DELETE FROM '.$this->config['db.1.prefix'].$table.' WHERE item_id = :item_id', ['item_id' => $this->id]);
                 $this->db->commit();
             } catch (\Exception $e) {
-                $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+                $this->logger->error($e->getMessage(), [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
                 ]);
 
                 $this->errors[] = __('A technical problem has occurred, try again later.');
@@ -148,8 +150,10 @@ trait PageEventTrait
                 $this->db->exec('DELETE FROM '.$this->config['db.1.prefix'].$table.' WHERE item_id = :item_id', ['item_id' => $this->id]);
                 $this->db->commit();
             } catch (\Exception $e) {
-                $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+                $this->logger->error($e->getMessage(), [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
                 ]);
 
                 $this->errors[] = __('A technical problem has occurred, try again later.');
@@ -194,8 +198,10 @@ trait PageEventTrait
 
                 $this->db->commit();
             } catch (\Exception $e) {
-                $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+                $this->logger->error($e->getMessage(), [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
                 ]);
 
                 $this->errors[] = __('A technical problem has occurred, try again later.');
@@ -230,8 +236,10 @@ trait PageEventTrait
 
                 $this->db->commit();
             } catch (\Exception $e) {
-                $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
+                $this->logger->error($e->getMessage(), [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
                 ]);
 
                 $this->errors[] = __('A technical problem has occurred, try again later.');

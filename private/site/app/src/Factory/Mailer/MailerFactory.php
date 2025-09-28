@@ -421,7 +421,9 @@ class MailerFactory extends Model implements MailerInterface
             }
 
             $errorInfo = [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
                 'transport_info' => $this->transportInfo,
             ];
 
@@ -431,7 +433,7 @@ class MailerFactory extends Model implements MailerInterface
                 $errorInfo['total_attempts'] = $transportSummary['total_attempts'];
             }
 
-            $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, $errorInfo);
+            $this->logger->error($e->getMessage(), $errorInfo);
         }
 
         return false;
@@ -498,7 +500,9 @@ class MailerFactory extends Model implements MailerInterface
 
         foreach ($transportTypes as $key => $transportType) {
             try {
-                $this->logger->debugInternal("Attempting to build transport: {$transportType}");
+                $this->logger->debugInternal('Attempting to build transport: {transportType}', [
+                    'transportType' => $transportType,
+                ]);
 
                 if ('oauth2' === $transportType) {
                     // Build OAuth2 transports for all providers
@@ -518,8 +522,11 @@ class MailerFactory extends Model implements MailerInterface
                     }
                 }
             } catch (\Exception $e) {
-                $this->logger->error("Failed to build transport: {$transportType}", [
+                $this->logger->error('Failed to build transport: {transportType}', [
+                    'exception' => $e,
                     'error' => $e->getMessage(),
+                    'text' => $e->getTraceAsString(),
+                    'transportType' => $transportType,
                 ]);
 
                 $this->transportInfo['failed_transports'][] = $transportType.': '.$e->getMessage();
@@ -603,8 +610,11 @@ class MailerFactory extends Model implements MailerInterface
                         $this->transportInfo['attempts'][] = "oauth2 ({$providerName}): DSN build failed";
                     }
                 } catch (\Exception $e) {
-                    $this->logger->error("Failed to build OAuth2 transport: {$providerName}", [
+                    $this->logger->error('Failed to build OAuth2 transport: {provider}', [
+                        'exception' => $e,
                         'error' => $e->getMessage(),
+                        'text' => $e->getTraceAsString(),
+                        'provider' => $providerName,
                     ]);
 
                     $this->transportInfo['failed_transports'][] = "oauth2 ({$providerName}): ".$e->getMessage();
@@ -622,7 +632,9 @@ class MailerFactory extends Model implements MailerInterface
             ]);
         } catch (\Exception $e) {
             $this->logger->error('Failed to build OAuth2 transports', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
             $this->transportInfo['failed_transports'][] = 'oauth2: '.$e->getMessage();
         }
@@ -653,7 +665,7 @@ class MailerFactory extends Model implements MailerInterface
             $dsn .= $smtpConfig['host'].':'.$smtpConfig['port'];
 
             // Add SMTP options
-            $options = $this->buildSmtpOptions($smtpConfig);
+            $options = $this->buildSmtpOptions($smtpConfig['options'] ?? []);
 
             // Add provider identifier for OAuth2 transport factory
             $options[] = 'oauth2_provider='.rawurlencode($providerName);
@@ -662,7 +674,7 @@ class MailerFactory extends Model implements MailerInterface
                 $dsn .= '?'.implode('&', $options);
             }
 
-            $this->logger->debugInternal("Built OAuth2 transport DSN for provider: {$providerName}", [
+            $this->logger->debugInternal('Built OAuth2 transport DSN for provider: {provider}', [
                 'provider' => $providerName,
                 'host' => $smtpConfig['host'],
                 'port' => $smtpConfig['port'],
@@ -670,8 +682,10 @@ class MailerFactory extends Model implements MailerInterface
 
             return $dsn;
         } catch (\Exception $e) {
-            $this->logger->error("Failed to build OAuth2 transport for provider: {$providerName}", [
+            $this->logger->error('Failed to build OAuth2 transport for provider: {provider}', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
                 'provider' => $providerName,
             ]);
 
@@ -739,19 +753,19 @@ class MailerFactory extends Model implements MailerInterface
 
         $dsn = $protocol.'://';
 
-        if (!empty($this->config->get('mail.'.$protocol.'.username'))) {
-            $dsn .= rawurlencode((string) $this->config->get('mail.'.$protocol.'.username'));
+        if (!empty($username = $this->config->get("mail.{$protocol}.username"))) {
+            $dsn .= rawurlencode((string) $username);
         }
 
         $dsn .= ':';
 
-        if (!empty($this->config->get('mail.'.$protocol.'.password'))) {
-            $dsn .= rawurlencode((string) $this->config->get('mail.'.$protocol.'.password'));
+        if (!empty($password = $this->config->get("mail.{$protocol}.password"))) {
+            $dsn .= rawurlencode((string) $password);
         }
 
         $dsn .= '@'.$host.':'.$port;
 
-        $options = $this->buildSmtpOptions($this->config->get('mail.'.$protocol, []));
+        $options = $this->buildSmtpOptions($this->config->get("mail.{$protocol}.options", []));
         if (!empty($options)) {
             $dsn .= '?'.implode('&', $options);
         }
@@ -865,7 +879,9 @@ class MailerFactory extends Model implements MailerInterface
             }
         } catch (\Exception $e) {
             $this->logger->warning('Failed to register OAuth2 transport factory', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
         }
 
@@ -905,8 +921,11 @@ class MailerFactory extends Model implements MailerInterface
                         'transport_class' => $singleTransport::class,
                     ]);
                 } catch (\Exception $e) {
-                    $this->logger->warning("Failed to create transport for DSN: {$singleDsn}", [
+                    $this->logger->warning('Failed to create transport for DSN: {dsn}', [
+                        'exception' => $e,
                         'error' => $e->getMessage(),
+                        'text' => $e->getTraceAsString(),
+                        'dsn' => $singleDsn,
                     ]);
 
                     continue;

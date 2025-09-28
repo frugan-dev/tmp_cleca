@@ -318,9 +318,9 @@ class DynamicTranslationListener extends BaseTranslationListener
             }
         } catch (\Throwable $e) {
             $this->logger->debugInternal('Error analyzing source code for dynamic patterns', [
+                'exception' => $e,
                 'file' => $file,
                 'line' => $line,
-                'error' => $e->getMessage(),
             ]);
 
             // If we can't analyze the source, assume it's not dynamic

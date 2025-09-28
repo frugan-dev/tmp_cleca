@@ -184,8 +184,10 @@ class ViewHelperFactory extends Model implements ViewHelperInterface
 
             $path = implode('.', $parts);
         } else {
-            $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                'error' => implode(PHP_EOL, \func_get_args()),
+            $this->logger->warning('Asset file not found', [
+                'args' => \func_get_args(),
+                'layout' => $this->view->getLayout(),
+                'view' => $this->view->getView(),
             ]);
 
             if (!empty($fallback)) {

@@ -344,26 +344,27 @@ trait MemberActionTrait
                         $this->errors = $result->getMessages();
                     }
                 } else {
-                    $this->logger->error($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                        'error' => 'missing cat'.$this->modName.' preselected',
-                    ]);
+                    $this->logger->error('Missing cat'.$this->modName.' preselected');
 
                     $this->errors[] = __('A technical problem has occurred, try again later.');
                 }
             }
 
             if (\count($this->errors) > 0) {
+                $message = current($this->errors);
+
                 $this->session->addFlash([
                     'type' => 'alert',
                     'options' => [
                         'env' => static::$env, // <-
                         'type' => 'danger',
-                        'message' => current($this->errors),
+                        'message' => $message,
                     ],
                 ]);
 
-                $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                    'error' => var_export($this->errors, true),
+                $this->logger->warning(strip_tags((string) $message), [
+                    'error' => strip_tags((string) $message),
+                    'text' => \Safe\json_encode($this->errors),
                 ]);
             }
         }
@@ -452,16 +453,19 @@ trait MemberActionTrait
                 }
 
                 if (\count($this->errors) > 0) {
+                    $message = current($this->errors);
+
                     $this->session->addFlash([
                         'type' => 'toast',
                         'options' => [
                             'type' => 'danger',
-                            'message' => current($this->errors),
+                            'message' => $message,
                         ],
                     ]);
 
-                    $this->logger->warning($this->getShortName().' -> '.__FUNCTION__.' -> '.__LINE__, [
-                        'error' => var_export($this->errors, true),
+                    $this->logger->warning(strip_tags((string) $message), [
+                        'error' => strip_tags((string) $message),
+                        'text' => \Safe\json_encode($this->errors),
                     ]);
                 }
             }

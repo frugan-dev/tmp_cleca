@@ -86,9 +86,9 @@ class HtmlMinifyService
             return $this->performMinification($html);
         } catch (\Throwable $e) {
             $this->logger->error('HTML minification failed', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
+                'text' => $e->getTraceAsString(),
             ]);
 
             // Return original HTML on error
@@ -330,7 +330,9 @@ class HtmlMinifyService
             $this->logger->debugInternal('HTML minifier initialized successfully');
         } catch (\Exception $e) {
             $this->logger->error('Failed to initialize HTML minifier', [
+                'exception' => $e,
                 'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
             ]);
             $this->htmlMin = null;
         }
