@@ -73,10 +73,12 @@ services:
       - ${PWD}/private/docker/mailpit/data/data:/data
       - ${PWD}/private/docker/apache/certs-${APP_ENV}:/certs
     environment:
-      MP_MAX_MESSAGES: ${MAILPIT_MAX_MESSAGES}
-      MP_DATA_FILE: /data/mailpit.db
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+      MP_MAX_MESSAGES: ${MAILPIT_MAX_MESSAGES:-5000}
+      MP_SMTP_AUTH_ACCEPT_ANY: ${MAILPIT_SMTP_AUTH_ACCEPT_ANY:-false}
+      MP_SMTP_AUTH_ALLOW_INSECURE: ${MAILPIT_SMTP_AUTH_ALLOW_INSECURE:-false}
+      MP_SMTP_REQUIRE_TLS: ${MAILPIT_SMTP_REQUIRE_TLS:-false}
+      MP_SMTP_AUTH: ${MAILPIT_SMTP_AUTH:-}
+      MP_DATABASE: /data/mailpit.db
       MP_UI_TLS_CERT: /certs/server.crt
       MP_UI_TLS_KEY: /certs/server.key
 
@@ -92,6 +94,27 @@ services:
       ${MOCK_OAUTH2_JSON_CONFIG_PATH:+JSON_CONFIG_PATH}: ${MOCK_OAUTH2_JSON_CONFIG_PATH}
       ${MOCK_OAUTH2_JSON_CONFIG:+JSON_CONFIG}: ${MOCK_OAUTH2_JSON_CONFIG}
       ${MOCK_OAUTH2_LOGBACK_CONFIG:+LOGBACK_CONFIG}: ${MOCK_OAUTH2_LOGBACK_CONFIG}
+
+  mock-graph-api:
+    container_name: ${APP_ID}_mock-graph-api
+    image: wiremock/wiremock:${MOCK_GRAPH_API_TAG:-latest}
+    networks:
+      - default
+    ports:
+      - ${MOCK_GRAPH_API_PORT}:8080
+    volumes:
+      - ${PWD}/private/docker/wiremock/mappings:/home/wiremock/mappings
+      - ${PWD}/private/docker/wiremock/__files:/home/wiremock/__files
+    command: --global-response-templating --disable-gzip --verbose
+
+  #https://github.com/simonrob/email-oauth2-proxy
+  smtp-server:
+    container_name: ${APP_ID}_smtp-server
+    build: ${PWD}/private/docker/smtp-server
+    networks:
+      - default
+    environment:
+      - PYTHONUNBUFFERED=1
 
 #networks:
 #  network-external:

@@ -16,7 +16,7 @@ use Monolog\Level;
 return [
     'handlers.file.level' => Level::Debug,
 
-    // 'channels.internal.handlers.file.level' => Level::Debug,
+    'channels.internal.handlers.file.level' => Level::Debug,
 
     'error_handler.php_errors_levels.'.E_WARNING => 'debug',
     'error_handler.php_errors_levels.'.E_DEPRECATED => 'debug',

@@ -35,54 +35,54 @@ class Validator extends Helper
     public function isValidEmail($email, $strictMode = true)
     {
         if (empty($email)) {
-	        return false;
-	    }
+            return false;
+        }
 
         $validator = new EmailValidator();
-	
-	    $validations = [
+
+        $validations = [
             // Standard RFC-like email validation.
-            new RFCValidation(), 
+            new RFCValidation(),
 
             // RFC-like validation that will fail when warnings* are found.
-            new NoRFCWarningsValidation()
+            new NoRFCWarningsValidation(),
         ];
-	
-	    // Add heavy validations only in strict mode
-	    if ($strictMode) {
-			// Will check if there are DNS records that signal that the server accepts emails.
+
+        // Add heavy validations only in strict mode
+        if ($strictMode) {
+            // Will check if there are DNS records that signal that the server accepts emails.
             // This does not entails that the email exists.
-	        $validations[] = new DNSCheckValidation();
+            $validations[] = new DNSCheckValidation();
 
-			// Follows RFC2822 for message-id to validate that field, that has some differences in the domain part.
-	        $validations[] = new MessageIDValidation();
+            // Follows RFC2822 for message-id to validate that field, that has some differences in the domain part.
+            $validations[] = new MessageIDValidation();
 
-			// Will check for multi-utf-8 chars that can signal an erroneous email name.
-	        $validations[] = new SpoofCheckValidation();
-	    }
-	
-	    $multipleValidations = new MultipleValidationWithAnd($validations);
-	    $isValid = $validator->isValid($email, $multipleValidations);
+            // Will check for multi-utf-8 chars that can signal an erroneous email name.
+            $validations[] = new SpoofCheckValidation();
+        }
 
-	    // Log if email is invalid or has warnings
-	    if (!$isValid || $validator->hasWarnings()) {
-	        $warnings = [];
-	        if ($validator->hasWarnings()) {
-	            foreach ($validator->getWarnings() as $warning) {
-	                $warnings[] = $warning->__toString();
-	            }
-	        }
+        $multipleValidations = new MultipleValidationWithAnd($validations);
+        $isValid = $validator->isValid($email, $multipleValidations);
 
-	        $this->logger->warning('Email validation issue for address: {email}', [
+        // Log if email is invalid or has warnings
+        if (!$isValid || $validator->hasWarnings()) {
+            $warnings = [];
+            if ($validator->hasWarnings()) {
+                foreach ($validator->getWarnings() as $warning) {
+                    $warnings[] = $warning->__toString();
+                }
+            }
+
+            $this->logger->warning('Email validation issue for address: {email}', [
                 'error' => var_export($warnings, true),
-	            'email' => $email,
-	            'valid' => $isValid,
-	            'warnings' => $warnings,
-	            'strict_mode' => $strictMode
-	        ]);
-	    }
+                'email' => $email,
+                'valid' => $isValid,
+                'warnings' => $warnings,
+                'strict_mode' => $strictMode,
+            ]);
+        }
 
-	    return $isValid;
+        return $isValid;
     }
 
     // https://dunglas.fr/2014/11/php-7-introducing-a-domain-name-validator-and-making-the-url-validator-stricter/

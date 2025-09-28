@@ -1,0 +1,30 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "method": "POST",
+        "urlPathPattern": "/v1.0/(me|users/.*)/sendMail"
+      },
+      "response": {
+        "status": 202,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"@odata.context\":\"https://graph.microsoft.com/v1.0/$metadata#Edm.Boolean\",\"value\":true}"
+      }
+    },
+    {
+      "request": {
+        "method": "GET",
+        "urlPath": "/v1.0/me"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": "{\"@odata.context\":\"https://graph.microsoft.com/v1.0/$metadata#users/$entity\",\"id\":\"mock-user-id\",\"mail\":\"mock@example.com\",\"displayName\":\"Mock User\"}"
+      }
+    }
+  ]
+}

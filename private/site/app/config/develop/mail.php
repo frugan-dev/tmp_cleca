@@ -26,7 +26,7 @@ return [
         // 'native',
 
         // it requires proc_*() functions
-        'smtp',
+        // 'smtp',
 
         // only if proc_*() functions are not available...
         // 'mail',
@@ -34,38 +34,38 @@ return [
     ],
 
     // https://github.com/axllent/mailpit
-    'smtp.host' => 'mailpit',
-    'smtp.port' => 1025, // 25, 465, 587, 1025
-
-    'oauth2.providers' => [
-        'mock' => [
-            'class' => MockOAuthTokenProvider::class,
-            'config' => [
-                'server_url' => 'http://mock-oauth2:8080',
-
-                'smtp' => [
-                    'host' => 'mailpit',
-                    'port' => 1025,
-                    'verify_peer' => false,
-                ],
-            ],
-        ],
-        'fake' => [
-            'class' => FakeOAuthTokenProvider::class,
-            'config' => [
-                // Simulates OAuth2 token generation failure (not SMTP connection failure).
-                // When true, the provider will fail during OAuth2 token acquisition,
-                // before any SMTP connection is attempted.
-                'simulate_failure' => false,
-
-                'smtp' => [
-                    'host' => 'mailpit',
-                    'port' => 1025,
-                    'verify_peer' => false,
-                ],
-            ],
-        ],
-    ],
+    //'smtp.host' => 'mailpit',
+    //'smtp.port' => 1025, // 25, 465, 587, 1025
+//
+    //'oauth2.providers' => [
+    //    'mock' => [
+    //        'class' => MockOAuthTokenProvider::class,
+    //        'config' => [
+    //            'server_url' => 'http://mock-oauth2:8080',
+//
+    //            'smtp' => [
+    //                'host' => 'mailpit',
+    //                'port' => 1025,
+    //                'verify_peer' => false,
+    //            ],
+    //        ],
+    //    ],
+    //    'fake' => [
+    //        'class' => FakeOAuthTokenProvider::class,
+    //        'config' => [
+    //            // Simulates OAuth2 token generation failure (not SMTP connection failure).
+    //            // When true, the provider will fail during OAuth2 token acquisition,
+    //            // before any SMTP connection is attempted.
+    //            'simulate_failure' => false,
+//
+    //            'smtp' => [
+    //                'host' => 'mailpit',
+    //                'port' => 1025,
+    //                'verify_peer' => false,
+    //            ],
+    //        ],
+    //    ],
+    //],
 
     // Skip OAuth2 provider health checks before building transports.
     //

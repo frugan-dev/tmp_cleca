@@ -142,11 +142,7 @@
         "check": "@php -d max_execution_time=0 -d memory_limit=-1 -f ./vendor/bin/grumphp -- run",
         "ci": "@check --no-interaction",
         "lint": "@check --tasks=phpcsfixer,phplint,rector",
-        "post-cmd": [
-            "./cli/symlink.sh",
-            "echo $COMPOSER_DEV_MODE",
-            "[ $COMPOSER_DEV_MODE -eq 1 ] || composer dump-autoload --optimize"
-        ],
+        "post-cmd": "./cli/symlink.sh",
         "quality": "@check --tasks=phpmnd,phpparser",
         "rector": "@php -d max_execution_time=0 -d memory_limit=-1 -f ./vendor/bin/rector -- process --ansi --clear-cache",
         "security": "@check --tasks=securitychecker_roave",
