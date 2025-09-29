@@ -118,7 +118,12 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
                 // implementation works correctly without silently falling back to other methods
                 // (e.g., Mailpit supports plain/login but not OAuth2, causing authentication
                 // to succeed with wrong method)
-                $this->removeNonOAuth2Authenticators($transport);
+                
+                // method #1
+                //$this->removeNonOAuth2Authenticators($transport);
+
+                // method #2
+                $transport->setAuthenticators([new XOAuth2Authenticator()]);
             }
 
             $this->logger->debugInternal('OAuth2 transport configured successfully', [
@@ -167,6 +172,23 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
             ]);
             // Non-critical error, continue without forcing OAuth2-only
         }
+    }
+
+    /**
+     * Extract provider name from DSN options.
+     */
+    private function extractProviderName(Dsn $dsn): ?string
+    {
+        // First check if oauth2_provider is in the DSN options
+        $providerName = $dsn->getOption('oauth2_provider');
+
+        if ($providerName) {
+            return $providerName;
+        }
+
+        // Fallback: check if it's in the DSN string directly
+        // This shouldn't normally happen, but provides a safety net
+        return null;
     }
 
     /**

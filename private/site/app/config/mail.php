@@ -106,7 +106,7 @@ return [
                         'port' => 587,
                         'username' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_USERNAME'],
                         'options' => [
-                            'verify_peer' => true,
+                            //'verify_peer' => true,
                         ],
                     ],
                 ],
@@ -114,7 +114,7 @@ return [
         ],
 
         // Set to true to force OAuth2-only authentication (removes plain/login authenticators)
-        'force_only' => false,
+        'force_only' => true,
     ],
 
     // https://symfony.com/doc/current/mailer.html

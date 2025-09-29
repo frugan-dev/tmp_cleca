@@ -850,14 +850,14 @@ class MailerFactory extends Model implements MailerInterface
 
         // Get default factories
         $factories = Transport::getDefaultFactories($dispatcher, $httpClient, $logger);
-
+        
         // Convert to array to allow modifications
         if ($factories instanceof \Generator || $factories instanceof \Iterator) {
             $factories = iterator_to_array($factories);
         } elseif (!\is_array($factories)) {
             $factories = (array) $factories;
         }
-
+        
         // Add custom factories from registry
         $customFactories = $this->transportRegistry->getFactories();
         foreach ($customFactories as $customFactory) {
