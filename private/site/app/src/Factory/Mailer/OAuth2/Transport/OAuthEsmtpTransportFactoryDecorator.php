@@ -104,25 +104,33 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
 
             // Get OAuth2 token from provider
             $provider = $this->tokenProviderFactory->create($providerName);
-            $tokenData = $provider->getAccessToken();
-            $accessToken = $tokenData['access_token'];
+            $accessToken = $provider->getAccessToken();
 
             // Configure transport for built-in XOAuth2Authenticator
             $transport->setUsername($dsn->getUser()); // Real email
             $transport->setPassword($accessToken); // OAuth2 token
 
+            // Force OAuth2-only authentication by removing all non-XOAUTH2 authenticators.
+            //
+            // PRODUCTION USE CASE:
+            // When disabled, Symfony's EsmtpTransport tries authenticators in this order:
+            // 1. CRAM-MD5 -> 2. LOGIN -> 3. PLAIN -> 4. XOAUTH2
+            // Each failed attempt against production SMTP servers (e.g., Microsoft Office365) that
+            // don't support those methods causes a ~3 seconds timeout before trying the next one.
+            // This results in ~10 seconds of latency before XOAUTH2 is attempted. Enabling this
+            // keeps only XOAUTH2, making authentication immediate.
+            //
+            // DEVELOPMENT USE CASE:
+            // Required to enforce OAuth2 with mock servers. This ensures OAuth2 implementation
+            // works correctly without silently falling back to other methods (e.g., Mailpit
+            // supports PLAIN/LOGIN but not OAuth2, causing authentication to succeed with wrong
+            // method).
             $forceOnly = $this->getConfigWithFallback('oauth2.force_only', false);
             if ($forceOnly) {
-                // Force OAuth2-only authentication when explicitly requested to prevent fallback
-                // to plain/login authenticators during OAuth2 testing. This ensures OAuth2
-                // implementation works correctly without silently falling back to other methods
-                // (e.g., Mailpit supports plain/login but not OAuth2, causing authentication
-                // to succeed with wrong method)
-                
-                // method #1
+                // method #1 - Remove all authenticators except XOAUTH2
                 //$this->removeNonOAuth2Authenticators($transport);
 
-                // method #2
+                // method #2 - Set only XOAUTH2 directly
                 $transport->setAuthenticators([new XOAuth2Authenticator()]);
             }
 
@@ -132,6 +140,7 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
                 'port' => $dsn->getPort(),
                 'username' => $dsn->getUser(),
                 'token_length' => \strlen($accessToken),
+                'force_only' => $forceOnly,
             ]);
         } catch (\Exception $e) {
             $this->logger->error('Failed to configure OAuth2 transport', [

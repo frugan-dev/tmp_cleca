@@ -83,6 +83,11 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
 
                 $tokenData = $this->doFetchToken();
 
+                // Validate token data structure
+                if (!is_array($tokenData) || !isset($tokenData['access_token'])) {
+                    throw new \Exception('Invalid token data structure: expected array with access_token');
+                }
+
                 // Set cache expiry if cache item is available
                 if ($cacheItem && isset($tokenData['expires_in'])) {
                     $expiresIn = (int) $tokenData['expires_in'] - static::CACHE_TTL_BUFFER;

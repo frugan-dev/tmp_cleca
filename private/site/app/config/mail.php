@@ -113,7 +113,21 @@ return [
             ],
         ],
 
-        // Set to true to force OAuth2-only authentication (removes plain/login authenticators)
+        // Force OAuth2-only authentication by removing all non-XOAUTH2 authenticators.
+        //
+        // PRODUCTION USE CASE:
+        // When false (default), Symfony's EsmtpTransport tries ALL available authenticators
+        // in sequence: CRAM-MD5 -> LOGIN -> PLAIN -> XOAUTH2. Each failed attempt against
+        // production SMTP servers (e.g., Microsoft Office365) that don't support those methods
+        // causes a ~3 seconds timeout, resulting in ~10 seconds of latency before XOAUTH2
+        // is attempted. Set to true in production when using oauth2-smtp transport to make
+        // authentication immediate.
+        //
+        // DEVELOPMENT USE CASE:
+        // Required to enforce OAuth2 with mock servers that don't support it. This ensures
+        // OAuth2 implementation works correctly without silently falling back to other methods
+        // (e.g., Mailpit supports PLAIN/LOGIN but not OAuth2, causing authentication to succeed
+        // with wrong method).
         'force_only' => true,
     ],
 

@@ -670,6 +670,12 @@ class MailerFactory extends Model implements MailerInterface
             // Add provider identifier for OAuth2 transport factory
             $options[] = 'oauth2_provider='.rawurlencode($providerName);
 
+            // Optimize connection timeouts
+            $options[] = 'stream_timeout=5';           // Reduce stream timeout from 30s default
+            $options[] = 'ping_threshold=1';           // Ping after 1 email (keep alive)
+            $options[] = 'restart_threshold=10';       // Restart after 10 emails
+            $options[] = 'restart_threshold_sleep=0';  // No sleep on restart
+
             if (!empty($options)) {
                 $dsn .= '?'.implode('&', $options);
             }
