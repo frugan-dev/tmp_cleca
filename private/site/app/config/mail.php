@@ -106,7 +106,7 @@ return [
                         'port' => 587,
                         'username' => $_ENV['OAUTH2_MICROSOFT_OFFICE365_USERNAME'],
                         'options' => [
-                            //'verify_peer' => true,
+                            'verify_peer' => true,
                         ],
                     ],
                 ],
