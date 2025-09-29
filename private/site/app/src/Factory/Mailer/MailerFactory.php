@@ -89,12 +89,6 @@ class MailerFactory extends Model implements MailerInterface
 
         $transports = $this->buildTransports();
 
-        if (empty($transports)) {
-            // https://symfony.com/doc/current/mailer.html#disabling-delivery
-            $transports['null'] = 'null://null';
-            $this->transportInfo['type'] = 'null';
-        }
-
         $technique = $this->config->get('mail.transports.technique', 'failover');
         $dsnString = $technique.'('.implode(' ', $transports).')';
 
@@ -458,7 +452,7 @@ class MailerFactory extends Model implements MailerInterface
      * Update failed_transports based on runtime failures.
      *
      * This method consolidates runtime failures into the failed_transports array,
-     * grouping OAuth2 provider failures under the 'oauth2' transport type.
+     * grouping OAuth2 provider failures under the 'oauth2-smtp' transport type.
      */
     private function updateFailedTransportsFromRuntime(array $failedTransports): void
     {
@@ -467,9 +461,9 @@ class MailerFactory extends Model implements MailerInterface
         foreach ($failedTransports as $failure) {
             $transportType = $failure['type'];
 
-            // Group OAuth2 providers under 'oauth2' transport type
-            if ('oauth2' === $transportType) {
-                $failedTransportTypes['oauth2'] = 'oauth2: OAuth2 providers failed';
+            // Group OAuth2 providers under 'oauth2-smtp' transport type
+            if ('oauth2-smtp' === $transportType) {
+                $failedTransportTypes['oauth2-smtp'] = 'oauth2-smtp: OAuth2 providers failed';
             } else {
                 // For non-OAuth2 transports, include the specific error
                 $failedTransportTypes[$transportType] = $transportType.': '.$failure['error'];
@@ -504,9 +498,9 @@ class MailerFactory extends Model implements MailerInterface
                     'transportType' => $transportType,
                 ]);
 
-                if ('oauth2' === $transportType) {
-                    // Build OAuth2 transports for all providers
-                    $oauth2Transports = $this->buildOAuth2Transports();
+                if ('oauth2-smtp' === $transportType) {
+                    // Build OAuth2 SMTP transports for all providers
+                    $oauth2Transports = $this->buildOAuth2SMTPTransports();
                     $transports = array_merge($transports, $oauth2Transports);
                 } else {
                     $dsn = $this->buildTransportDsn($transportType);
@@ -534,6 +528,10 @@ class MailerFactory extends Model implements MailerInterface
             }
         }
 
+        if (empty($transports)) {
+            throw new Exception('No mail transports configured. Check mail.transports configuration.');
+        }
+
         $this->logger->debugInternal('Transport building completed', [
             'total_requested' => \count($transportTypes),
             'total_configured' => \count($transports),
@@ -545,9 +543,9 @@ class MailerFactory extends Model implements MailerInterface
     }
 
     /**
-     * Build OAuth2 transports for all available providers.
+     * Build OAuth2 SMTP transports for all available providers.
      */
-    private function buildOAuth2Transports(): array
+    private function buildOAuth2SMTPTransports(): array
     {
         $transports = [];
 
@@ -709,8 +707,8 @@ class MailerFactory extends Model implements MailerInterface
         // https://github.com/swiftmailer/swiftmailer/issues/866
         // https://github.com/swiftmailer/swiftmailer/issues/633
         switch ($transportType) {
-            case 'oauth2':
-                // This case is now handled by buildOAuth2Transports()
+            case 'oauth2-smtp':
+                // This case is now handled by buildOAuth2SMTPTransports()
                 return null;
 
                 // it requires proc_*() functions
@@ -738,8 +736,34 @@ class MailerFactory extends Model implements MailerInterface
 
                 return 'mail+api://default';
 
+            case 'file':
+                $filePath = $this->config->get('mail.file.path') ?? '/tmp/emails';
+                $continueOnSuccess = $this->config->get('mail.file.continue_on_success', false);
+
+                $dsn = 'file://'.rawurlencode($filePath);
+                if ($continueOnSuccess) {
+                    $dsn .= '?continue=true';
+                }
+
+                $this->transportInfo['type'] = 'file';
+                $this->logger->debugInternal('Built file transport DSN', [
+                    'path' => $filePath,
+                    'continue_on_success' => $continueOnSuccess,
+                ]);
+
+                return $dsn;
+
+            case null:
+                // https://symfony.com/doc/current/mailer.html#disabling-delivery
+                $this->transportInfo['type'] = 'null';
+                $this->logger->debugInternal('Null transport configured - emails will be discarded');
+
+                return 'null://null';
+
             default:
-                $this->logger->warning("Unknown transport type: {$transportType}");
+                $this->logger->warning('Unknown transport type: {transport_type}', [
+                    'transport_type' => $transportType,
+                ]);
 
                 return null;
         }
@@ -856,14 +880,14 @@ class MailerFactory extends Model implements MailerInterface
 
         // Get default factories
         $factories = Transport::getDefaultFactories($dispatcher, $httpClient, $logger);
-        
+
         // Convert to array to allow modifications
         if ($factories instanceof \Generator || $factories instanceof \Iterator) {
             $factories = iterator_to_array($factories);
         } elseif (!\is_array($factories)) {
             $factories = (array) $factories;
         }
-        
+
         // Add custom factories from registry
         $customFactories = $this->transportRegistry->getFactories();
         foreach ($customFactories as $customFactory) {

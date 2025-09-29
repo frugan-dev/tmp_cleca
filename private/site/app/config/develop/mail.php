@@ -17,7 +17,11 @@ use App\Factory\Mailer\Provider\OAuth2\Mock\MockOAuthTokenProvider;
 return [
     // https://symfony.com/doc/current/mailer.html
     'transports' => [
-        'oauth2',
+        'oauth2-smtp',
+
+        // 'oauth2-graph',
+
+        'file',
 
         // if 'command' isn't specified, it will fallback to '/usr/sbin/sendmail -bs' (no ini_get() detection)
         // 'sendmail',

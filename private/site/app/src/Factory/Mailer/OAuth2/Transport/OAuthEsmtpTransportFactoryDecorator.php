@@ -128,7 +128,7 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
             $forceOnly = $this->getConfigWithFallback('oauth2.force_only', false);
             if ($forceOnly) {
                 // method #1 - Remove all authenticators except XOAUTH2
-                //$this->removeNonOAuth2Authenticators($transport);
+                // $this->removeNonOAuth2Authenticators($transport);
 
                 // method #2 - Set only XOAUTH2 directly
                 $transport->setAuthenticators([new XOAuth2Authenticator()]);

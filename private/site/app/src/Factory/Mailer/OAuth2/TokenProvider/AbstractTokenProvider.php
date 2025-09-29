@@ -84,7 +84,7 @@ abstract class AbstractTokenProvider extends Model implements TokenProviderInter
                 $tokenData = $this->doFetchToken();
 
                 // Validate token data structure
-                if (!is_array($tokenData) || !isset($tokenData['access_token'])) {
+                if (!\is_array($tokenData) || !isset($tokenData['access_token'])) {
                     throw new \Exception('Invalid token data structure: expected array with access_token');
                 }
 
