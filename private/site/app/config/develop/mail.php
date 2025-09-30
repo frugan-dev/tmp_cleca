@@ -22,7 +22,7 @@ return [
 
             // 'oauth2-graph',
 
-            //'file',
+            // 'file',
 
             // if 'command' isn't specified, it will fallback to '/usr/sbin/sendmail -bs' (no ini_get() detection)
             // 'sendmail',
@@ -31,7 +31,7 @@ return [
             // 'native',
 
             // it requires proc_*() functions
-            //'smtp',
+            // 'smtp',
 
             // only if proc_*() functions are not available...
             // 'mail',
@@ -45,29 +45,29 @@ return [
 
     'oauth2' => [
         'providers' => [
-            //'mock' => [
-            //    'class' => MockOAuthTokenProvider::class,
-            //    'config' => [
-            //        'server_url' => 'http://mock-oauth2:8080',
-            //
-            //        'smtp' => [
-            //            'host' => 'smtp-server',
-            //            'port' => 587,
-            //            // IMPORTANT: username must be present for OAuth2
-            //            'username' => $_ENV['SMTP_USERNAME'] ?: 'mock-user',
-            //            'options' => [
-            //                'verify_peer' => false,
-            //            ],
-            //        ],
-            //    ],
-            //],
+            'mock' => [
+                'class' => MockOAuthTokenProvider::class,
+                'config' => [
+                    'server_url' => 'http://mock-oauth2:8080',
+            
+                    'smtp' => [
+                        'host' => 'smtp-server',
+                        'port' => 587,
+                        // IMPORTANT: username must be present for OAuth2
+                        'username' => $_ENV['SMTP_USERNAME'] ?: 'mock-user',
+                        'options' => [
+                            'verify_peer' => false,
+                        ],
+                    ],
+                ],
+            ],
             'fake' => [
                 'class' => FakeOAuthTokenProvider::class,
                 'config' => [
                     // Simulates OAuth2 token generation failure (not SMTP connection failure).
                     // When true, the provider will fail during OAuth2 token acquisition,
                     // before any SMTP connection is attempted.
-                    'simulate_fetch_token_failure' => true,
+                    'simulate_fetch_token_failure' => false,
 
                     // Simulates health check failure (not SMTP connection failure).
                     // When true, the provider will fail during health check,
@@ -88,21 +88,9 @@ return [
         ],
 
         'force_only' => true,
-    ],
 
-    // Skip OAuth2 provider health checks before building transports.
-    //
-    // When true: All configured providers are included in transports, even if they
-    //           appear unhealthy. Failures will occur during actual mail sending,
-    //           allowing you to see real runtime failures and fallback behavior.
-    //
-    // When false: Only providers that pass health checks are included in transports.
-    //            Unhealthy providers are filtered out before transport building,
-    //            so you won't see their runtime failures in logs.
-    //
-    // Recommended: Set to true for testing fallback scenarios and debugging.
-    //             Set to false for production to avoid unnecessary attempts.
-    'oauth2.skip_health_check' => false,
+        'skip_health_check' => false,
+    ],
 
     // https://github.com/mailhog/MailHog/issues/27
     'embeddedMode' => 'base64',

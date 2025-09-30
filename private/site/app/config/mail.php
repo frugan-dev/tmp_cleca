@@ -135,6 +135,20 @@ return [
         // (e.g., Mailpit supports PLAIN/LOGIN but not OAuth2, causing authentication to succeed
         // with wrong method).
         'force_only' => true,
+
+        // Skip OAuth2 provider health checks before building transports.
+        //
+        // When true: All configured providers are included in transports, even if they
+        //           appear unhealthy. Failures will occur during actual mail sending,
+        //           allowing you to see real runtime failures and fallback behavior.
+        //
+        // When false: Only providers that pass health checks are included in transports.
+        //            Unhealthy providers are filtered out before transport building,
+        //            so you won't see their runtime failures in logs.
+        //
+        // Recommended: Set to true for testing fallback scenarios and debugging.
+        //             Set to false for production to avoid unnecessary attempts.
+        'skip_health_check' => false,
     ],
 
     // https://symfony.com/doc/current/mailer.html

@@ -431,7 +431,7 @@ class LoggerFactory extends Model implements LoggerInterface
                     version(),
                     $env
                 ),
-                'from' => $this->config->get('mail.sender', ['noreply@example.com' => ''])[0],
+                'from' => (string) key((array) $this->config->get('mail.sender', ['noreply@example.com' => ''])),
             ];
 
             $handler = new \App\Factory\Logger\Handler\FailoverEmailHandler(
