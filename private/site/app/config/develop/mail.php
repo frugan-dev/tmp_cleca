@@ -49,7 +49,7 @@ return [
                 'class' => MockOAuthTokenProvider::class,
                 'config' => [
                     'server_url' => 'http://mock-oauth2:8080',
-            
+
                     'smtp' => [
                         'host' => 'smtp-server',
                         'port' => 587,

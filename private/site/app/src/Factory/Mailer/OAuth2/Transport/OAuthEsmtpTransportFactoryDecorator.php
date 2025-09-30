@@ -215,7 +215,7 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
             $dsn->getUser(),
             '', // Empty password for OAuth2
             $dsn->getPort(),
-            $dsn->getOptions() //FIXME: use $dsn->getOption()
+            $dsn->getOptions() // FIXME: use $dsn->getOption()
         );
     }
 

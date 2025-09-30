@@ -15,6 +15,7 @@ namespace App\Factory\Logger;
 
 use App\Factory\Auth\AuthInterface;
 use App\Factory\Db\DbInterface;
+use App\Factory\Logger\Handler\FailoverEmailHandler;
 use App\Factory\Mailer\MailerInterface;
 use App\Helper\HelperInterface;
 use App\Model\Model;
@@ -156,9 +157,9 @@ class LoggerFactory extends Model implements LoggerInterface
     public function logToChannel(string $channelName, $level, string|\Stringable $message, array $context = []): void
     {
         $logger = $this->channel($channelName);
-        $context = $this->processContext($logger, $context);
-        $logger->log($level, $message, $context);
-        $this->cleanupProcessor($logger, $context);
+        $processed = $this->processContext($logger, $context);
+        $logger->log($level, $message, $processed['context']);
+        $this->cleanupProcessor($logger, $processed['hasExtraFields']);
     }
 
     // PSR-3 methods (delegate to default channel)
@@ -434,7 +435,7 @@ class LoggerFactory extends Model implements LoggerInterface
                 'from' => (string) key((array) $this->config->get('mail.sender', ['noreply@example.com' => ''])),
             ];
 
-            $handler = new \App\Factory\Logger\Handler\FailoverEmailHandler(
+            $handler = new FailoverEmailHandler(
                 $mailer,
                 $emailConfig,
                 $config['level'] ?? Level::Error
@@ -599,8 +600,10 @@ class LoggerFactory extends Model implements LoggerInterface
     private function processContext(Logger $logger, array $context): array
     {
         $extraData = [];
+        $hasExtraFields = false;
 
         if (!empty($extraFields = array_intersect(array_keys($context), $this->extraFields))) {
+            $hasExtraFields = true;
             foreach ($extraFields as $extraField) {
                 $extraData[$extraField] = $context[$extraField];
                 unset($context[$extraField]);
@@ -617,12 +620,12 @@ class LoggerFactory extends Model implements LoggerInterface
             });
         }
 
-        return $context;
+        return ['context' => $context, 'hasExtraFields' => $hasExtraFields];
     }
 
-    private function cleanupProcessor(Logger $logger, array $context): void
+    private function cleanupProcessor(Logger $logger, bool $hasExtraFields): void
     {
-        if (!empty(array_intersect(array_keys($context), $this->extraFields))) {
+        if ($hasExtraFields) {
             $logger->popProcessor();
         }
     }

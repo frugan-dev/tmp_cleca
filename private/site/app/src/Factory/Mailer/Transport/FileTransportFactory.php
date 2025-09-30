@@ -49,7 +49,7 @@ class FileTransportFactory extends AbstractTransportFactory
         // Check for continue parameter in query string
         $continueOnSuccess = filter_var(
             $dsn->getOption('continue', false),
-            \FILTER_VALIDATE_BOOLEAN
+            FILTER_VALIDATE_BOOLEAN
         );
 
         return new FileTransport($path, $continueOnSuccess);
