@@ -202,11 +202,33 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
 
     /**
      * Convert oauth2:// DSN to smtp:// for inner factory.
+     *
+     * Note: Symfony's Mailer Dsn class does not have getOptions(),
+     * only getOption() for individual keys, so we manually collect them.
      */
     private function convertOAuth2DsnToSmtp(Dsn $dsn): Dsn
     {
         if ('oauth2' !== $dsn->getScheme()) {
             return $dsn;
+        }
+
+        // Collect all relevant options from original DSN
+        $optionKeys = [
+            'oauth2_provider',
+            'stream_timeout',
+            'ping_threshold',
+            'restart_threshold',
+            'restart_threshold_sleep',
+            'verify_peer',
+            'local_domain',
+        ];
+
+        $options = [];
+        foreach ($optionKeys as $key) {
+            $value = $dsn->getOption($key);
+            if (null !== $value) {
+                $options[$key] = $value;
+            }
         }
 
         return new Dsn(
@@ -215,7 +237,7 @@ class OAuthEsmtpTransportFactoryDecorator implements TransportFactoryInterface
             $dsn->getUser(),
             '', // Empty password for OAuth2
             $dsn->getPort(),
-            $dsn->getOptions() // FIXME: use $dsn->getOption()
+            $options
         );
     }
 
