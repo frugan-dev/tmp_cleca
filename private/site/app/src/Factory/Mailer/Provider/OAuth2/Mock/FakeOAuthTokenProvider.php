@@ -35,7 +35,8 @@ class FakeOAuthTokenProvider extends AbstractTokenProvider
         protected HelperInterface $helper,
         protected ?CacheInterface $cache = null,
         protected readonly string $scope = self::SCOPE,
-        protected readonly bool $simulateFailure = false,
+        protected readonly bool $simulateFetchTokenFailure = false,
+        protected readonly bool $simulateHealthCheckFailure = false,
         protected readonly ?string $failureMessage = null,
         protected readonly int $tokenTtl = self::TOKEN_TTL
     ) {
@@ -70,7 +71,8 @@ class FakeOAuthTokenProvider extends AbstractTokenProvider
             $helper,
             $cache,
             $config['scope'] ?? self::SCOPE,
-            $config['simulate_failure'] ?? false,
+            $config['simulate_fetch_token_failure'] ?? false,
+            $config['simulate_health_check_failure'] ?? false,
             $config['failure_message'] ?? null,
             $config['token_ttl'] ?? self::TOKEN_TTL
         );
@@ -82,7 +84,8 @@ class FakeOAuthTokenProvider extends AbstractTokenProvider
             'scope' => $this->scope,
             'grant_type' => self::GRANT_TYPE,
             'token_ttl' => $this->tokenTtl,
-            'simulate_failure' => $this->simulateFailure,
+            'simulate_fetch_token_failure' => $this->simulateFetchTokenFailure,
+            'simulate_health_check_failure' => $this->simulateHealthCheckFailure,
             'failure_message' => $this->failureMessage,
             'server_type' => 'fake-jwt-generator',
             'fallback_enabled' => false,
@@ -92,8 +95,8 @@ class FakeOAuthTokenProvider extends AbstractTokenProvider
     protected function doFetchToken(): array
     {
         // Check if we should simulate a failure
-        if ($this->simulateFailure) {
-            $message = $this->failureMessage ?? 'Simulated OAuth2 failure for testing';
+        if ($this->simulateFetchTokenFailure) {
+            $message = $this->failureMessage ?? 'Simulated OAuth2 fetch token failure';
 
             $this->logger->debugInternal('Fake OAuth2 provider simulating failure', [
                 'message' => $message,
@@ -109,7 +112,7 @@ class FakeOAuthTokenProvider extends AbstractTokenProvider
     protected function doHealthCheckRequest(): array
     {
         // Same logic as doFetchToken for consistency
-        if ($this->simulateFailure) {
+        if ($this->simulateHealthCheckFailure) {
             $message = $this->failureMessage ?? 'Simulated health check failure';
 
             throw new \Exception($message);

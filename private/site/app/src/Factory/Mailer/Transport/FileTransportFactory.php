@@ -30,20 +30,27 @@ class FileTransportFactory extends AbstractTransportFactory
             ));
         }
 
+        // Extract path from DSN host
         $path = $dsn->getHost();
-        if ($dsn->getPath()) {
-            $path .= $dsn->getPath();
+
+        // Handle default host
+        if (empty($path) || 'default' === $path) {
+            throw new \InvalidArgumentException('File transport requires a valid path in the DSN host component. Use file:///path/to/emails');
         }
 
+        // Decode the path (in case it was URL encoded)
+        $path = urldecode($path);
+
+        // Validate path
         if (empty($path)) {
             throw new \InvalidArgumentException('File transport requires a valid path.');
         }
 
-        $continueOnSuccess = false;
-        $options = $dsn->getOptions();
-        if (isset($options['continue'])) {
-            $continueOnSuccess = filter_var($options['continue'], FILTER_VALIDATE_BOOLEAN);
-        }
+        // Check for continue parameter in query string
+        $continueOnSuccess = filter_var(
+            $dsn->getOption('continue', false),
+            \FILTER_VALIDATE_BOOLEAN
+        );
 
         return new FileTransport($path, $continueOnSuccess);
     }

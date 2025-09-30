@@ -88,6 +88,8 @@ class MailerFactory extends Model implements MailerInterface
             return $this; // Already initialized
         }
 
+        $this->logger->addEmailHandler($this);
+
         $transports = $this->buildTransports();
 
         $technique = $this->config->get('mail.transports.technique', 'failover');
@@ -99,8 +101,6 @@ class MailerFactory extends Model implements MailerInterface
 
         $this->transportInfo['technique'] = $technique;
         $this->transportInfo['transport_count'] = \count($transports);
-
-        $this->logger->addEmailHandler($this);
 
         return $this;
     }
@@ -311,7 +311,7 @@ class MailerFactory extends Model implements MailerInterface
 
                 foreach ($failedTransports as $failure) {
                     $failureKey = $failure['provider'] ?? $failure['type'];
-                    $this->transportInfo['runtime_failed_transports'][] = $failureKey.': '.$failure['error'];
+                    $this->transportInfo['runtime_failed_transports'][] = $failureKey.': '.$failure['exception']?->getMessage();
 
                     if ($failure['provider']) {
                         $this->transportInfo['runtime_failed_providers'][] = $failure['provider'];
@@ -467,7 +467,7 @@ class MailerFactory extends Model implements MailerInterface
                 $failedTransportTypes['oauth2-smtp'] = 'oauth2-smtp: OAuth2 providers failed';
             } else {
                 // For non-OAuth2 transports, include the specific error
-                $failedTransportTypes[$transportType] = $transportType.': '.$failure['error'];
+                $failedTransportTypes[$transportType] = $transportType.': '.$failure['exception']?->getMessage();
             }
         }
 
@@ -530,7 +530,7 @@ class MailerFactory extends Model implements MailerInterface
         }
 
         if (empty($transports)) {
-            throw new Exception('No mail transports configured. Check mail.transports.types configuration.');
+            throw new \Exception('No mail transports configured. Check mail.transports.types configuration.');
         }
 
         $this->logger->debugInternal('Transport building completed', [
@@ -655,13 +655,12 @@ class MailerFactory extends Model implements MailerInterface
             // Build SMTP DSN with OAuth2 (empty password signals OAuth2 usage)
             $dsn = 'smtp://';
 
-            if (!empty($smtpConfig['username'])) {
-                $dsn .= rawurlencode((string) $smtpConfig['username']).':@';
-            } else {
-                $dsn .= ':@';
+            $username = $smtpConfig['username'] ?? null;
+            if (empty($username)) {
+                throw new \RuntimeException("OAuth2 SMTP requires username for provider: {$providerName}");
             }
 
-            $dsn .= $smtpConfig['host'].':'.$smtpConfig['port'];
+            $dsn .= rawurlencode((string) $username).':@'.$smtpConfig['host'].':'.$smtpConfig['port'];
 
             // Add SMTP options
             $options = $this->buildSmtpOptions($smtpConfig['options'] ?? []);

@@ -22,7 +22,7 @@ return [
 
             // 'oauth2-graph',
 
-            'file',
+            //'file',
 
             // if 'command' isn't specified, it will fallback to '/usr/sbin/sendmail -bs' (no ini_get() detection)
             // 'sendmail',
@@ -31,7 +31,7 @@ return [
             // 'native',
 
             // it requires proc_*() functions
-            'smtp',
+            //'smtp',
 
             // only if proc_*() functions are not available...
             // 'mail',
@@ -45,31 +45,40 @@ return [
 
     'oauth2' => [
         'providers' => [
-            'mock' => [
-                'class' => MockOAuthTokenProvider::class,
-                'config' => [
-                    'server_url' => 'http://mock-oauth2:8080',
-
-                    'smtp' => [
-                        'host' => 'smtp-server',
-                        'port' => 587,
-                        'options' => [
-                            'verify_peer' => false,
-                        ],
-                    ],
-                ],
-            ],
+            //'mock' => [
+            //    'class' => MockOAuthTokenProvider::class,
+            //    'config' => [
+            //        'server_url' => 'http://mock-oauth2:8080',
+            //
+            //        'smtp' => [
+            //            'host' => 'smtp-server',
+            //            'port' => 587,
+            //            // IMPORTANT: username must be present for OAuth2
+            //            'username' => $_ENV['SMTP_USERNAME'] ?: 'mock-user',
+            //            'options' => [
+            //                'verify_peer' => false,
+            //            ],
+            //        ],
+            //    ],
+            //],
             'fake' => [
                 'class' => FakeOAuthTokenProvider::class,
                 'config' => [
                     // Simulates OAuth2 token generation failure (not SMTP connection failure).
                     // When true, the provider will fail during OAuth2 token acquisition,
                     // before any SMTP connection is attempted.
-                    'simulate_failure' => false,
+                    'simulate_fetch_token_failure' => true,
+
+                    // Simulates health check failure (not SMTP connection failure).
+                    // When true, the provider will fail during health check,
+                    // before any SMTP connection is attempted.
+                    'simulate_health_check_failure' => false,
 
                     'smtp' => [
-                        'host' => 'mailpit',
-                        'port' => 1025,
+                        'host' => 'smtp-server',
+                        'port' => 587,
+                        // IMPORTANT: username must be present for OAuth2
+                        'username' => $_ENV['SMTP_USERNAME'] ?: 'mock-user',
                         'options' => [
                             'verify_peer' => false,
                         ],
@@ -78,7 +87,7 @@ return [
             ],
         ],
 
-        // 'force_only' => false,
+        'force_only' => true,
     ],
 
     // Skip OAuth2 provider health checks before building transports.

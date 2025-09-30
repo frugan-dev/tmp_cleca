@@ -431,10 +431,10 @@ class LoggerFactory extends Model implements LoggerInterface
                     version(),
                     $env
                 ),
-                'from' => $this->config->get('mail.from.email'),
+                'from' => $this->config->get('mail.sender', ['noreply@example.com' => ''])[0],
             ];
 
-            $handler = new Handler\FailoverEmailHandler(
+            $handler = new \App\Factory\Logger\Handler\FailoverEmailHandler(
                 $mailer,
                 $emailConfig,
                 $config['level'] ?? Level::Error
