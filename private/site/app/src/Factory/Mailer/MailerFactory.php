@@ -15,6 +15,7 @@ namespace App\Factory\Mailer;
 
 use App\Factory\Logger\LoggerInterface;
 use App\Factory\Mailer\OAuth2\TokenProvider\TokenProviderFactory;
+use App\Factory\Mailer\Transport\FileTransportFactory;
 use App\Factory\Mailer\Transport\TrackedTransport;
 use App\Factory\Mailer\Transport\TransportFactoryRegistry;
 use App\Helper\HelperInterface;
@@ -486,7 +487,7 @@ class MailerFactory extends Model implements MailerInterface
     private function buildTransports(): array
     {
         $transports = [];
-        $transportTypes = (array) $this->config->get('mail.transports');
+        $transportTypes = (array) $this->config->get('mail.transports.types');
 
         $this->logger->debugInternal('Building mail transports', [
             'requested_transports' => $transportTypes,
@@ -529,7 +530,7 @@ class MailerFactory extends Model implements MailerInterface
         }
 
         if (empty($transports)) {
-            throw new Exception('No mail transports configured. Check mail.transports configuration.');
+            throw new Exception('No mail transports configured. Check mail.transports.types configuration.');
         }
 
         $this->logger->debugInternal('Transport building completed', [
@@ -737,10 +738,10 @@ class MailerFactory extends Model implements MailerInterface
                 return 'mail+api://default';
 
             case 'file':
-                $filePath = $this->config->get('mail.file.path') ?? '/tmp/emails';
+                $filePath = $this->config->get('mail.file.path') ?? sys_get_temp_dir().'/emails';
                 $continueOnSuccess = $this->config->get('mail.file.continue_on_success', false);
 
-                $dsn = 'file://'.rawurlencode($filePath);
+                $dsn = 'file://'.rawurlencode((string) $filePath);
                 if ($continueOnSuccess) {
                     $dsn .= '?continue=true';
                 }
@@ -894,7 +895,7 @@ class MailerFactory extends Model implements MailerInterface
             $factories[] = $customFactory;
         }
 
-        // Add OAuth2 support through decorated factory if available
+        // Add OAuth2 SMTP transport through decorated factory if available
         try {
             if ($this->container->has(TransportFactoryInterface::class)) {
                 $oauthFactory = $this->container->get(TransportFactoryInterface::class);
@@ -905,10 +906,38 @@ class MailerFactory extends Model implements MailerInterface
                 // Add the OAuth2-enabled factory
                 $factories[] = $oauthFactory;
 
-                $this->logger->debugInternal('OAuth2 transport factory registered');
+                $this->logger->debugInternal('OAuth2 SMTP transport factory registered');
             }
         } catch (\Exception $e) {
-            $this->logger->warning('Failed to register OAuth2 transport factory', [
+            $this->logger->warning('Failed to register OAuth2 SMTP transport factory', [
+                'exception' => $e,
+                'error' => $e->getMessage(),
+                'text' => $e->getTraceAsString(),
+            ]);
+        }
+
+        // OAuth2 Graph API transport factory
+        //  try {
+        //      $graphFactory = new \App\Factory\Mailer\OAuth2\Transport\GraphAPITransportFactory();
+        //      $factories[] = $graphFactory;
+        //
+        //      $this->logger->debugInternal('OAuth2 Graph API transport factory registered');
+        //  } catch (\Exception $e) {
+        //      $this->logger->warning('Failed to register OAuth2 Graph API transport factory', [
+        //          'exception' => $e,
+        //          'error' => $e->getMessage(),
+        //          'text' => $e->getTraceAsString(),
+        //      ]);
+        //  }
+
+        // File transport factory
+        try {
+            $fileFactory = new FileTransportFactory();
+            $factories[] = $fileFactory;
+
+            $this->logger->debugInternal('File transport factory registered');
+        } catch (\Exception $e) {
+            $this->logger->warning('Failed to register File transport factory', [
                 'exception' => $e,
                 'error' => $e->getMessage(),
                 'text' => $e->getTraceAsString(),
@@ -998,9 +1027,15 @@ class MailerFactory extends Model implements MailerInterface
 
             // Check for OAuth2 provider parameter
             if (\Safe\preg_match('/oauth2_provider=([^&]+)/', $dsnString, $providerMatches)) {
-                $type = 'oauth2';
                 $provider = urldecode($providerMatches[1]);
                 $providerType = 'oauth2';
+
+                // Distinguish between oauth2-smtp and oauth2-graph based on scheme
+                if (\in_array($scheme, ['smtp', 'smtps'], true)) {
+                    $type = 'oauth2-smtp';
+                } elseif ('graph' === $scheme || 'api' === $scheme) {
+                    $type = 'oauth2-graph';
+                }
             }
 
             // Check for API provider parameter (future extensibility)

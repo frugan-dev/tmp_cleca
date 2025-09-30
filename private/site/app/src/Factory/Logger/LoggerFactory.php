@@ -23,7 +23,6 @@ use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\DeduplicationHandler;
 use Monolog\Handler\ErrorLogHandler;
 use Monolog\Handler\RotatingFileHandler;
-use Monolog\Handler\SymfonyMailerHandler;
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\LogRecord;
@@ -423,21 +422,24 @@ class LoggerFactory extends Model implements LoggerInterface
         $config = $this->getHandlerConfig($channelName, 'email');
 
         try {
-            $mailer->prepare([
+            $emailConfig = [
                 'to' => $this->config->get('debug.emailsTo'),
+                'to_string' => implode(', ', (array) $this->config->get('debug.emailsTo')),
                 'subject' => \sprintf(
                     __('Error reporting from %1$s %2$s - %3$s'),
                     $_ENV['HTTP_HOST'] ?? settingOrConfig(['brand.shortName', 'brand.name', 'company.shortName', 'company.name', 'app.name']),
                     version(),
                     $env
                 ),
-            ]);
+                'from' => $this->config->get('mail.from.email'),
+            ];
 
-            $handler = new SymfonyMailerHandler(
-                $mailer->getInstance(),
-                $mailer->getMessage(),
-                $config['level'] ?? Level::Error,
+            $handler = new Handler\FailoverEmailHandler(
+                $mailer,
+                $emailConfig,
+                $config['level'] ?? Level::Error
             );
+
             $handler->setFormatter(new HtmlFormatter());
 
             if (!$this->config->get('debug.enabled')) {

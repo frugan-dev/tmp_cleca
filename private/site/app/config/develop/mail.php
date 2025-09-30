@@ -17,24 +17,26 @@ use App\Factory\Mailer\Provider\OAuth2\Mock\MockOAuthTokenProvider;
 return [
     // https://symfony.com/doc/current/mailer.html
     'transports' => [
-        'oauth2-smtp',
+        'types' => [
+            'oauth2-smtp',
 
-        // 'oauth2-graph',
+            // 'oauth2-graph',
 
-        'file',
+            'file',
 
-        // if 'command' isn't specified, it will fallback to '/usr/sbin/sendmail -bs' (no ini_get() detection)
-        // 'sendmail',
+            // if 'command' isn't specified, it will fallback to '/usr/sbin/sendmail -bs' (no ini_get() detection)
+            // 'sendmail',
 
-        // it uses sendmail or smtp transports with ini_get() detection
-        // 'native',
+            // it uses sendmail or smtp transports with ini_get() detection
+            // 'native',
 
-        // it requires proc_*() functions
-        // 'smtp',
+            // it requires proc_*() functions
+            'smtp',
 
-        // only if proc_*() functions are not available...
-        // 'mail',
-        // 'mail+api',
+            // only if proc_*() functions are not available...
+            // 'mail',
+            // 'mail+api',
+        ],
     ],
 
     // https://github.com/axllent/mailpit
@@ -76,7 +78,7 @@ return [
             ],
         ],
 
-        'force_only' => true,
+        // 'force_only' => false,
     ],
 
     // Skip OAuth2 provider health checks before building transports.

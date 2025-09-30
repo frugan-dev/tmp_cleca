@@ -57,29 +57,31 @@ return [
 
     // https://symfony.com/doc/current/mailer.html
     'transports' => [
-        'oauth2-smtp',
+        'types' => [
+            'oauth2-smtp',
 
-        // 'oauth2-graph',
+            // 'oauth2-graph',
 
-        'file',
+            'file',
 
-        // if 'command' isn't specified, it will fallback to '/usr/sbin/sendmail -bs' (no ini_get() detection)
-        // 'sendmail',
+            // if 'command' isn't specified, it will fallback to '/usr/sbin/sendmail -bs' (no ini_get() detection)
+            'sendmail',
 
-        // it uses sendmail or smtp transports with ini_get() detection
-        // 'native',
+            // it uses sendmail or smtp transports with ini_get() detection
+            // 'native',
 
-        // it requires proc_*() functions
-        // 'smtp',
+            // it requires proc_*() functions
+            // 'smtp',
 
-        // only if proc_*() functions are not available...
-        // 'mail',
-        // 'mail+api',
+            // only if proc_*() functions are not available...
+            // 'mail',
+            // 'mail+api',
+        ],
+
+        // If a transport fails, the round-robin transport will retry the delivery using the next available transport,
+        // similar to failover, until a transport succeeds or all fail.
+        'technique' => 'failover', // failover, roundrobin
     ],
-
-    // If a transport fails, the round-robin transport will retry the delivery using the next available transport,
-    // similar to failover, until a transport succeeds or all fail.
-    'transports.technique' => 'failover', // failover, roundrobin
 
     'smtp' => [
         'host' => 'smtp.mailgun.org',
@@ -142,6 +144,17 @@ return [
     // If using -t mode, you are strongly advised to include -oi or -i in the flags (like /usr/sbin/sendmail -oi -t)
     // -f<sender> flag will be appended automatically if one is not present.
     // 'sendmail.command' => '/usr/sbin/sendmail -bs',
+
+    'file' => [
+        // Directory where emails will be saved when using file transport
+        // Defaults to /tmp/emails if not specified
+        'path' => \Safe\preg_replace('~/+~', '/', _ROOT.'/var/'.($_SERVER['APP_ENV'] ?? null).'/tmp/emails'),
+
+        // Whether to continue to next transport after saving file (true/false)
+        // When enabled, file transport saves email then "fails" to trigger next transport
+        // Useful for backup + fallback scenarios (e.g., save copy then try sendmail)
+        'continue_on_success' => true,
+    ],
 
     'embeddedMode' => 'cid', // base64, cid, false
 
